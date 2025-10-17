@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 028479ba657d3314ea816f9f73045a8d
-=======
-guid: 3440beae60047a84f8c1583da60f6c3d
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 11400000

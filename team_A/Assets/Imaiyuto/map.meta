@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: cc657775db49313448b7211871b249e8
-=======
-guid: eafeabc70699f42428c9b80d9ad0df45
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

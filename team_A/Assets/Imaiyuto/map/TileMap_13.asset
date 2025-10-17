@@ -12,11 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: TileMap_13
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
   m_Sprite: {fileID: -1161351835, guid: dee637d0448fdac4584954bdb051973a, type: 3}
-=======
-  m_Sprite: {fileID: 240784116, guid: f463a688348b269429de1188e73b93dc, type: 3}
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

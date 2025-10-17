@@ -1,10 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
-<<<<<<< HEAD
 --- !u!1 &642751413313709161
-=======
---- !u!1 &4210557895489002562
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12,7 +8,6 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<< HEAD
   - component: {fileID: 7454912794138916492}
   - component: {fileID: 7677874044323494423}
   m_Layer: 0
@@ -61,11 +56,6 @@ GameObject:
   - component: {fileID: 235096445040570309}
   - component: {fileID: 8783631455904566539}
   - component: {fileID: 7290743877497622538}
-=======
-  - component: {fileID: 5758094550112470414}
-  - component: {fileID: 2265884475378410188}
-  - component: {fileID: 5801356141722422343}
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
   m_Layer: 0
   m_Name: Layer1
   m_TagString: Untagged
@@ -73,52 +63,31 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-<<<<<<< HEAD
 --- !u!4 &235096445040570309
-=======
---- !u!4 &5758094550112470414
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   m_GameObject: {fileID: 7814147012445648922}
-=======
-  m_GameObject: {fileID: 4210557895489002562}
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-<<<<<<< HEAD
   m_Father: {fileID: 7454912794138916492}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1839735485 &8783631455904566539
-=======
-  m_Father: {fileID: 8561154970394342276}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1839735485 &2265884475378410188
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
 Tilemap:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   m_GameObject: {fileID: 7814147012445648922}
   m_Enabled: 1
   m_Tiles:
   - first: {x: -2, y: -1, z: 0}
-=======
-  m_GameObject: {fileID: 4210557895489002562}
-  m_Enabled: 1
-  m_Tiles:
-  - first: {x: -3, y: 0, z: 0}
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
     second:
       serializedVersion: 2
       m_TileIndex: 20
@@ -128,11 +97,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-<<<<<<< HEAD
   - first: {x: -1, y: -1, z: 0}
-=======
-  - first: {x: -2, y: 0, z: 0}
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
     second:
       serializedVersion: 2
       m_TileIndex: 21
@@ -142,11 +107,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-<<<<<<< HEAD
   - first: {x: 0, y: -1, z: 0}
-=======
-  - first: {x: -1, y: 0, z: 0}
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
     second:
       serializedVersion: 2
       m_TileIndex: 22
@@ -156,11 +117,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-<<<<<<< HEAD
   - first: {x: 1, y: -1, z: 0}
-=======
-  - first: {x: 0, y: 0, z: 0}
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
     second:
       serializedVersion: 2
       m_TileIndex: 23
@@ -170,11 +127,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-<<<<<<< HEAD
   - first: {x: 2, y: -1, z: 0}
-=======
-  - first: {x: 1, y: 0, z: 0}
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
     second:
       serializedVersion: 2
       m_TileIndex: 24
@@ -184,11 +137,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-<<<<<<< HEAD
   - first: {x: 3, y: -1, z: 0}
-=======
-  - first: {x: 2, y: 0, z: 0}
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
     second:
       serializedVersion: 2
       m_TileIndex: 25
@@ -198,11 +147,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-<<<<<<< HEAD
   - first: {x: 4, y: -1, z: 0}
-=======
-  - first: {x: 3, y: 0, z: 0}
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
     second:
       serializedVersion: 2
       m_TileIndex: 26
@@ -212,11 +157,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-<<<<<<< HEAD
   - first: {x: 5, y: -1, z: 0}
-=======
-  - first: {x: 4, y: 0, z: 0}
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
     second:
       serializedVersion: 2
       m_TileIndex: 27
@@ -226,11 +167,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-<<<<<<< HEAD
   - first: {x: 6, y: -1, z: 0}
-=======
-  - first: {x: 5, y: 0, z: 0}
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
     second:
       serializedVersion: 2
       m_TileIndex: 28
@@ -240,11 +177,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-<<<<<<< HEAD
   - first: {x: 7, y: -1, z: 0}
-=======
-  - first: {x: 6, y: 0, z: 0}
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
     second:
       serializedVersion: 2
       m_TileIndex: 29
@@ -254,11 +187,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-<<<<<<< HEAD
   - first: {x: -2, y: 0, z: 0}
-=======
-  - first: {x: -3, y: 1, z: 0}
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
     second:
       serializedVersion: 2
       m_TileIndex: 10
@@ -268,11 +197,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-<<<<<<< HEAD
   - first: {x: -1, y: 0, z: 0}
-=======
-  - first: {x: -2, y: 1, z: 0}
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
     second:
       serializedVersion: 2
       m_TileIndex: 11
@@ -282,11 +207,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-<<<<<<< HEAD
   - first: {x: 0, y: 0, z: 0}
-=======
-  - first: {x: -1, y: 1, z: 0}
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
     second:
       serializedVersion: 2
       m_TileIndex: 12
@@ -296,11 +217,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-<<<<<<< HEAD
   - first: {x: 1, y: 0, z: 0}
-=======
-  - first: {x: 0, y: 1, z: 0}
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
     second:
       serializedVersion: 2
       m_TileIndex: 13
@@ -310,11 +227,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-<<<<<<< HEAD
   - first: {x: 2, y: 0, z: 0}
-=======
-  - first: {x: 1, y: 1, z: 0}
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
     second:
       serializedVersion: 2
       m_TileIndex: 14
@@ -324,11 +237,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-<<<<<<< HEAD
   - first: {x: 3, y: 0, z: 0}
-=======
-  - first: {x: 2, y: 1, z: 0}
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
     second:
       serializedVersion: 2
       m_TileIndex: 15
@@ -338,11 +247,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-<<<<<<< HEAD
   - first: {x: 4, y: 0, z: 0}
-=======
-  - first: {x: 3, y: 1, z: 0}
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
     second:
       serializedVersion: 2
       m_TileIndex: 16
@@ -352,11 +257,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-<<<<<<< HEAD
   - first: {x: 5, y: 0, z: 0}
-=======
-  - first: {x: 4, y: 1, z: 0}
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
     second:
       serializedVersion: 2
       m_TileIndex: 17
@@ -366,11 +267,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-<<<<<<< HEAD
   - first: {x: 6, y: 0, z: 0}
-=======
-  - first: {x: 5, y: 1, z: 0}
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
     second:
       serializedVersion: 2
       m_TileIndex: 18
@@ -380,11 +277,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-<<<<<<< HEAD
   - first: {x: 7, y: 0, z: 0}
-=======
-  - first: {x: 6, y: 1, z: 0}
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
     second:
       serializedVersion: 2
       m_TileIndex: 19
@@ -394,11 +287,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-<<<<<<< HEAD
   - first: {x: -2, y: 1, z: 0}
-=======
-  - first: {x: -3, y: 2, z: 0}
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
     second:
       serializedVersion: 2
       m_TileIndex: 0
@@ -408,11 +297,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-<<<<<<< HEAD
   - first: {x: -1, y: 1, z: 0}
-=======
-  - first: {x: -2, y: 2, z: 0}
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
     second:
       serializedVersion: 2
       m_TileIndex: 1
@@ -422,11 +307,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-<<<<<<< HEAD
   - first: {x: 0, y: 1, z: 0}
-=======
-  - first: {x: -1, y: 2, z: 0}
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
     second:
       serializedVersion: 2
       m_TileIndex: 2
@@ -436,11 +317,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-<<<<<<< HEAD
   - first: {x: 1, y: 1, z: 0}
-=======
-  - first: {x: 0, y: 2, z: 0}
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
     second:
       serializedVersion: 2
       m_TileIndex: 3
@@ -450,11 +327,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-<<<<<<< HEAD
   - first: {x: 2, y: 1, z: 0}
-=======
-  - first: {x: 1, y: 2, z: 0}
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
     second:
       serializedVersion: 2
       m_TileIndex: 4
@@ -464,11 +337,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-<<<<<<< HEAD
   - first: {x: 3, y: 1, z: 0}
-=======
-  - first: {x: 2, y: 2, z: 0}
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
     second:
       serializedVersion: 2
       m_TileIndex: 5
@@ -478,11 +347,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-<<<<<<< HEAD
   - first: {x: 4, y: 1, z: 0}
-=======
-  - first: {x: 3, y: 2, z: 0}
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
     second:
       serializedVersion: 2
       m_TileIndex: 6
@@ -492,11 +357,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-<<<<<<< HEAD
   - first: {x: 5, y: 1, z: 0}
-=======
-  - first: {x: 4, y: 2, z: 0}
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
     second:
       serializedVersion: 2
       m_TileIndex: 7
@@ -506,11 +367,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-<<<<<<< HEAD
   - first: {x: 6, y: 1, z: 0}
-=======
-  - first: {x: 5, y: 2, z: 0}
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
     second:
       serializedVersion: 2
       m_TileIndex: 8
@@ -520,11 +377,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-<<<<<<< HEAD
   - first: {x: 7, y: 1, z: 0}
-=======
-  - first: {x: 6, y: 2, z: 0}
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
     second:
       serializedVersion: 2
       m_TileIndex: 9
@@ -537,7 +390,6 @@ Tilemap:
   m_AnimatedTiles: {}
   m_TileAssetArray:
   - m_RefCount: 1
-<<<<<<< HEAD
     m_Data: {fileID: 11400000, guid: 2daa7c068b0a1004c83bf34e62517ef3, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: ce63f681a70a4744099786ddddbd9071, type: 2}
@@ -658,128 +510,6 @@ Tilemap:
     m_Data: {fileID: -269103311, guid: dee637d0448fdac4584954bdb051973a, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -932841270, guid: dee637d0448fdac4584954bdb051973a, type: 3}
-=======
-    m_Data: {fileID: 11400000, guid: b795d56adf1a3c74c96b882802faa241, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: d111dd081c168144687af6dfb5a8c181, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 3440beae60047a84f8c1583da60f6c3d, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 1f5caac9c751d054bbbb15a44794192f, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 574648de1b817c543acde36a3fe6147c, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: c528fb4c961572a4382eefd98a61bff5, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 74200527e2901f042ba3fdba0a837601, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 158f7c5912654ae4dbca0cc36187f2c7, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 34918ea00f681954fa0fc84ece591e28, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: ff2d82ff6388f0540aad0442e9052a4d, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: e19feeada1a668a44aac5398e0f08451, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: a217d73fc26fa3a44b9e40b8c5e1886a, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 7efa3dc3efb84114a93731c9d429a828, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 3c087281f476f074997af0ad2cfd2eb5, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: dc7dcf46459a7d142b11659c889a2572, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 69f2d53387d4007418565b519565a952, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 74c92a12e5ad6cd4596178c5dbd89957, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 45d64daead1ef4b4fab0f7d7e386b7d6, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: e0fa53c6307cf764087a850f37333225, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 7804e161ddaf92d42aec27bac4b1021c, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 9b29ecf5f86815f4294ed127dfe412db, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 52d39b5b65c72c0478e107f3053be88a, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: c1c62fdc2eafc2e46bea641e8d54cba1, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 1aa4f58bf7b5fa14396f66703958b2c5, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 657f8262c371bee469327ab9ec33f209, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: ad9b0ba896b7aff429caba3d41bab056, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 21deb78b4b1eb5b46a1236c61c51f29c, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 9b7f8a7d5497a96438449db918234cd8, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 0bfdcf917fa29e340871d00e9ec73a1c, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 1a60147087ba96948a3fb75a5bc62953, type: 2}
-  m_TileSpriteArray:
-  - m_RefCount: 1
-    m_Data: {fileID: 8537651536920830917, guid: f463a688348b269429de1188e73b93dc, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 368795422, guid: f463a688348b269429de1188e73b93dc, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 245914751, guid: f463a688348b269429de1188e73b93dc, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -1980130428, guid: f463a688348b269429de1188e73b93dc, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 46420516, guid: f463a688348b269429de1188e73b93dc, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 598491229, guid: f463a688348b269429de1188e73b93dc, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -1777302850, guid: f463a688348b269429de1188e73b93dc, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -1656725024, guid: f463a688348b269429de1188e73b93dc, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -1132415618, guid: f463a688348b269429de1188e73b93dc, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 886567254, guid: f463a688348b269429de1188e73b93dc, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 725490241, guid: f463a688348b269429de1188e73b93dc, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 940310387, guid: f463a688348b269429de1188e73b93dc, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 844145171, guid: f463a688348b269429de1188e73b93dc, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 240784116, guid: f463a688348b269429de1188e73b93dc, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 579109317, guid: f463a688348b269429de1188e73b93dc, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 1807151886, guid: f463a688348b269429de1188e73b93dc, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 1872501384, guid: f463a688348b269429de1188e73b93dc, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 1217374757, guid: f463a688348b269429de1188e73b93dc, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -141864538, guid: f463a688348b269429de1188e73b93dc, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -1551101647, guid: f463a688348b269429de1188e73b93dc, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -674150318, guid: f463a688348b269429de1188e73b93dc, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 818959023, guid: f463a688348b269429de1188e73b93dc, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 1444625627, guid: f463a688348b269429de1188e73b93dc, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 604219644, guid: f463a688348b269429de1188e73b93dc, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 1436227559, guid: f463a688348b269429de1188e73b93dc, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -1779692499, guid: f463a688348b269429de1188e73b93dc, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 864662224, guid: f463a688348b269429de1188e73b93dc, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -1865879321, guid: f463a688348b269429de1188e73b93dc, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 531394648, guid: f463a688348b269429de1188e73b93dc, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 174244011, guid: f463a688348b269429de1188e73b93dc, type: 3}
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
   m_TileMatrixArray:
   - m_RefCount: 30
     m_Data:
@@ -805,11 +535,7 @@ Tilemap:
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-<<<<<<< HEAD
   m_Origin: {x: -2, y: -1, z: 0}
-=======
-  m_Origin: {x: -3, y: 0, z: 0}
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
   m_Size: {x: 10, y: 3, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
@@ -830,21 +556,13 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
-<<<<<<< HEAD
 --- !u!483693784 &7290743877497622538
-=======
---- !u!483693784 &5801356141722422343
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
 TilemapRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   m_GameObject: {fileID: 7814147012445648922}
-=======
-  m_GameObject: {fileID: 4210557895489002562}
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -890,134 +608,7 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
-<<<<<<< HEAD
 --- !u!114 &3818473244186587770
-=======
---- !u!1 &4453824398676528307
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8561154970394342276}
-  - component: {fileID: 7614062195122732075}
-  - component: {fileID: -8353416897677440261}
-  - component: {fileID: -3654898113917413940}
-  m_Layer: 0
-  m_Name: New Tile Palette
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8561154970394342276
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4453824398676528307}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 5758094550112470414}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!156049354 &7614062195122732075
-Grid:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4453824398676528307}
-  m_Enabled: 1
-  m_CellSize: {x: 1, y: 1, z: 0}
-  m_CellGap: {x: 0, y: 0, z: 0}
-  m_CellLayout: 0
-  m_CellSwizzle: 0
---- !u!1839735485 &-8353416897677440261
-Tilemap:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4453824398676528307}
-  m_Enabled: 1
-  m_Tiles: {}
-  m_AnimatedTiles: {}
-  m_TileAssetArray: []
-  m_TileSpriteArray: []
-  m_TileMatrixArray: []
-  m_TileColorArray: []
-  m_TileObjectToInstantiateArray: []
-  m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Origin: {x: 0, y: 0, z: 0}
-  m_Size: {x: 0, y: 0, z: 1}
-  m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
-  m_TileOrientation: 0
-  m_TileOrientationMatrix:
-    e00: 1
-    e01: 0
-    e02: 0
-    e03: 0
-    e10: 0
-    e11: 1
-    e12: 0
-    e13: 0
-    e20: 0
-    e21: 0
-    e22: 1
-    e23: 0
-    e30: 0
-    e31: 0
-    e32: 0
-    e33: 1
---- !u!19719996 &-3654898113917413940
-TilemapCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4453824398676528307}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_MaximumTileChangeCount: 1000
-  m_ExtrusionFactor: 0
-  m_UseDelaunayMesh: 0
---- !u!114 &3508802957365711407
->>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
