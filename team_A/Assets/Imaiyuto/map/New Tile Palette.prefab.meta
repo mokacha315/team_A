@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 84ef2048fd1156c4cbe7603c66d8e9f1
+=======
+guid: d223c954b99b1b648b7c9a09dc914270
+>>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
 PrefabImporter:
   externalObjects: {}
   userData: 

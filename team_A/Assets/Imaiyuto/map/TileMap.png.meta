@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: dee637d0448fdac4584954bdb051973a
+=======
+guid: f463a688348b269429de1188e73b93dc
+>>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -137,8 +141,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
+<<<<<<< HEAD
       spriteID: 32512329cfc177340859eb7911db251c
       internalID: 71903458
+=======
+      spriteID: c7b5eb38daa36d34994a2547af767466
+      internalID: 368795422
+>>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
       vertices: []
       indices: 
       edges: []
@@ -159,8 +168,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
+<<<<<<< HEAD
       spriteID: fe61f71f8f1ccd141afef152074de0ff
       internalID: 1661694934
+=======
+      spriteID: c664033451255c04a8b0db98c2dae820
+      internalID: 245914751
+>>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
       vertices: []
       indices: 
       edges: []
@@ -181,8 +195,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
+<<<<<<< HEAD
       spriteID: da5a5ff02236e184f95e08e61bc2f50f
       internalID: -1416823039
+=======
+      spriteID: 3207195b2a9ba8e4b8e22ddb6242383c
+      internalID: -1980130428
+>>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
       vertices: []
       indices: 
       edges: []
@@ -203,8 +222,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
+<<<<<<< HEAD
       spriteID: 122637f076a8c534982181c12564f19f
       internalID: -1958731491
+=======
+      spriteID: 41096dbe54f5a0549b0077c90c5278d9
+      internalID: 46420516
+>>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
       vertices: []
       indices: 
       edges: []
@@ -225,8 +249,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
+<<<<<<< HEAD
       spriteID: 73af3a24fbe7cb1498093e7f4880e6d2
       internalID: -136300019
+=======
+      spriteID: 11973e5981f30574a95fc62520637764
+      internalID: 598491229
+>>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
       vertices: []
       indices: 
       edges: []
@@ -247,8 +276,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
+<<<<<<< HEAD
       spriteID: 3f251497dbcf3b1459eff72daba1b738
       internalID: -1715922511
+=======
+      spriteID: 0820fdd3321768848856fb4ed348a0a6
+      internalID: -1777302850
+>>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
       vertices: []
       indices: 
       edges: []
@@ -269,8 +303,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
+<<<<<<< HEAD
       spriteID: e979d5e390e9ae946be4169c51b85588
       internalID: -1534666268
+=======
+      spriteID: 1291a113f2be1e949895430571b45d77
+      internalID: -1656725024
+>>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
       vertices: []
       indices: 
       edges: []
@@ -291,8 +330,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
+<<<<<<< HEAD
       spriteID: f5ccc592a5468aa4bbd8a92d4f6507a3
       internalID: -659324158
+=======
+      spriteID: 67b5ce111bc9d9e47b4a0e32adae2a27
+      internalID: -1132415618
+>>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
       vertices: []
       indices: 
       edges: []
@@ -313,8 +357,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
+<<<<<<< HEAD
       spriteID: 3fe428f501717084c9d7619df5bbe5cb
       internalID: 1140974980
+=======
+      spriteID: 88f5be3dd1e1f3148895356f3f37ba07
+      internalID: 886567254
+>>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
       vertices: []
       indices: 
       edges: []
@@ -335,8 +384,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
+<<<<<<< HEAD
       spriteID: 8d2030343a877d6499241e159d915197
       internalID: 1039268631
+=======
+      spriteID: 7df95a78274d95746838864b6a68c99f
+      internalID: 725490241
+>>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
       vertices: []
       indices: 
       edges: []
@@ -357,8 +411,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
+<<<<<<< HEAD
       spriteID: 916e8a2ecdf4a61439e3505b15d59fc0
       internalID: 114874639
+=======
+      spriteID: 328cfae06d3fa9f4fb6bf893985dd7b7
+      internalID: 940310387
+>>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
       vertices: []
       indices: 
       edges: []
@@ -379,8 +438,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
+<<<<<<< HEAD
       spriteID: 410d867040c309c4fa49698c9636d3d1
       internalID: 240973066
+=======
+      spriteID: de1d2dd06ebd65b4f982b3a5f94f44fa
+      internalID: 844145171
+>>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
       vertices: []
       indices: 
       edges: []
@@ -401,8 +465,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
+<<<<<<< HEAD
       spriteID: e53702e75dcf5584db3b89f672e8a133
       internalID: -1161351835
+=======
+      spriteID: 6c307795785e9994cb9ab72514f9edae
+      internalID: 240784116
+>>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
       vertices: []
       indices: 
       edges: []
@@ -423,8 +492,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
+<<<<<<< HEAD
       spriteID: e3d223275068a6649b3f8ed6f598aaa6
       internalID: -1328520519
+=======
+      spriteID: 2aea0d49f3ef2734eb7fc33963c31c51
+      internalID: 579109317
+>>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
       vertices: []
       indices: 
       edges: []
@@ -445,8 +519,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
+<<<<<<< HEAD
       spriteID: 3c37f72fa55686947a19c944e12c0afb
       internalID: -971865800
+=======
+      spriteID: dfbd988417d11434c8fc6e00abcc97a1
+      internalID: 1807151886
+>>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
       vertices: []
       indices: 
       edges: []
@@ -467,8 +546,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
+<<<<<<< HEAD
       spriteID: f8f7ec9560efbff4886204b68462bb97
       internalID: 1914346685
+=======
+      spriteID: ce14fb5b204197d49a3dc789b0c0b4c0
+      internalID: 1872501384
+>>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
       vertices: []
       indices: 
       edges: []
@@ -489,8 +573,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
+<<<<<<< HEAD
       spriteID: 6f72643ab481e2e44a931053a3d41723
       internalID: 415251243
+=======
+      spriteID: dc1aadfec19921540b990b268e916606
+      internalID: 1217374757
+>>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
       vertices: []
       indices: 
       edges: []
@@ -511,8 +600,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
+<<<<<<< HEAD
       spriteID: b95dac9c8a9a85c478d209e7bc80e7f8
       internalID: 850998231
+=======
+      spriteID: 6bca710a3a5f4f6409cefc373f6189d9
+      internalID: -141864538
+>>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
       vertices: []
       indices: 
       edges: []
@@ -533,8 +627,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
+<<<<<<< HEAD
       spriteID: 2c7ee15f83204784aba7b8c75c376136
       internalID: -1145956091
+=======
+      spriteID: c5b7e9fa78bd89d49b1ed7cbf2eb1273
+      internalID: -1551101647
+>>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
       vertices: []
       indices: 
       edges: []
@@ -555,8 +654,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
+<<<<<<< HEAD
       spriteID: 242627769a43dac4284f377ba5a03089
       internalID: 1113727371
+=======
+      spriteID: 7a0cb705795ded5488a1f31c63a605dc
+      internalID: -674150318
+>>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
       vertices: []
       indices: 
       edges: []
@@ -577,8 +681,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
+<<<<<<< HEAD
       spriteID: 3111f434ec4dd704087eaa3e1532405d
       internalID: 1192636656
+=======
+      spriteID: 8eeb563a68a3df54c965af5bdc7ee5d1
+      internalID: 818959023
+>>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
       vertices: []
       indices: 
       edges: []
@@ -599,8 +708,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
+<<<<<<< HEAD
       spriteID: 34294a008ec2cff4ebdb43485740a594
       internalID: 679441708
+=======
+      spriteID: 2e13352c32d1d954bb04adacd72aac0d
+      internalID: 1444625627
+>>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
       vertices: []
       indices: 
       edges: []
@@ -621,8 +735,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
+<<<<<<< HEAD
       spriteID: d8680633d1086044cb4466c1921559de
       internalID: -34055279
+=======
+      spriteID: ae2594754a336eb40b023c7cad3d01f0
+      internalID: 604219644
+>>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
       vertices: []
       indices: 
       edges: []
@@ -643,8 +762,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
+<<<<<<< HEAD
       spriteID: 5d8d45525329f8a4fa0f150ba9c8d93b
       internalID: -2093593499
+=======
+      spriteID: 6f8d952cafb1e6847ad5896d097c0feb
+      internalID: 1436227559
+>>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
       vertices: []
       indices: 
       edges: []
@@ -665,8 +789,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
+<<<<<<< HEAD
       spriteID: f3bdd6d4b1e47284a86fc80fa790712e
       internalID: -1701144992
+=======
+      spriteID: 9588878566ac1a74584026c7738f87b4
+      internalID: -1779692499
+>>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
       vertices: []
       indices: 
       edges: []
@@ -687,8 +816,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
+<<<<<<< HEAD
       spriteID: 10554bbcb5376604fa77265dcff090da
       internalID: 272006593
+=======
+      spriteID: a5d504abbfe19364096cdcc61d78a9df
+      internalID: 864662224
+>>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
       vertices: []
       indices: 
       edges: []
@@ -709,8 +843,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
+<<<<<<< HEAD
       spriteID: 0f0950fc79a60af428c25052ef543b2f
       internalID: 1597135451
+=======
+      spriteID: 90918e44a1501e54ab4e27c122b779ae
+      internalID: -1865879321
+>>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
       vertices: []
       indices: 
       edges: []
@@ -731,8 +870,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
+<<<<<<< HEAD
       spriteID: 124288aa77568e544b7c8c36fdb5b326
       internalID: -269103311
+=======
+      spriteID: cf93b948b904d1643b20b5930232535e
+      internalID: 531394648
+>>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
       vertices: []
       indices: 
       edges: []
@@ -753,8 +897,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
+<<<<<<< HEAD
       spriteID: ec1c56162f91e9048a0cbd0e6acdb4af
       internalID: -932841270
+=======
+      spriteID: 643c4757490718e4fa9f87b72f660d8c
+      internalID: 174244011
+>>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
       vertices: []
       indices: 
       edges: []
@@ -763,7 +912,11 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
+<<<<<<< HEAD
     spriteID: cab30c96d2c312b4daf9e7900dd002f4
+=======
+    spriteID: d274d2b91cb0ee44baba5bb0ca655637
+>>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
     internalID: 0
     vertices: []
     indices: 
@@ -776,6 +929,7 @@ TextureImporter:
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       TileMap_0: 8537651536920830917
+<<<<<<< HEAD
       TileMap_1: 71903458
       TileMap_10: 1039268631
       TileMap_11: 114874639
@@ -805,6 +959,37 @@ TextureImporter:
       TileMap_7: -1534666268
       TileMap_8: -659324158
       TileMap_9: 1140974980
+=======
+      TileMap_1: 368795422
+      TileMap_10: 725490241
+      TileMap_11: 940310387
+      TileMap_12: 844145171
+      TileMap_13: 240784116
+      TileMap_14: 579109317
+      TileMap_15: 1807151886
+      TileMap_16: 1872501384
+      TileMap_17: 1217374757
+      TileMap_18: -141864538
+      TileMap_19: -1551101647
+      TileMap_2: 245914751
+      TileMap_20: -674150318
+      TileMap_21: 818959023
+      TileMap_22: 1444625627
+      TileMap_23: 604219644
+      TileMap_24: 1436227559
+      TileMap_25: -1779692499
+      TileMap_26: 864662224
+      TileMap_27: -1865879321
+      TileMap_28: 531394648
+      TileMap_29: 174244011
+      TileMap_3: -1980130428
+      TileMap_4: 46420516
+      TileMap_5: 598491229
+      TileMap_6: -1777302850
+      TileMap_7: -1656725024
+      TileMap_8: -1132415618
+      TileMap_9: 886567254
+>>>>>>> parent of 71833a7 (Revert "Reapply "マップ情報"")
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
