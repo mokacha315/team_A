@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 3
   tags:
+  - enemy
   - Enemy
-  - Boss
   layers:
   - Default
   - TransparentFX
@@ -13,7 +13,7 @@ TagManager:
   - Player
   - Water
   - UI
-  - Enemy
+  - 
   - 
   - 
   - 
