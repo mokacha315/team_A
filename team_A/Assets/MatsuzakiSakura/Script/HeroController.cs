@@ -4,33 +4,33 @@ using UnityEngine;
 
 public class HeroController : MonoBehaviour
 {
-    public float speed = 3.0f;    //�ړ��X�s�[�h
-    int direction = 0;            //�ړ�����
-    float axisH;                  //����
-    float axisV;                  //�c��
-    public float angleZ = -90.0f; //��]�p�x
+    public float speed = 3.0f;    //移動スピード
+    int direction = 0;            //移動方向
+    float axisH;                  //横軸
+    float axisV;                  //縦軸
+    public float angleZ = -90.0f; //回転速度
     Rigidbody2D rbody;            //Rigidbody2D
     Animator animator;            //Animator
-    bool isMoving = false;        //�ړ����t���O
+    bool isMoving = false;        //移動中フラグ
 
-    //p1����p2�̊p�x��Ԃ�
+    //p1からp2の角度を返す
     float GetAngle(Vector2 p1, Vector2 p2)
     {
         float angle;
         if (axisH != 0 || axisV != 0)
         {
-            //�ړ����ł���Ίp�x���X�V����
-            //p1����p2�ւ̍����i���_��0�ɂ��邽�߁j
+            //移動中であれば角度を更新する
+            //p1からp2への差分（原点を０にするため）
             float dx = p2.x - p1.x;
             float dy = p2.y - p1.y;
-            //�A�[�N�^���W�F���g�Q�֐��Ŋp�x�i���W�A���j�����߂�
+            //アークタンジェント２関数で関数（ラジアン）を求める
             float rad = Mathf.Atan2(dy, dx);
-            //���W�A����x�ɕϊ����ĕԂ�
+            //ラジアンを度に変換して返す
             angle = rad * Mathf.Rad2Deg;
         }
         else
         {
-            //��~���ł���ΈȑO�̊p�x���ێ�
+            //停止中であれば以前の角度を維持
             angle = angleZ;
         }
         return angle;
@@ -39,8 +39,8 @@ public class HeroController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rbody = GetComponent<Rigidbody2D>();    //Rigidbody2D�𓾂�
-        animator = GetComponent<Animator>();    //Animator�𓾂�
+        rbody = GetComponent<Rigidbody2D>();    //Rigidbody2Dを得る
+        animator = GetComponent<Animator>();    //Animatorを得る
     }
 
     // Update is called once per frame
@@ -48,33 +48,33 @@ public class HeroController : MonoBehaviour
     {
         if (isMoving == false)
         {
-            axisH = Input.GetAxisRaw("Horizontal");   //���E�L�[����
-            axisV = Input.GetAxisRaw("Vertical");     //�㉺�L�[����
+            axisH = Input.GetAxisRaw("Horizontal");   //左右キー入力
+            axisV = Input.GetAxisRaw("Vertical");     //上下キー入力
         }
-        //�L�[���͂���ړ��p�x�����߂�
+        //キー入力から移動角度を求める
         Vector2 fromPt = transform.position;
         Vector2 toPt = new Vector2(fromPt.x + axisH, fromPt.y + axisV);
         angleZ = GetAngle(fromPt, toPt);
-        //�ړ��p�x��������Ă�������ƃA�j���[�V�����X�V
+        //移動角度から向いている方向とアニメーション更新
         int dir;
         if (angleZ >= -45 && angleZ < 45)
         {
-            //�E����
+            //右向き
             dir = 3;
         }
         else if (angleZ >= 45 && angleZ <= 135)
         {
-            //�����
+            //上向き
             dir = 2;
         }
         else if (angleZ >= -135 && angleZ <= -45)
         {
-            //������
+            //下向き
             dir = 0;
         }
         else
         {
-            //������
+            //左向き
             dir = 1;
         }
         if (dir != direction)
@@ -86,7 +86,7 @@ public class HeroController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //�ړ����x���X�V����
+        //移動速度を更新する
         rbody.linearVelocity = new Vector2(axisH, axisV). normalized* speed;
     }
 
