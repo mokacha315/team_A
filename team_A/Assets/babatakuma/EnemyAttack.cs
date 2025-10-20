@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-    [Header("�U���p�����[�^")]
-    public GameObject bulletPrefab;    // �e�̃v���n�u
-    public Transform firePoint;        // �e�̔��ˈʒu
-    public float attackGaugeMax = 5f;  // �U���Q�[�W�̍ő�l
-    public float bulletSpeed = 8f;     // �e��
-    public float attackRange = 10f;    // �U���\�͈�
-    public float gaugeIncreaseRate = 1f; // �b������̃Q�[�W�㏸��
+    [Header("攻撃パラメータ")]
+    public GameObject bulletPrefab;    // 弾のプレハブ
+    public Transform firePoint;        // 弾の発射位置
+    public float attackGaugeMax = 5f;  // 攻撃ゲージの最大値
+    public float bulletSpeed = 8f;     // 弾速
+    public float attackRange = 10f;    // 攻撃可能範囲
+    public float gaugeIncreaseRate = 1f; // 秒あたりのゲージ上昇量
 
     private float attackGauge = 0f;
     private Transform target;
@@ -22,39 +22,39 @@ public class EnemyAttack : MonoBehaviour
     {
         if (target == null) return;
 
-        // �����`�F�b�N
+        // 距離チェック
         float distance = Vector3.Distance(transform.position, target.position);
         if (distance > attackRange) return;
 
-        // �U���Q�[�W�𗭂߂�
+        // 攻撃ゲージを溜める
         attackGauge += Time.deltaTime * gaugeIncreaseRate;
 
-        // �Q�[�W���ő�ɂȂ�����U��
+        // ゲージが最大になったら攻撃
         if (attackGauge >= attackGaugeMax)
         {
             Attack();
-            attackGauge = 0f; // ���Z�b�g
+            attackGauge = 0f; // リセット
         }
     }
 
     void Attack()
     {
-        // �������v���C���[������
+        // 向きをプレイヤー方向に
         Vector3 direction = (target.position - firePoint.position).normalized;
 
-        // �e�𐶐�
+        // 弾を生成
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
 
-        // �e�̃X�s�[�h�ݒ�
+        // 弾のスピード設定
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         if (rb != null)
         {
             rb.linearVelocity = direction * bulletSpeed;
         }
 
-        // ��������
+        // 向き調整
         bullet.transform.right = direction;
 
-        Debug.Log($"{gameObject.name} ���U���I");
+        Debug.Log($"{gameObject.name} が攻撃！");
     }
 }
