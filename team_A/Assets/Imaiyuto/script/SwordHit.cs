@@ -13,7 +13,7 @@ public class SwordHit : MonoBehaviour
             Enemy enemy = collision.GetComponent<Enemy>();
             if(enemy!=null)//Enemyスクリプトがついていれば
             {
-            //    enemy.TakeDamage(1);//敵の体力を減らす
+            //    Enemy.TakeDamage(1);//敵の体力を減らす
             }
         }
     }

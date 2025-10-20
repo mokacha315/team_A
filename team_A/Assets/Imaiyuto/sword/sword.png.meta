@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c4d7547d17ab53542aa0f4f22afece4e
+guid: 2859c1ce059c5b14287fbcb79d75c9b8
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -103,10 +103,10 @@ TextureImporter:
       name: sword_0
       rect:
         serializedVersion: 2
-        x: 138
+        x: 136
         y: 163
-        width: 668
-        height: 703
+        width: 672
+        height: 705
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
