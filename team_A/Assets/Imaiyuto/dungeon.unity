@@ -296,7 +296,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -0.78, y: 1.08, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -314,10 +314,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c62e3737a467ac4d98f188772e6bc54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftLimit: 0
-  rightLimit: 0
-  topLimit: 0
-  bottomLimit: 0
+  leftLimit: -10.44
+  rightLimit: 10.37
+  topLimit: 3.91
+  bottomLimit: 0.08
 --- !u!1 &618675271
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,7 +527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackDelay: 0.25
-  swordPrefab: {fileID: 6177927360733212174, guid: 548b202ef9e60f34a84798e1ccdbeaf4, type: 3}
+  swordPrefab: {fileID: 2017760562580926746, guid: 340b00e93e9c97b4792865c26728bd61, type: 3}
   attackDelay: 0.2
 --- !u!1 &1707927400
 GameObject:
@@ -555,8 +555,8 @@ Transform:
   m_GameObject: {fileID: 1707927400}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.3, y: -1, z: 0}
-  m_LocalScale: {x: 0.482, y: 0.5, z: 1}
+  m_LocalPosition: {x: 2.84, y: -0.05, z: 0}
+  m_LocalScale: {x: 0.411146, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 618675277}
