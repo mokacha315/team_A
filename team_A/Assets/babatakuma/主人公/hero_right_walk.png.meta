@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e83ab499171cf7046919f13e2f533dd5
+guid: e74575742bafb4d47b14355efc9467d9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -325680445222798806
-    second: LIFE.90_0
+      213: -7230285553858047528
+    second: hero_right_walk_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LIFE.90_0
+      name: hero_right_walk_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 286
-        height: 190
+        x: 174
+        y: 478
+        width: 474
+        height: 638
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a2a34305c53fa7bf0800000000000000
-      internalID: -325680445222798806
+      spriteID: 8d117a1b89dd8ab90800000000000000
+      internalID: -7230285553858047528
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      LIFE.90_0: -325680445222798806
+      hero_right_walk_0: -7230285553858047528
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
