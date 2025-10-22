@@ -1,47 +1,43 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class playerAttack : MonoBehaviour
+public class PlayerAttack : MonoBehaviour
 {
-    public float AttackDelay = 0.25f;//攻撃間隔
-    public GameObject swordPrefab;    //剣のプレハブ
-    public float attackDelay = 0.2f;  // 攻撃判定の持続時間
-    bool inAttack = false;//攻撃中かどうかを記録
-    GameObject sword;       // 剣オブジェクト
+    public GameObject swordPrefab; // 剣のプレハブ
+    public float attackDelay = 0.25f; // 攻撃間隔
+    public float attackDuration = 0.2f; // 攻撃判定の持続時間
+    private bool inAttack = false; // 攻撃中かどうか
+    private GameObject sword; // 剣オブジェクト
 
-    //攻撃
-    public void Attack()
-    {
-        //攻撃中ではない
-        if (inAttack == false)
-        {
-            inAttack = true;//攻撃フラグを立てる
-
-            HeroController playerCnt = GetComponent<HeroController>();  //剣で攻撃する
-            //攻撃フラグを下ろす遅延実行
-            Invoke("StopAttack", AttackDelay);
-        }
-    }
-    //攻撃中止
-    public void StopAttack()
-    {
-        inAttack = false;
-    }
-    //start is called before the first frame update
     void Start()
     {
-        //剣をプレイヤーキャラクターに配置
-        Vector3 pos = transform.position;
-        sword = Instantiate(swordPrefab, pos, Quaternion.identity);
-        sword.transform.SetParent(transform);//剣の親にプレイヤーキャラクターを設定
+        // 剣をプレイヤーの子オブジェクトとして生成
+        sword = Instantiate(swordPrefab, transform);
+        sword.transform.localPosition = Vector3.zero; // プレイヤーの位置に合わせる
+        sword.SetActive(false); // 初期状態は非表示
+        Debug.Log("剣の初期化完了。剣は非アクティブです: " + !sword.activeSelf);
     }
 
-    private void Update()
+    void Update()
     {
-        if(Input.GetButtonDown("Fire3"))
+        if (Input.GetButtonDown("Jump") && !inAttack)//スペースキーで攻撃
         {
-            //攻撃キーが押された
             Attack();
         }
+    }
+    void Attack()
+    {
+        inAttack = true;
+        sword.SetActive(true); // 剣の当たり判定を有効化
+
+        // 一定時間後に攻撃終了
+        Invoke(nameof(StopAttack), attackDuration);
+    }
+
+    void StopAttack()
+    {
+        sword.SetActive(false); // 剣オブジェクト全体を非表示（非アクティブ）にする
+        inAttack = false; // 攻撃フラグ解除
+        Debug.Log("攻撃終了！");
+        
     }
 }

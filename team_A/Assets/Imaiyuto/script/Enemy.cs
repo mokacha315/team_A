@@ -1,29 +1,90 @@
-using UnityEngine;
+ï»¿/*using UnityEngine;
+ 
+public class Enemy : MonoBehaviour
 
+{
+
+    public int hp = 3; // ï¿½Gï¿½Ì‘Ì—Íiï¿½ï¿½ï¿½ï¿½ï¿½l3ï¿½j
+ 
+    void OnCollisionEnter2D(Collision2D collision)
+
+    {
+
+        if (collision.gameObject.tag == "sword")
+
+        {
+
+            //ï¿½_ï¿½ï¿½ï¿½[ï¿½W
+
+            hp--;
+
+            if (hp <= 0)
+
+            {
+
+                //ï¿½ï¿½ï¿½S
+
+                //ï¿½ï¿½ï¿½ï¿½ï¿½è”»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+
+                GetComponent<CircleCollider2D>().enabled = false;
+
+                //ï¿½Ú“ï¿½ï¿½ï¿½~
+
+               // rbody.velocity = Vector2.zero;
+
+                //ï¿½Aï¿½jï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½
+ 
+                //0.5ï¿½bï¿½ï¿½Éï¿½ï¿½ï¿½
+
+                Destroy(gameObject, 0.5f);
+
+            }
+
+        }
+ 
+    }
+
+}*/
+
+using UnityEngine;
 public class Enemy : MonoBehaviour
 {
-    public int hp = 3; // “G‚Ì‘Ì—Íi‰Šú’l3j
-
-    void OnCollisionEnter2D(Collision2D collision)
+    public int hp = 3; // ï¿½Gï¿½Ì‘Ì—Íiï¿½ï¿½ï¿½ï¿½ï¿½l3ï¿½j
+    private Rigidbody2D rbody;
+    void Start()
     {
-        if (collision.gameObject.tag == "Arrow")
+        rbody = GetComponent<Rigidbody2D>();
+    }
+    // ï¿½ï¿½OnCollisionEnter2Dï¿½ï¿½OnTriggerEnter2Dï¿½É•ÏX
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        // ï¿½Õ“Ë‚ï¿½ï¿½ï¿½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½Ìƒ^ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½Sï¿½É”ï¿½
+        if (other.CompareTag("sword"))
         {
-            //ƒ_ƒ[ƒW
+            // ï¿½_ï¿½ï¿½ï¿½[ï¿½W
             hp--;
+            // ... (ï¿½ï¿½ï¿½Ì‘ï¿½ï¿½Ìï¿½ï¿½ï¿½)
             if (hp <= 0)
             {
-                //€–S
-                //“–‚½‚è”»’è‚ğÁ‚·
-                GetComponent<CircleCollider2D>().enabled = false;
-                //ˆÚ“®’â~
-               // rbody.velocity = Vector2.zero;
-                //ƒAƒjƒ[ƒVƒ‡ƒ“
-
-                //0.5•bŒã‚ÉÁ‚·
+                // ï¿½ï¿½ï¿½S
+                Collider2D col = GetComponent<Collider2D>();
+                if (col != null)
+                {
+                    col.enabled = false;
+                }
+                // ï¿½Ú“ï¿½ï¿½ï¿½~
+                if (rbody != null)
+                {
+                    rbody.linearVelocity = Vector2.zero;
+                    rbody.isKinematic = true;
+                }
+                // 0.5ï¿½bï¿½ï¿½Éï¿½ï¿½ï¿½
                 Destroy(gameObject, 0.5f);
             }
+
         }
 
     }
+
 }
 
