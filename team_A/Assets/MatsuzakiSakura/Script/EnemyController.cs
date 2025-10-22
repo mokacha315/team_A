@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     //ヒットポイント
-    public int hp = 3;
+    public int hp = 10;
     //移動スピード
     public float speed = 0.5f;  //反応距離
     public float reactionDistance = 4.0f;
@@ -95,6 +95,25 @@ public class EnemyController : MonoBehaviour
         else
         {
             rbody.linearVelocity = Vector2.zero;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "sword")
+        {
+            //ダメージ
+            hp--;
+            if (hp <= 0)
+            {
+                //死亡
+                //当たりを消す
+                GetComponent<CircleCollider2D>().enabled = false;
+                //アニメーションを切り替える
+                animator.SetBool("IsDead", true);
+                //0.5秒後に消す
+                Destroy(gameObject, 0.5f);
+            }
         }
     }
 }
