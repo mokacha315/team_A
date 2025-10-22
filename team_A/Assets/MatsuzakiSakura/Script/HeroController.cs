@@ -13,6 +13,11 @@ public class HeroController : MonoBehaviour
     Animator animator;            //Animator
     bool isMoving = false;        //移動中フラグ
 
+    //ダメージ対応
+    public static int hp = 10;       //プレイヤーのHP
+    public static string gameState;  //ゲームの状態
+    bool inDamage = false;           //ダメージ中のフラグ
+
     //p1からp2の角度を返す
     float GetAngle(Vector2 p1, Vector2 p2)
     {
@@ -41,11 +46,21 @@ public class HeroController : MonoBehaviour
     {
         rbody = GetComponent<Rigidbody2D>();    //Rigidbody2Dを得る
         animator = GetComponent<Animator>();    //Animatorを得る
+
+        //ゲームの状態をプレイ中にする
+        gameState = "playing";
     }
 
     // Update is called once per frame
     void Update()
     {
+        //ゲーム中以外は何もしない
+        if (gameState != "playing")
+        {
+            return;
+        }
+
+
         if (isMoving == false)
         {
             axisH = Input.GetAxisRaw("Horizontal");   //左右キー入力
@@ -86,8 +101,34 @@ public class HeroController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //移動速度を更新する
-        rbody.linearVelocity = new Vector2(axisH, axisV). normalized* speed;
+        //ゲーム中以外は何もしない
+        if (gameState != "playing")
+        {
+            return;
+        }
+        if (inDamage)
+        {
+            //ダメージ中点させる
+            float val = Mathf.Sin(Time.time * 50);
+            if (val > 0)
+            {
+                //スピライトを表示
+                gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            }
+            else
+            {
+                //スプライトを非表示
+                gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            }
+        }
+
+        if (inDamage)
+        {
+            return;
+        }
+
+         //移動速度を更新する
+         rbody.linearVelocity = new Vector2(axisH, axisV).normalized * speed;
     }
 
     public void SetAxis(float h, float v)
@@ -102,5 +143,55 @@ public class HeroController : MonoBehaviour
         {
             isMoving = true;
         }
+    }
+
+    //接触
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            GetDamage(collision.gameObject);
+        }
+    }
+
+    //ダメージ
+    void GetDamage(GameObject enemy)
+    {
+        if (gameState == "playing")
+        {
+            hp--;  //HPを減らす
+            if (hp > 0)
+            {
+                //敵キャラの反対方向にヒットバックさせる
+                Vector3 v = (transform.position - enemy.transform.position).normalized;
+                rbody.AddForce(new Vector2(v.x * 4, v.y * 4), ForceMode2D.Impulse);
+                //ダメージフラグ ON
+                inDamage = true;
+                Invoke("DamageEnd", 0.25f);
+            }
+            else
+            {
+                //ゲームオーバー
+                GameOver();
+            }
+        }
+    }
+    //ダメージ終了
+    void DamageEnd()
+    {
+        inDamage = false;                                             //ダメージフラグ OFF
+        gameObject.GetComponent<SpriteRenderer>().enabled = true;     //スプライトを元に戻す
+    }
+    //ゲームオーバー 
+    void GameOver()
+    {
+        gameState = "gameover";
+        //ゲームオーバー演出
+        GetComponent<CircleCollider2D>().enabled = false;             //プレイヤーの当たりを消す
+        rbody.linearVelocity = new Vector2(0, 0);                     //移動停止
+        rbody.gravityScale = 1;                                       //重力を戻す
+        rbody.AddForce(new Vector2(0, 5), ForceMode2D.Impulse);       //プレイヤーを上に少し跳ね上げる
+        animator.SetBool("IsDead", true);                             //アニメーションを切り替える
+        Destroy(gameObject, 1.0f);                                    //１秒後にプレイヤーを消す
     }
 }
