@@ -19,7 +19,7 @@ public class SwordHit : MonoBehaviour
             EnemyAttack enemyattack=collision.GetComponent<EnemyAttack>();
             if(enemy!=null)
             {
-              //  enemyattack.hp-=3;
+              //  enemyattack.hp-=1000;
             }
 
         }

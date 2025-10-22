@@ -1,10 +1,12 @@
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
     [Header("攻撃パラメータ")]
     public GameObject bulletPrefab;    // 弾のプレハブ
-    public Transform firePoint;        // 弾の発射位置
     public float attackGaugeMax = 4f;  // 攻撃ゲージの最大値
     public float bulletSpeed = 4f;     // 弾速
     public float attackRange = 10f;    // 攻撃可能範囲
@@ -15,46 +17,39 @@ public class EnemyAttack : MonoBehaviour
 
     void Start()
     {
-        target = GameObject.FindWithTag("Player")?.transform;
+       
     }
 
     void Update()
     {
-        if (target == null) return;
 
-        // 距離チェック
-        float distance = Vector3.Distance(transform.position, target.position);
-        if (distance > attackRange) return;
-
-        // 攻撃ゲージを溜める
-        attackGauge += Time.deltaTime * gaugeIncreaseRate;
-
-        // ゲージが最大になったら攻撃
-        if (attackGauge >= attackGaugeMax)
-        {
-            Attack();
-            attackGauge = 0f; // リセット
-        }
     }
 
+    //攻撃
     void Attack()
     {
-        // 向きをプレイヤー方向に
-        Vector3 direction = (target.position - firePoint.position).normalized;
-
-        // 弾を生成
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-
-        // 弾のスピード設定
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        if (rb != null)
+        //発射口オブジェクトを取得
+        Transform tr = transform.Find("gate");
+        GameObject gate = tr.gameObject;
+        //弾を発射するベクトルを作る
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
         {
-            rb.linearVelocity = direction * bulletSpeed;
+            float dx = player.transform.position.x - gate.transform.position.x;
+            float dy = player.transform.position.y - gate.transform.position.y;
+            //アークタンジェント２関数で角度（ラジアン）を求める
+            float rad = Mathf.Atan2(dy, dx);
+            //ラジアンを度に変換して返す
+            float angle = rad * Mathf.Rad2Deg;
+            //Prefabから弾のゲームオブジェクトを作る（進行方向に回転）
+            Quaternion r = Quaternion.Euler(0, 0, angle);
+            GameObject bullet = Instantiate(bulletPrefab, gate.transform.position, r);
+            float x = Mathf.Cos(rad);
+            float y = Mathf.Sin(rad);
+            Vector3 v = new Vector3(x, y) * bulletSpeed;
+            //発射
+            Rigidbody2D rbody = bullet.GetComponent<Rigidbody2D>();
+            rbody.AddForce(v, ForceMode2D.Impulse);
         }
-
-        // 向き調整
-        bullet.transform.right = direction;
-
-        Debug.Log($"{gameObject.name} が攻撃！");
     }
 }
