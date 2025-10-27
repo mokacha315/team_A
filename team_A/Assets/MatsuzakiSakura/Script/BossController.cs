@@ -66,7 +66,7 @@ public class BossController : MonoBehaviour
             {
                 //€–S
                 //“–‚½‚è‚ğÁ‚·
-                GetComponent<Collider>().enabled = false;
+                GetComponent<Collider2D>().enabled = false;
                 //ƒAƒjƒ[ƒVƒ‡ƒ“‚ğÁ‚·
                 GetComponent<Animator>().Play("BossDead");
                 //‚P•bŒã‚ÉÁ‚·
