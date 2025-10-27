@@ -1142,7 +1142,6 @@ GameObject:
   - component: {fileID: 1748773763}
   - component: {fileID: 1748773764}
   - component: {fileID: 1748773765}
-  - component: {fileID: 1748773766}
   m_Layer: 7
   m_Name: Boss
   m_TagString: Enemy
@@ -1282,7 +1281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77121b9cec6a7c84cb39f0ada68c7ccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 15
+  hp: 1
   reactionDistance: 7
   bulletPrefab: {fileID: 4310784387579625841, guid: fd368ab2cfeb31e4f9a2692bebdb3cb1, type: 3}
   shootSpeed: 5
@@ -1332,22 +1331,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 11.90625, y: 8.59375}
   m_EdgeRadius: 0
---- !u!111 &1748773766
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1748773758}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Animation: {fileID: 0}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_UpdateMode: 0
-  m_CullingType: 0
 --- !u!1 &1791744656
 GameObject:
   m_ObjectHideFlags: 0
@@ -6767,6 +6750,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: 4, y: 7, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 7
+      m_TileSpriteIndex: 7
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: 5, y: 7, z: 0}
     second:
       serializedVersion: 2
@@ -7213,7 +7206,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 48f2ad8a6f77dd34ca61f28e3f03d0a9, type: 2}
   - m_RefCount: 6
     m_Data: {fileID: 11400000, guid: a06b298b881a1724d98c7d50fdebe6fa, type: 2}
-  - m_RefCount: 19
+  - m_RefCount: 20
     m_Data: {fileID: 11400000, guid: f88896d6d355bcb42bad8a5e573fabf1, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 422
@@ -7230,10 +7223,10 @@ Tilemap:
     m_Data: {fileID: -1458728494, guid: 808eaeee6aac2d94ea4ca217b5365675, type: 3}
   - m_RefCount: 6
     m_Data: {fileID: -1017420373, guid: 808eaeee6aac2d94ea4ca217b5365675, type: 3}
-  - m_RefCount: 19
+  - m_RefCount: 20
     m_Data: {fileID: -2060802052, guid: 808eaeee6aac2d94ea4ca217b5365675, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 558
+  - m_RefCount: 559
     m_Data:
       e00: 1
       e01: 0
@@ -7306,7 +7299,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 567
+  - m_RefCount: 568
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
