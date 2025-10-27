@@ -5,7 +5,7 @@ using UnityEngine;
 public class BossController : MonoBehaviour
 {
     //ヒットポイント
-    public int hp = 1;
+    public int hp = 15;
     //反応距離
     public float reactionDistance = 7.0f;
 
@@ -56,7 +56,7 @@ public class BossController : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "sword")
         {
