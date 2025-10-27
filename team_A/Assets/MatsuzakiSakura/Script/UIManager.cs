@@ -122,4 +122,21 @@ public class UIManager : MonoBehaviour
     {
         UpdateHP();
     }
+
+    //ゲームクリア
+    public void GameClear()
+    {
+        //画像表示
+        mainImage.SetActive(true);
+        mainImage.GetComponent<Image>().sprite = gameClearSpr;  //「GAME CLEAR」を設定する
+        //ゲームクリアにする
+        HeroController.gameState = "gameclear";
+        //３秒後にタイトルに戻る
+        Invoke("GoToTitle", 3.0f);
+    }
+    //タイトルに戻る
+    void GoToTitle()
+    {
+        SceneManager.LoadScene("Title");    //タイトルに戻る
+    }
 }
