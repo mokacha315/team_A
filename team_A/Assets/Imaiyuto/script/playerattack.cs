@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
@@ -5,8 +7,31 @@ public class PlayerAttack : MonoBehaviour
     public GameObject swordPrefab; // 剣のプレハブ
     public float attackDelay = 0.25f; // 攻撃間隔
     public float attackDuration = 0.2f; // 攻撃判定の持続時間
-    private bool inAttack = false; // 攻撃中かどうか
-    private GameObject sword; // 剣オブジェクト
+    bool inAttack = false; // 攻撃中かどうか
+    GameObject sword; // 剣オブジェクト
+
+    void Attack()
+    {
+        inAttack = true;
+        sword.SetActive(true); // 剣の当たり判定を有効化
+
+        // 一定時間後に攻撃終了
+        Invoke(nameof(StopAttack), attackDuration);
+
+        Invoke(nameof(ResetAttackFlag), attackDelay);
+    }
+
+    void StopAttack()
+    {
+        sword.SetActive(false); // 剣オブジェクト全体を非表示（非アクティブ）にする
+        Debug.Log("攻撃終了！");
+        
+    }
+
+    void ResetAttackFlag()
+    {
+        inAttack = false; //攻撃フラグ解除
+    }
 
     void Start()
     {
@@ -24,20 +49,54 @@ public class PlayerAttack : MonoBehaviour
             Attack();
         }
     }
+}
+/*using UnityEngine;
+
+public class PlayerAttack : MonoBehaviour
+{
+    public GameObject swordPrefab;
+    public float attackDelay = 0.25f;
+    public float attackDuration = 0.2f;
+    bool inAttack = false;
+    GameObject sword;
+    Collider2D swordCollider;
+
     void Attack()
     {
         inAttack = true;
-        sword.SetActive(true); // 剣の当たり判定を有効化
+        swordCollider.enabled = true; // 当たり判定を有効化
+        Debug.Log("攻撃開始！");
 
-        // 一定時間後に攻撃終了
         Invoke(nameof(StopAttack), attackDuration);
+        Invoke(nameof(ResetAttackFlag), attackDelay);
     }
 
     void StopAttack()
     {
-        sword.SetActive(false); // 剣オブジェクト全体を非表示（非アクティブ）にする
-        inAttack = false; // 攻撃フラグ解除
+        swordCollider.enabled = false; // 判定だけ無効化
         Debug.Log("攻撃終了！");
-        
     }
-}
+
+    void ResetAttackFlag()
+    {
+        inAttack = false;
+    }
+
+    void Start()
+    {
+        sword = Instantiate(swordPrefab, transform);
+        sword.transform.localPosition = Vector3.zero;
+
+        swordCollider = sword.GetComponent<Collider2D>();
+        swordCollider.enabled = false; // 初期はOFF
+        Debug.Log("剣初期化完了！");
+    }
+
+    void Update()
+    {
+        if (Input.GetButtonDown("Jump") && !inAttack)
+        {
+            Attack();
+        }
+    }
+}*/

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 334438359101206558}
   - component: {fileID: -4982289761975105559}
   m_Layer: 0
-  m_Name: sword_effect_0
+  m_Name: sword
   m_TagString: sword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
