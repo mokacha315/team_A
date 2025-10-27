@@ -44,6 +44,8 @@ public class HeroController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Application.targetFrameRate = 60;
+
         rbody = GetComponent<Rigidbody2D>();    //Rigidbody2Dを得る
         animator = GetComponent<Animator>();    //Animatorを得る
 
