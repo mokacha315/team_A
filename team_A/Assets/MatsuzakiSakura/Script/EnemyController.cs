@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour
     //ヒットポイント
     public int hp = 10;
     //移動スピード
-    public float speed = 0.5f;  //反応距離
+    public float speed = 1.0f;  //反応距離
     public float reactionDistance = 4.0f;
     float axisH;                //横軸値（-1.0 ∼ 0.0 ∼ 1.0）
     float axisV;                //縦軸値（-1.0 ∼ 0.0 ∼ 1.0）
