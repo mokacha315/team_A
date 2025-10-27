@@ -5,7 +5,7 @@ using UnityEngine;
 public class BossController : MonoBehaviour
 {
     //ヒットポイント
-    public int hp = 15;
+    public int hp = 1;
     //反応距離
     public float reactionDistance = 7.0f;
 
