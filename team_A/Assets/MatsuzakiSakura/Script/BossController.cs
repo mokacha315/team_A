@@ -69,6 +69,10 @@ public class BossController : MonoBehaviour
                 GetComponent<Collider2D>().enabled = false;
                 //アニメーションを消す
                 GetComponent<Animator>().Play("BossDead");
+
+                FindObjectOfType<UIManager>().GameClear();
+
+
                 //１秒後に消す
                 Destroy(gameObject, 1);
             }
