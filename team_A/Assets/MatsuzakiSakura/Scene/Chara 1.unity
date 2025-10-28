@@ -830,7 +830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swordPrefab: {fileID: 8672377866418775581, guid: 214f1c17246a7fc4d80d9abbe3469036, type: 3}
-  attackDelay: 0.2
+  attackInterval: 0
   attackDuration: 0.2
 --- !u!1 &816580690 stripped
 GameObject:
@@ -7379,7 +7379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swordPrefab: {fileID: 0}
-  attackDelay: 0.2
+  attackInterval: 1
   attackDuration: 0.2
 --- !u!111 &1791744666
 Animation:
