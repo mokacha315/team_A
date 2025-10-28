@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HeroController : MonoBehaviour
 {
-    public float speed = 3.0f;    //移動スピード
+    public float speed = 7.0f;    //移動スピード
     int direction = 0;            //移動方向
     float axisH;                  //横軸
     float axisV;                  //縦軸
