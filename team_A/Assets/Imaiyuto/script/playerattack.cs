@@ -5,12 +5,12 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     public GameObject swordPrefab; // Œ•‚ÌƒvƒŒƒnƒu
-    public float attackInterval = 1.0f; // UŒ‚ŠÔŠu
+    public float attackInterval = 0.1f; // UŒ‚ŠÔŠu
     public float attackDuration = 0.2f; // UŒ‚”»’è‚Ì‘±ŠÔ
     bool inAttack = false; // UŒ‚’†‚©‚Ç‚¤‚©
     GameObject sword; // Œ•ƒIƒuƒWƒFƒNƒg
 
-    private float timer = 0f;
+    private float timer = 0.0f;
 
     void Attack()
     {
