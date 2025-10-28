@@ -5,10 +5,12 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     public GameObject swordPrefab; // 剣のプレハブ
-    public float attackDelay = 0.25f; // 攻撃間隔
+    public float attackInterval = 1.0f; // 攻撃間隔
     public float attackDuration = 0.2f; // 攻撃判定の持続時間
     bool inAttack = false; // 攻撃中かどうか
     GameObject sword; // 剣オブジェクト
+
+    private float timer = 0f;
 
     void Attack()
     {
@@ -18,7 +20,7 @@ public class PlayerAttack : MonoBehaviour
         // 一定時間後に攻撃終了
         Invoke(nameof(StopAttack), attackDuration);
 
-        Invoke(nameof(ResetAttackFlag), attackDelay);
+        Invoke(nameof(ResetAttackFlag), attackInterval);
     }
 
     void StopAttack()
@@ -44,9 +46,14 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Jump") && !inAttack)//スペースキーで攻撃
+        timer += Time.deltaTime;
+
+        if (timer >= attackInterval)
         {
-            Attack();
+            if (Input.GetButtonDown("Jump") && !inAttack)//スペースキーで攻撃
+            {
+                Attack();
+            }
         }
     }
 }
