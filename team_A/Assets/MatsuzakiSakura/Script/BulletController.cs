@@ -22,4 +22,22 @@ public class BulletController : MonoBehaviour
     {
         Destroy(gameObject);     //何かに接触したら消す
     }
+
+    // 他のオブジェクトと当たったとき
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        // 剣に当たったら弾を消す
+        if (collision.gameObject.CompareTag("sword"))
+        {
+            Debug.Log("弾が剣に当たって消えた！");
+            Destroy(gameObject);
+        }
+
+        // プレイヤーに当たったらダメージ処理して弾を消す
+        else if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("プレイヤーが弾に当たった！");
+            Destroy(gameObject);
+        }
+    }
 }

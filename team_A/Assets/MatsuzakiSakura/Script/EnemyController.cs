@@ -108,7 +108,7 @@ public class EnemyController : MonoBehaviour
             {
                 //死亡
                 //当たりを消す
-                GetComponent<CircleCollider2D>().enabled = false;
+                GetComponent<Collider2D>().enabled = false;
                 //アニメーションを切り替える
                 animator.SetBool("IsDead", true);
                 //0.5秒後に消す
