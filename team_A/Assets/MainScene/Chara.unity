@@ -830,7 +830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swordPrefab: {fileID: 8672377866418775581, guid: 214f1c17246a7fc4d80d9abbe3469036, type: 3}
-  attackDelay: 0.2
+  attackInterval: 2
   attackDuration: 0.2
 --- !u!1 &816580690 stripped
 GameObject:
@@ -1320,7 +1320,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.052565575, y: 0.1207459}
+  m_Offset: {x: 0.066823006, y: -0.15349948}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1330,7 +1330,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 10.329283, y: 7.3862777}
+  m_Size: {x: 8.817028, y: 6.6549597}
   m_EdgeRadius: 0
 --- !u!111 &1748773766
 Animation:
@@ -7379,7 +7379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swordPrefab: {fileID: 0}
-  attackDelay: 0.2
+  attackInterval: 2
   attackDuration: 0.2
 --- !u!111 &1791744666
 Animation:
