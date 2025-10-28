@@ -103,6 +103,13 @@ public class HeroController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (gameState != "playing")
+        {
+            rbody.linearVelocity = Vector2.zero;  
+            animator.SetFloat("Speed", 0);        
+            return;
+        }
+
         //ゲーム中以外は何もしない
         if (gameState != "playing")
         {
