@@ -129,6 +129,10 @@ public class UIManager : MonoBehaviour
         //画像表示
         mainImage.SetActive(true);
         mainImage.GetComponent<Image>().sprite = gameClearSpr;  //「GAME CLEAR」を設定する
+
+        RectTransform rt = mainImage.GetComponent<RectTransform>();
+        rt.sizeDelta = new Vector2(800, 800);
+
         //ゲームクリアにする
         HeroController.gameState = "gameclear";
         //３秒後にタイトルに戻る
