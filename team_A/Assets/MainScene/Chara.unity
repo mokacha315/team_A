@@ -433,7 +433,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.78, y: 1.08, z: -10}
+  m_LocalPosition: {x: -13.12, y: 2.04, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -451,8 +451,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c62e3737a467ac4d98f188772e6bc54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftLimit: -10.44
-  rightLimit: 10.37
+  leftLimit: -13.12
+  rightLimit: 12.98
   topLimit: 3.91
   bottomLimit: 0.08
 --- !u!1 &519723662
@@ -830,7 +830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swordPrefab: {fileID: 8672377866418775581, guid: 214f1c17246a7fc4d80d9abbe3469036, type: 3}
-  attackInterval: 2
+  attackInterval: 0.5
   attackDuration: 0.2
 --- !u!1 &816580690 stripped
 GameObject:
@@ -1282,7 +1282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77121b9cec6a7c84cb39f0ada68c7ccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 15
+  hp: 1
   reactionDistance: 7
   bulletPrefab: {fileID: 4310784387579625841, guid: fd368ab2cfeb31e4f9a2692bebdb3cb1, type: 3}
   shootSpeed: 5
@@ -7225,6 +7225,8 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: a06b298b881a1724d98c7d50fdebe6fa, type: 2}
   - m_RefCount: 20
     m_Data: {fileID: 11400000, guid: f88896d6d355bcb42bad8a5e573fabf1, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileSpriteArray:
   - m_RefCount: 422
     m_Data: {fileID: -1858741312, guid: 808eaeee6aac2d94ea4ca217b5365675, type: 3}
@@ -7242,6 +7244,8 @@ Tilemap:
     m_Data: {fileID: -1017420373, guid: 808eaeee6aac2d94ea4ca217b5365675, type: 3}
   - m_RefCount: 20
     m_Data: {fileID: -2060802052, guid: 808eaeee6aac2d94ea4ca217b5365675, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileMatrixArray:
   - m_RefCount: 559
     m_Data:
@@ -7322,7 +7326,7 @@ Tilemap:
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -22, y: -5, z: 0}
-  m_Size: {x: 44, y: 15, z: 1}
+  m_Size: {x: 44, y: 35, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
