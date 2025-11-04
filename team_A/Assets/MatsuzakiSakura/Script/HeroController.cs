@@ -74,17 +74,17 @@ public class HeroController : MonoBehaviour
         angleZ = GetAngle(fromPt, toPt);
         //移動角度から向いている方向とアニメーション更新
         int dir;
-        if (angleZ >= -45 && angleZ < 45)
+        if (angleZ >= -60 && angleZ < 60)
         {
             //右向き
             dir = 3;
         }
-        else if (angleZ >= 45 && angleZ <= 135)
+        else if (angleZ >= 60 && angleZ <= 120)
         {
             //上向き
             dir = 2;
         }
-        else if (angleZ >= -135 && angleZ <= -45)
+        else if (angleZ >= -120 && angleZ <= -60)
         {
             //下向き
             dir = 0;
