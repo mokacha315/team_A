@@ -7,7 +7,7 @@ public class SwordHit : MonoBehaviour
         //触れた相手が[Enemy]タグを持っているかチェック
         if (collision.CompareTag("Enemy"))
         {
-            Debug.Log("敵に当たった！");//デバック用
+            Debug.Log("肉のたたき");//デバック用
 
            // Enemyスクリプトを取得してダメージ処理を呼ぶ
             Enemy enemy = collision.GetComponent<Enemy>();
