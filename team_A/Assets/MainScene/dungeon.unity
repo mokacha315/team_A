@@ -829,8 +829,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8415956339e480c41a98d93853c535e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swordPrefab: {fileID: 8672377866418775581, guid: 214f1c17246a7fc4d80d9abbe3469036, type: 3}
-  attackDelay: 0.2
+  sword_effectPrefab: {fileID: 5479791115406603499, guid: f8b8de49e48a6f44db2fbfefefb4dd8f, type: 3}
+  attackInterval: 0.1
   attackDuration: 0.2
 --- !u!1 &816580690 stripped
 GameObject:
@@ -7378,8 +7378,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8415956339e480c41a98d93853c535e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swordPrefab: {fileID: 0}
-  attackDelay: 0.2
+  sword_effectPrefab: {fileID: 0}
+  attackInterval: 0.1
   attackDuration: 0.2
 --- !u!111 &1791744666
 Animation:
