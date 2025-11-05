@@ -40,11 +40,9 @@ public class UIManager : MonoBehaviour
                     if (hp <= 0)
                     {
                         lifeImage.GetComponent<Image>().sprite = life0Image;
-                        //プレイヤー死亡！
-                        retryButton.SetActive(true);   //ボタン表示
-                        mainImage.SetActive(true);     //画像表示
-                                                       //画像を設定する
-                        mainImage.GetComponent<Image>().sprite = gameOverSpr;
+
+                        Invoke("GameOver", 2.0f);
+
                         HeroController.gameState = "gameend";    //ゲーム終了
                     }
                     else if (hp == 1)
@@ -138,6 +136,17 @@ public class UIManager : MonoBehaviour
         //３秒後にタイトルに戻る
         Invoke("GoToTitle", 3.0f);
     }
+
+    public void GameOver()
+    {
+        //プレイヤー死亡！
+        retryButton.SetActive(true);   //ボタン表示
+        mainImage.SetActive(true);     //画像表示
+                                       //画像を設定する
+        mainImage.GetComponent<Image>().sprite = gameOverSpr;
+    }
+
+
     //タイトルに戻る
     void GoToTitle()
     {
