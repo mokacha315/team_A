@@ -19,12 +19,12 @@ public class FadeManager : MonoBehaviour
 		get {
 			if (instance == null) {
 				instance = (FadeManager)FindObjectOfType (typeof(FadeManager));
-				
+
 				if (instance == null) {
 					Debug.LogError (typeof(FadeManager) + "is nothing");
 				}
 			}
-			
+
 			return instance;
 		}
 	}
@@ -49,21 +49,21 @@ public class FadeManager : MonoBehaviour
 			Destroy (this.gameObject);
 			return;
 		}
-		
+
 		DontDestroyOnLoad (this.gameObject);
 	}
 
 	public void OnGUI ()
 	{
-	
+
 		// Fade .
 		if (this.isFading) {
 			//色と透明度を更新して白テクスチャを描画 .
 			this.fadeColor.a = this.fadeAlpha;
 			GUI.color = this.fadeColor;
 			GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), Texture2D.whiteTexture);
-		}		
-	
+		}
+
 		if (this.DebugMode) {
 			if (!this.isFading) {
 				//Scene一覧を作成 .
@@ -95,9 +95,9 @@ public class FadeManager : MonoBehaviour
 				}
 			}
 		}
-		
-		
-		
+
+
+
 	}
 
 	/// <summary>
@@ -121,11 +121,11 @@ public class FadeManager : MonoBehaviour
 		this.isFading = true;
 		float time = 0;
 		while (time <= interval) {
-			this.fadeAlpha = Mathf.Lerp (0f, 1f, time / interval);      
+			this.fadeAlpha = Mathf.Lerp (0f, 1f, time / interval);
 			time += Time.deltaTime;
 			yield return 0;
 		}
-		
+
 		//シーン切替 .
 		SceneManager.LoadScene (scene);
 
@@ -136,8 +136,7 @@ public class FadeManager : MonoBehaviour
 			time += Time.deltaTime;
 			yield return 0;
 		}
-		
+
 		this.isFading = false;
 	}
 }
-

@@ -24,6 +24,7 @@ public class TitleManager : MonoBehaviour
     //スタートボタン押し
     public void StartButtonClicked()
     {
-        SceneManager.LoadScene(firstSceneName);
+        FadeManager.Instance.LoadScene(firstSceneName, 1.0f);
+
     }
 }
