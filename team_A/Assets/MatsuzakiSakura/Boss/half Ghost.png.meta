@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e1e615901d507cf45b4fb9ebd06ff76b
+guid: 6b05b38812501d14ab23b721b747877f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5287707953571304995
-    second: aice_0
+      213: -373764877966455345
+    second: half Ghost_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: aice_0
+      name: half Ghost_0
       rect:
         serializedVersion: 2
-        x: 143
-        y: 91
-        width: 711
-        height: 815
+        x: 153
+        y: 540
+        width: 624
+        height: 592
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dd9ef57b1a94e96b0800000000000000
-      internalID: -5287707953571304995
+      spriteID: fcdca43e2de10daf0800000000000000
+      internalID: -373764877966455345
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      aice_0: -5287707953571304995
+      half Ghost_0: -373764877966455345
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
