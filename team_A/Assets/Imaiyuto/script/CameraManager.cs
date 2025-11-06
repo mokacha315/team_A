@@ -13,7 +13,7 @@ public class CameraManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+ 
     }
 
     // Update is called once per frame
@@ -50,7 +50,7 @@ public class CameraManager : MonoBehaviour
             //ƒJƒƒ‰ˆÊ’u‚ÌVector3‚ğì‚é
             Vector3 v3 = new Vector3(x, y, z);
             transform.position = v3;
-
+         
 
         }
     }
