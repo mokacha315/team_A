@@ -71,10 +71,18 @@ public class PlayerAttack : MonoBehaviour
                     offset.x *= -1;
                 else if (transform.localScale.x < 0)
                 {
-                    offset.x *= 1;
+                    offset.x *= 5;
                 }
-                //ローカル座標（プレイヤーを親にしてるので相対位置）
-                swordTransform.localPosition = offset;
+        else if(transform.localScale.y > 0)
+        {
+            offset.y *= -1;
+        }
+        else if (transform.localScale.y < 0)
+        {
+            offset.y *= 1;
+        }
+        //ローカル座標（プレイヤーを親にしてるので相対位置）
+        swordTransform.localPosition = offset;
 
                 Debug.Log($"攻撃開始！ 剣の位置: {swordTransform.localPosition}");
                 Invoke(nameof(StopAttack), attackDuration);

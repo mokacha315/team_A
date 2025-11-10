@@ -814,7 +814,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6.3, y: -3.3}
+  m_AnchoredPosition: {x: -7.59, y: -3.3}
   m_SizeDelta: {x: 6.29, y: 9.62}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &618675278
@@ -833,6 +833,7 @@ MonoBehaviour:
   sword_effectPrefab: {fileID: 5479791115406603499, guid: f8b8de49e48a6f44db2fbfefefb4dd8f, type: 3}
   attackDuration: 0.2
   swordOffset: {x: 1, y: 0}
+  heroController: {fileID: 0}
 --- !u!1 &816580690 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8240416008961685370, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
@@ -7383,6 +7384,7 @@ MonoBehaviour:
   sword_effectPrefab: {fileID: 0}
   attackDuration: 0.2
   swordOffset: {x: 1, y: 0}
+  heroController: {fileID: 0}
 --- !u!111 &1791744666
 Animation:
   m_ObjectHideFlags: 0
