@@ -20,7 +20,7 @@ public class BulletController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(gameObject);     //何かに接触したら消す
+       Destroy(gameObject);     //何かに接触したら消す
     }
 
     // 他のオブジェクトと当たったとき
