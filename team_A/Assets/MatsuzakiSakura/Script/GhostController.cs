@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class GhostController : MonoBehaviour
 {
-    //ヒットポイント
-    public int hp = 7;
-    //反応距離
-    public float reactionDistance = 15.0f;
+    public int hp = 7;   //ヒットポイント
+    public float reactionDistance = 7.0f;   //反応距離
+    public float Speed = 0.1f;    //移動スピード
 
     public GameObject bulletPrefab;    //弾
     public float shootSpeed = 5.0f;    //弾の速度
+    public float shootInterval = 1.5f; //攻撃間隔
 
+ 
     //攻撃中フラグ
     bool inAttack = false;
+    float shootTimer = 0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,36 +26,42 @@ public class GhostController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (hp > 0)
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        Vector3 pr = player.transform.position;
+        float dist = Vector2.Distance(transform.position, pr);
+
+        if (dist <= reactionDistance)
         {
-            //Playerのゲームオブジェクトを得る
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            if (player != null)
+            //プレイヤーについていく
+            transform.position = Vector3.MoveTowards(transform.position, pr, Speed * Time.deltaTime);
+            
+            //攻撃アニメーション
+            if (inAttack = false)
             {
-                //プレイヤーとの距離チェック
-                Vector3 plpos = player.transform.position;
-                float dist = Vector2.Distance(transform.position, plpos);
-                if (dist <= reactionDistance && inAttack == false)
-                {
-                    //範囲内&攻撃中ではない&HP攻撃
-                    inAttack = true;
-                    //アニメーションを切り替える
-                    GetComponent<Animator>().Play("GhostAttack");
-                }
-                else if (dist > reactionDistance && inAttack)
-                {
-                    inAttack = false;
-                    //アニメーションを切り替える
-                    GetComponent<Animator>().Play("Ghost");
-                }
+                inAttack = true;
+                GetComponent<Animator>().Play("GhostAttack");
             }
-            else
+
+            //一定間隔で弾を撃つ
+            shootTimer += Time.deltaTime;
+            if (shootTimer >= shootInterval)
+            {
+                shootTimer = 0f;
+                Attack();
+            }
+        }
+        else
+        {
+            //離れたらアニメーションを戻す
+            if (inAttack)
             {
                 inAttack = false;
-                //アニメーションを切り替える
                 GetComponent<Animator>().Play("Ghost");
             }
         }
+
+            
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -69,8 +77,6 @@ public class GhostController : MonoBehaviour
                 GetComponent<Collider2D>().enabled = false;
                 //アニメーションを消す
                 GetComponent<Animator>().Play("GhostDead");
-
-                transform.localScale = new Vector3(1f, 1f, 1f);
 
                 //１秒後に消す
                 Destroy(gameObject, 1);
