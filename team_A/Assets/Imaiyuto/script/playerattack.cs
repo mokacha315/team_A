@@ -10,6 +10,7 @@ public class PlayerAttack : MonoBehaviour
     public float attackDuration = 0.2f;    // 攻撃判定の持続時間
     public Vector2 swordOffset = new Vector2(1.0f, 0f); // 基準のオフセット（右方向）
     public HeroController heroController;//HeroController参照取得
+    public int AttackPowe = 1;//攻撃力
 
     private bool inAttack = false;
     private GameObject sword;
@@ -67,10 +68,19 @@ public class PlayerAttack : MonoBehaviour
         if (heroController != null)
         {
             // 常に表示される剣の回転を設定
-            sword.transform.rotation = Quaternion.Euler(0, 0, heroController.angleZ);
+            float finalAngleZ = heroController.angleZ;
+            float flipY = 0f;
 
-            // 常に表示される剣のZ座標を設定 (キャラクターの前に出す/後ろに回す)
+            if (heroController.direction == 1)
+            {
+                flipY = 180f;
+            }
+            //それ以外の（右、左、下）ではflipYは０のまま
+            float swordBaseOffset = 0f;
+
+            sword.transform.rotation = Quaternion.Euler(0, flipY, finalAngleZ + swordBaseOffset);
             float swordz = -1; // 手前
+
             if (heroController.angleZ > 45 && heroController.angleZ < 150)
             {
                 // 上向きの時は奥に回す
@@ -80,7 +90,6 @@ public class PlayerAttack : MonoBehaviour
             {
                 swordz = -1;
             }
-
             // 剣の位置のZ軸だけを調整
             Vector3 currentPos = sword.transform.position;
             sword.transform.position = new Vector3(currentPos.x, currentPos.y, swordz);
@@ -108,10 +117,11 @@ public class PlayerAttack : MonoBehaviour
         sword_effect.SetActive(true);
 
         // エフェクトの回転をプレイヤーの向きに合わせて設定
-        sword_effect.transform.rotation = Quaternion.Euler(0, 0, heroController.angleZ);
+        float offsetAngle = 90.0f;
+        sword_effect.transform.rotation = Quaternion.Euler(180, 180, heroController.angleZ + offsetAngle);
 
         // プレイヤーの向き（angleZ）に合わせてエフェクトの相対位置を計算（swordOffset.x分離れた位置）
-        float angleRad = heroController.angleZ * Mathf.Deg2Rad + 45f;//斬撃の角度
+        float angleRad = heroController.angleZ * Mathf.Deg2Rad;//斬撃の角度
 
         // エフェクトのオフセット（剣先、攻撃判定の位置）
         Vector3 rotatedOffset = new Vector3(
