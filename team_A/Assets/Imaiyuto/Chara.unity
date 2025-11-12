@@ -636,6 +636,7 @@ GameObject:
   - component: {fileID: 618675273}
   - component: {fileID: 618675272}
   - component: {fileID: 618675278}
+  - component: {fileID: 618675279}
   m_Layer: 3
   m_Name: Hero
   m_TagString: Player
@@ -656,6 +657,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  direction: 0
   angleZ: -90
 --- !u!95 &618675273
 Animator:
@@ -814,7 +816,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7.59, y: -3.3}
+  m_AnchoredPosition: {x: -11.21, y: -2.94}
   m_SizeDelta: {x: 6.29, y: 9.62}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &618675278
@@ -829,11 +831,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8415956339e480c41a98d93853c535e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &618675279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618675271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 713b5c7a17564ca40876410f94460a23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   swordPrefab: {fileID: 8672377866418775581, guid: 214f1c17246a7fc4d80d9abbe3469036, type: 3}
   sword_effectPrefab: {fileID: 5479791115406603499, guid: f8b8de49e48a6f44db2fbfefefb4dd8f, type: 3}
   attackDuration: 0.2
   swordOffset: {x: 1, y: 0}
   heroController: {fileID: 0}
+  AttackPowe: 1
 --- !u!1 &816580690 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8240416008961685370, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
@@ -7380,11 +7395,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8415956339e480c41a98d93853c535e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swordPrefab: {fileID: 0}
-  sword_effectPrefab: {fileID: 0}
-  attackDuration: 0.2
-  swordOffset: {x: 1, y: 0}
-  heroController: {fileID: 0}
 --- !u!111 &1791744666
 Animation:
   m_ObjectHideFlags: 0
