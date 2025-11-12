@@ -462,7 +462,7 @@ MonoBehaviour:
   hp: 7
   reactionDistance: 15
   Speed: 0.5
-  bulletPrefab: {fileID: 5727219265703206059, guid: e38f06cc94fe4ad4d8673394e0a37f8e, type: 3}
+  bulletPrefab: {fileID: 6970960854110308251, guid: e38f06cc94fe4ad4d8673394e0a37f8e, type: 3}
   shootSpeed: 5
   shootInterval: 1.5
 --- !u!1 &345714412
@@ -916,6 +916,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  direction: 0
   angleZ: -90
 --- !u!95 &618675273
 Animator:
