@@ -460,11 +460,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 7
-  reactionDistance: 15
+  reactionDistance: 10
   Speed: 0.5
   bulletPrefab: {fileID: 6970960854110308251, guid: e38f06cc94fe4ad4d8673394e0a37f8e, type: 3}
-  shootSpeed: 5
-  shootInterval: 1.5
+  shootSpeed: 4
+  shootInterval: 8
 --- !u!1 &345714412
 GameObject:
   m_ObjectHideFlags: 0

@@ -27,6 +27,7 @@ public class GhostController : MonoBehaviour
     void Update()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player == null) return;
 
         Vector3 pr = player.transform.position;
         float dist = Vector2.Distance(transform.position, pr);
@@ -37,7 +38,7 @@ public class GhostController : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, pr, Speed * Time.deltaTime);
             
             //攻撃アニメーション
-            if (inAttack = false)
+            if (!inAttack)
             {
                 inAttack = true;
                 GetComponent<Animator>().Play("GhostAttack");
@@ -47,8 +48,8 @@ public class GhostController : MonoBehaviour
             shootTimer += Time.deltaTime;
             if (shootTimer >= shootInterval)
             {
-                shootTimer = 0f;
                 Attack();
+                shootTimer -= shootInterval;
             }
         }
         else
@@ -59,6 +60,9 @@ public class GhostController : MonoBehaviour
                 inAttack = false;
                 GetComponent<Animator>().Play("Ghost");
             }
+
+            //タイマーリセット
+            shootTimer = 0f;
         }
 
             
