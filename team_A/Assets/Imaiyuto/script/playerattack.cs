@@ -1,60 +1,60 @@
-using JetBrains.Annotations;
+ï»¿using JetBrains.Annotations;
 using System;
 using UnityEngine;
 using UnityEngine.Diagnostics;
 
 public class PlayerAttack : MonoBehaviour
 {
-    public GameObject swordPrefab;// Œ•‚ÌƒvƒŒƒnƒu (í‚É•\¦‚³‚ê‚éŒ©‚½–Ú)
-    public GameObject sword_effectPrefab;//Œ•‚ÌƒGƒtƒFƒNƒg‚ÌƒvƒŒƒnƒu (UŒ‚”»’è‚ğ‚Â)
-    public float attackDuration = 0.2f;    // UŒ‚”»’è‚Ì‘±ŠÔ
-    public Vector2 swordOffset = new Vector2(1.0f, 0f); // Šî€‚ÌƒIƒtƒZƒbƒgi‰E•ûŒüj
-    public HeroController heroController;//HeroControllerQÆæ“¾
-    public int AttackPowe = 1;//UŒ‚—Í
+    public GameObject swordPrefab;// å‰£ã®ãƒ—ãƒ¬ãƒãƒ– (å¸¸ã«è¡¨ç¤ºã•ã‚Œã‚‹è¦‹ãŸç›®)
+Â  Â  public GameObject sword_effectPrefab;//å‰£ã®ã‚¨ãƒ•ã‚§ã‚¯ãƒˆã®ãƒ—ãƒ¬ãƒãƒ– (æ”»æ’ƒåˆ¤å®šã‚’æŒã¤)
+Â  Â  public float attackDuration = 0.2f;Â  Â  // æ”»æ’ƒåˆ¤å®šã®æŒç¶šæ™‚é–“
+Â  Â  public Vector2 swordOffset = new Vector2(1.0f, 0f); // åŸºæº–ã®ã‚ªãƒ•ã‚»ãƒƒãƒˆï¼ˆå³æ–¹å‘ï¼‰
+Â  Â  public HeroController heroController;//HeroControllerå‚ç…§å–å¾—
+Â  Â  public int AttackPowe = 1;//æ”»æ’ƒåŠ›
 
-    private bool inAttack = false;
+Â  Â  private bool inAttack = false;
     private GameObject sword;
     private GameObject sword_effect;
-    private Transform swordTransform; // sword ‚Ì Transform
-    private Transform effectTransform; // sword_effect ‚Ì Transform
+    private Transform swordTransform; // sword ã® Transform
+Â  Â  private Transform effectTransform; // sword_effect ã® Transform
 
 
-    void Start()
+Â  Â  void Start()
     {
-        //HeroController‚Ö‚ÌQÆæ“¾
-        if (heroController == null)
+Â  Â  Â  Â  //HeroControllerã¸ã®å‚ç…§å–å¾—
+Â  Â  Â  Â  if (heroController == null)
         {
             heroController = GetComponent<HeroController>();
         }
-        // Œ•‚ÆŒ•‚ÌƒGƒtƒFƒNƒg‚ğƒvƒŒƒCƒ„[‚ÌqƒIƒuƒWƒFƒNƒg‚Æ‚µ‚Ä¶¬
-        sword = Instantiate(swordPrefab, transform);
+Â  Â  Â  Â  // å‰£ã¨å‰£ã®ã‚¨ãƒ•ã‚§ã‚¯ãƒˆã‚’ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®å­ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¨ã—ã¦ç”Ÿæˆ
+Â  Â  Â  Â  sword = Instantiate(swordPrefab, transform);
         sword_effect = Instantiate(sword_effectPrefab, transform);
         swordTransform = sword.transform;
         effectTransform = sword_effect.transform;
 
-        // í‚ÉŒ•‚Ìƒ‚ƒfƒ‹‚ğ•\¦‚·‚é
-        sword.SetActive(true);
-        // UŒ‚”»’è‚ğ‚ÂƒGƒtƒFƒNƒg‚Í‰Šú‚Í”ñ•\¦
-        sword_effect.SetActive(false);
+Â  Â  Â  Â  // å¸¸ã«å‰£ã®ãƒ¢ãƒ‡ãƒ«ã‚’è¡¨ç¤ºã™ã‚‹
+Â  Â  Â  Â  sword.SetActive(true);
+Â  Â  Â  Â  // æ”»æ’ƒåˆ¤å®šã‚’æŒã¤ã‚¨ãƒ•ã‚§ã‚¯ãƒˆã¯åˆæœŸã¯éè¡¨ç¤º
+Â  Â  Â  Â  sword_effect.SetActive(false);
 
-        // Œ•‚Ì‰ŠúˆÊ’u‚ğƒvƒŒƒCƒ„[‚Ì‚»‚Î‚Éİ’èiƒIƒtƒZƒbƒg‚ğ“K—p‚µ‚Ä©‘R‚É‚Âj
-        // Œ•‚ğ‚ÂˆÊ’u‚ğ’²® (—á: ƒvƒŒƒCƒ„[‚©‚ç­‚µ—£‚ê‚½ˆÊ’u)
-        // ‚±‚±‚Å‚ÍAAttack()‚Ås‚¤Šp“xŒvZ‚ğ—¬—p‚µAƒjƒ…[ƒgƒ‰ƒ‹‚ÈˆÊ’u‚Éİ’è‚µ‚Ü‚·
-        if (heroController != null)
+Â  Â  Â  Â  // å‰£ã®åˆæœŸä½ç½®ã‚’ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ãã°ã«è¨­å®šï¼ˆã‚ªãƒ•ã‚»ãƒƒãƒˆã‚’é©ç”¨ã—ã¦è‡ªç„¶ã«æŒã¤ï¼‰
+Â  Â  Â  Â  // å‰£ã‚’æŒã¤ä½ç½®ã‚’èª¿æ•´ (ä¾‹: ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã‹ã‚‰å°‘ã—é›¢ã‚ŒãŸä½ç½®)
+Â  Â  Â  Â  // ã“ã“ã§ã¯ã€Attack()ã§è¡Œã†è§’åº¦è¨ˆç®—ã‚’æµç”¨ã—ã€ãƒ‹ãƒ¥ãƒ¼ãƒˆãƒ©ãƒ«ãªä½ç½®ã«è¨­å®šã—ã¾ã™
+Â  Â  Â  Â  if (heroController != null)
         {
-            // heroController‚ÌangleZ‚ª0i‰Ej‚Ü‚½‚Í180i¶j‚Ìê‡‚É‡‚í‚¹‚é
-            float angleRad = (heroController.angleZ != 0 ? heroController.angleZ : 0) * Mathf.Deg2Rad;
+Â  Â  Â  Â  Â  Â  // heroControllerã®angleZãŒ0ï¼ˆå³ï¼‰ã¾ãŸã¯180ï¼ˆå·¦ï¼‰ã®å ´åˆã«åˆã‚ã›ã‚‹
+Â  Â  Â  Â  Â  Â  float angleRad = (heroController.angleZ != 0 ? heroController.angleZ : 0) * Mathf.Deg2Rad;
             Vector3 initialOffset = new Vector3(
-                Mathf.Cos(angleRad) * (swordOffset.x * 0.5f), // UŒ‚‚æ‚è­‚µ‹ß‚­
-                Mathf.Sin(angleRad) * (swordOffset.x * 0.5f),
-                0
+              Mathf.Cos(angleRad) * (swordOffset.x * 0.5f), // æ”»æ’ƒæ™‚ã‚ˆã‚Šå°‘ã—è¿‘ã
+                      Mathf.Sin(angleRad) * (swordOffset.x * 0.5f),
+              0
             );
             swordTransform.localPosition = initialOffset;
         }
         else
         {
-            // heroController‚ª‚È‚¢ê‡‚Ì‰ŠúˆÊ’u
-            swordTransform.localPosition = new Vector3(swordOffset.x * 0.5f, 0, 0);
+Â  Â  Â  Â  Â  Â  // heroControllerãŒãªã„å ´åˆã®åˆæœŸä½ç½®
+Â  Â  Â  Â  Â  Â  swordTransform.localPosition = new Vector3(swordOffset.x * 0.5f, 0, 0);
         }
     }
 
@@ -67,40 +67,46 @@ public class PlayerAttack : MonoBehaviour
 
         if (heroController != null)
         {
-            // í‚É•\¦‚³‚ê‚éŒ•‚Ì‰ñ“]‚ğİ’è
-            float finalAngleZ = heroController.angleZ;
-            float flipY = 0f;
+                // å¸¸ã«è¡¨ç¤ºã•ã‚Œã‚‹å‰£ã®å›è»¢ã‚’è¨­å®š
+                float finalAngleZ = heroController.angleZ;
+                float flipY = 0f;
 
-            if (heroController.direction == 1)
+                if (heroController.direction == 1) // å·¦å‘ãã®å ´åˆ
+                {
+                    flipY = 180f;
+
+                    // â˜… è¿½åŠ ãƒ»ä¿®æ­£: å‰£ã®ä¸Šä¸‹åè»¢ã‚’é˜²ããŸã‚ã€Zè»¸ã®å›è»¢ã‚’æ‰“ã¡æ¶ˆã™
+                    // angleZãŒ180ã®ã¨ãã€finalAngleZãŒç´„0åº¦ã«ãªã‚‹ã‚ˆã†ã«èª¿æ•´
+                    finalAngleZ -= 180f;
+                }
+
+                float swordBaseOffset = 0f;
+
+                // Yè»¸ã§åè»¢ã—ã€Zè»¸ã§å‘ãã®å¾®èª¿æ•´ã‚’è¡Œã†
+                sword.transform.rotation = Quaternion.Euler(0, flipY, finalAngleZ + swordBaseOffset);
+
+                float swordz = -1; // æ‰‹å‰
+
+Â  Â  Â  Â  Â  Â  if (heroController.angleZ > 45 && heroController.angleZ < 150)
             {
-                flipY = 180f;
-            }
-            //‚»‚êˆÈŠO‚Ìi‰EA¶A‰ºj‚Å‚ÍflipY‚Í‚O‚Ì‚Ü‚Ü
-            float swordBaseOffset = 0f;
-
-            sword.transform.rotation = Quaternion.Euler(0, flipY, finalAngleZ + swordBaseOffset);
-            float swordz = -1; // è‘O
-
-            if (heroController.angleZ > 45 && heroController.angleZ < 150)
-            {
-                // ãŒü‚«‚Ì‚Í‰œ‚É‰ñ‚·
-                swordz = 100;
+Â  Â  Â  Â  Â  Â  Â  Â  // ä¸Šå‘ãã®æ™‚ã¯å¥¥ã«å›ã™
+Â  Â  Â  Â  Â  Â  Â  Â  swordz = 100;
             }
             else
             {
                 swordz = -1;
             }
-            // Œ•‚ÌˆÊ’u‚ÌZ²‚¾‚¯‚ğ’²®
-            Vector3 currentPos = sword.transform.position;
+Â  Â  Â  Â  Â  Â  // å‰£ã®ä½ç½®ã®Zè»¸ã ã‘ã‚’èª¿æ•´
+Â  Â  Â  Â  Â  Â  Vector3 currentPos = sword.transform.position;
             sword.transform.position = new Vector3(currentPos.x, currentPos.y, swordz);
 
-            // ƒGƒtƒFƒNƒg‚Ì‰ñ“]‚Í Update() ‚Å‚Íİ’è‚¹‚¸AAttack() ‚Åˆê“x‚¾‚¯İ’è‚µ‚Ü‚·B
-            // í‚É•\¦‚³‚ê‚éŒ•‚ÌˆÊ’u‚ğ–ˆƒtƒŒ[ƒ€XViÃ“I‚ÈƒIƒtƒZƒbƒg‚Ì‚İ‚Åj
-            float angleRad = heroController.angleZ * Mathf.Deg2Rad;
+Â  Â  Â  Â  Â  Â  // ã‚¨ãƒ•ã‚§ã‚¯ãƒˆã®å›è»¢ã¯ Update() ã§ã¯è¨­å®šã›ãšã€Attack() ã§ä¸€åº¦ã ã‘è¨­å®šã—ã¾ã™ã€‚
+Â  Â  Â  Â  Â  Â  // å¸¸ã«è¡¨ç¤ºã•ã‚Œã‚‹å‰£ã®ä½ç½®ã‚’æ¯ãƒ•ãƒ¬ãƒ¼ãƒ æ›´æ–°ï¼ˆé™çš„ãªã‚ªãƒ•ã‚»ãƒƒãƒˆã®ã¿ã§ï¼‰
+Â  Â  Â  Â  Â  Â  float angleRad = heroController.angleZ * Mathf.Deg2Rad;
             Vector3 initialOffset = new Vector3(
-                Mathf.Cos(angleRad) * (swordOffset.x * 0.5f), // UŒ‚‚æ‚è­‚µ‹ß‚­
-                Mathf.Sin(angleRad) * (swordOffset.x * 0.5f),
-                0
+              Mathf.Cos(angleRad) * (swordOffset.x * 0.5f), // æ”»æ’ƒæ™‚ã‚ˆã‚Šå°‘ã—è¿‘ã
+                      Mathf.Sin(angleRad) * (swordOffset.x * 0.5f),
+              0
             );
             swordTransform.localPosition = initialOffset;
         }
@@ -111,50 +117,51 @@ public class PlayerAttack : MonoBehaviour
         if (heroController == null) return;
 
         inAttack = true;
-        // Œ•‚Ìƒ‚ƒfƒ‹‚Íí‚É•\¦
+Â  Â  Â  Â  // å‰£ã®ãƒ¢ãƒ‡ãƒ«ã¯å¸¸ã«è¡¨ç¤º
 
-        // UŒ‚”»’è‚ğ‚ÂƒGƒtƒFƒNƒg‚ğ•\¦
-        sword_effect.SetActive(true);
+Â  Â  Â  Â  // æ”»æ’ƒåˆ¤å®šã‚’æŒã¤ã‚¨ãƒ•ã‚§ã‚¯ãƒˆã‚’è¡¨ç¤º
+Â  Â  Â  Â  sword_effect.SetActive(true);
 
-        // ƒGƒtƒFƒNƒg‚Ì‰ñ“]‚ğƒvƒŒƒCƒ„[‚ÌŒü‚«‚É‡‚í‚¹‚Äİ’è
-        float offsetAngle = 90.0f;
+Â  Â  Â  Â  // ã‚¨ãƒ•ã‚§ã‚¯ãƒˆã®å›è»¢ã‚’ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®å‘ãã«åˆã‚ã›ã¦è¨­å®š
+Â  Â  Â  Â  float offsetAngle = 90.0f;
         sword_effect.transform.rotation = Quaternion.Euler(180, 180, heroController.angleZ + offsetAngle);
 
-        // ƒvƒŒƒCƒ„[‚ÌŒü‚«iangleZj‚É‡‚í‚¹‚ÄƒGƒtƒFƒNƒg‚Ì‘Š‘ÎˆÊ’u‚ğŒvZiswordOffset.x•ª—£‚ê‚½ˆÊ’uj
-        float angleRad = heroController.angleZ * Mathf.Deg2Rad;//aŒ‚‚ÌŠp“x
+Â  Â  Â  Â  // ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®å‘ãï¼ˆangleZï¼‰ã«åˆã‚ã›ã¦ã‚¨ãƒ•ã‚§ã‚¯ãƒˆã®ç›¸å¯¾ä½ç½®ã‚’è¨ˆç®—ï¼ˆswordOffset.xåˆ†é›¢ã‚ŒãŸä½ç½®ï¼‰
+Â  Â  Â  Â  float angleRad = heroController.angleZ * Mathf.Deg2Rad;//æ–¬æ’ƒã®è§’åº¦
 
-        // ƒGƒtƒFƒNƒg‚ÌƒIƒtƒZƒbƒgiŒ•æAUŒ‚”»’è‚ÌˆÊ’uj
-        Vector3 rotatedOffset = new Vector3(
-            Mathf.Cos(angleRad) * swordOffset.x,
-            Mathf.Sin(angleRad) * swordOffset.x,
-            0
-        );
+Â  Â  Â  Â  // ã‚¨ãƒ•ã‚§ã‚¯ãƒˆã®ã‚ªãƒ•ã‚»ãƒƒãƒˆï¼ˆå‰£å…ˆã€æ”»æ’ƒåˆ¤å®šã®ä½ç½®ï¼‰
+Â  Â  Â  Â  Vector3 rotatedOffset = new Vector3(
+      Mathf.Cos(angleRad) * swordOffset.x,
+      Mathf.Sin(angleRad) * swordOffset.x,
+      0
+    );
 
-        // ƒGƒtƒFƒNƒg‚Ìƒ[ƒJƒ‹À•W‚ğİ’è
-        effectTransform.localPosition = rotatedOffset;
+Â  Â  Â  Â  // ã‚¨ãƒ•ã‚§ã‚¯ãƒˆã®ãƒ­ãƒ¼ã‚«ãƒ«åº§æ¨™ã‚’è¨­å®š
+Â  Â  Â  Â  effectTransform.localPosition = rotatedOffset;
 
-        // ƒGƒtƒFƒNƒg‚ÌZÀ•W‚ÍŒ•‚Æ“¯‚¶‚©A­‚µè‘O/‰œ
-        Vector3 currentSwordPos = sword.transform.position;
+Â  Â  Â  Â  // ã‚¨ãƒ•ã‚§ã‚¯ãƒˆã®Zåº§æ¨™ã¯å‰£ã¨åŒã˜ã‹ã€å°‘ã—æ‰‹å‰/å¥¥
+Â  Â  Â  Â  Vector3 currentSwordPos = sword.transform.position;
         sword_effect.transform.position = new Vector3(
-            currentSwordPos.x + rotatedOffset.x,
-            currentSwordPos.y + rotatedOffset.y,
-            currentSwordPos.z - 0.01f // Œ•‚æ‚è­‚µè‘O‚Éo‚·
-        );
+          currentSwordPos.x + rotatedOffset.x,
+          currentSwordPos.y + rotatedOffset.y,
+          currentSwordPos.z - 0.01f // å‰£ã‚ˆã‚Šå°‘ã—æ‰‹å‰ã«å‡ºã™
+            );
 
 
-        Debug.Log($"UŒ‚ŠJnI ƒGƒtƒFƒNƒg‚ÌˆÊ’uiƒ[ƒJƒ‹j: {effectTransform.localPosition} Šp“x: {heroController.angleZ}");
+        Debug.Log($"æ”»æ’ƒé–‹å§‹ï¼ ã‚¨ãƒ•ã‚§ã‚¯ãƒˆã®ä½ç½®ï¼ˆãƒ­ãƒ¼ã‚«ãƒ«ï¼‰: {effectTransform.localPosition} è§’åº¦: {heroController.angleZ}");
 
         Invoke(nameof(StopAttack), attackDuration);
     }
 
     void StopAttack()
     {
-        // Œ•‚Ìƒ‚ƒfƒ‹‚Í”ñ•\¦‚É‚µ‚È‚¢
+Â  Â  Â  Â  // å‰£ã®ãƒ¢ãƒ‡ãƒ«ã¯éè¡¨ç¤ºã«ã—ãªã„
 
-        // UŒ‚”»’è‚ğ‚ÂƒGƒtƒFƒNƒg‚ğ”ñ•\¦‚É‚·‚é
-        sword_effect.SetActive(false);
+Â  Â  Â  Â  // æ”»æ’ƒåˆ¤å®šã‚’æŒã¤ã‚¨ãƒ•ã‚§ã‚¯ãƒˆã‚’éè¡¨ç¤ºã«ã™ã‚‹
+Â  Â  Â  Â  sword_effect.SetActive(false);
         inAttack = false;
-        Debug.Log("UŒ‚I—¹I");
+        Debug.Log("æ”»æ’ƒçµ‚äº†ï¼");
     }
 }
 
+    
