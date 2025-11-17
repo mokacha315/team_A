@@ -6,74 +6,59 @@ using UnityEngine.Diagnostics;
 public class PlayerAttack : MonoBehaviour
 {
     public GameObject swordPrefab;// 剣のプレハブ (常に表示される見た目)
-    public GameObject sword_effectPrefab;//剣のエフェクトのプレハブ (攻撃判定を持つ)
-    public float attackDuration = 0.2f;    // 攻撃判定の持続時間
-    public Vector2 swordOffset = new Vector2(1.0f, 0f); // 基準のオフセット（右方向）
-    public HeroController heroController;//HeroController参照取得
-    public int AttackPowe = 1;//攻撃力
+    public GameObject sword_effectPrefab;//剣のエフェクトのプレハブ (攻撃判定を持つ)
+    public float attackDuration = 0.2f;    // 攻撃判定の持続時間
+    public Vector2 swordOffset = new Vector2(1.0f, 0f); // 基準のオフセット（右方向）
+    public HeroController heroController;//HeroController参照取得
+    public int AttackPowe = 1;//攻撃力
 
-    private bool inAttack = false;
+    private bool inAttack = false;
     private GameObject sword;
     private GameObject sword_effect;
-<<<<<<< HEAD
     private Transform swordTransform; // sword の Transform
-    private Transform effectTransform; // sword_effect の Transform
+    private Transform effectTransform; // sword_effect の Transform
+    private SpriteRenderer swordSpriteRenderer; // ★ 追加: 剣のSpriteRendererをキャッシュ
 
-=======
-    private Transform swordTransform; // sword �� Transform
-    private Transform effectTransform; // sword_effect �� Transform
-    private SpriteRenderer swordSpriteRenderer;
->>>>>>> e629533 (中身わからん)
 
-    void Start()
+    void Start()
     {
-        //HeroControllerへの参照取得
-        if (heroController == null)
+        //HeroControllerへの参照取得
+        if (heroController == null)
         {
             heroController = GetComponent<HeroController>();
         }
-        // 剣と剣のエフェクトをプレイヤーの子オブジェクトとして生成
-        sword = Instantiate(swordPrefab, transform);
+        // 剣と剣のエフェクトをプレイヤーの子オブジェクトとして生成
+        sword = Instantiate(swordPrefab, transform);
         sword_effect = Instantiate(sword_effectPrefab, transform);
         swordTransform = sword.transform;
         effectTransform = sword_effect.transform;
 
-<<<<<<< HEAD
-        // 常に剣のモデルを表示する
-        sword.SetActive(true);
-        // 攻撃判定を持つエフェクトは初期は非表示
-        sword_effect.SetActive(false);
-=======
-        //����spriteRendere���擾���ăL���b�V��
+        // ★ 追加: 剣のSpriteRendererを取得してキャッシュ
         swordSpriteRenderer = sword.GetComponent<SpriteRenderer>();
         if (swordSpriteRenderer == null)
         {
             Debug.LogError("Sword prefab must have a SpriteRenderer component.");
         }
-        // ��Ɍ��̃��f����\������
-        sword.SetActive(true);
-        // �U����������G�t�F�N�g�͏����͔�\��
-        sword_effect.SetActive(false);
->>>>>>> e629533 (中身わからん)
 
-        // 剣の初期位置をプレイヤーのそばに設定（オフセットを適用して自然に持つ）
-        // 剣を持つ位置を調整 (例: プレイヤーから少し離れた位置)
-        // ここでは、Attack()で行う角度計算を流用し、ニュートラルな位置に設定します
-        if (heroController != null)
+        // 常に剣のモデルを表示する
+        sword.SetActive(true);
+        // 攻撃判定を持つエフェクトは初期は非表示
+        sword_effect.SetActive(false);
+
+        // 剣の初期位置をプレイヤーのそばに設定（オフセットを適用して自然に持つ）
+        if (heroController != null)
         {
-            // heroControllerのangleZが0（右）または180（左）の場合に合わせる
-            float angleRad = (heroController.angleZ != 0 ? heroController.angleZ : 0) * Mathf.Deg2Rad;
+            float angleRad = (heroController.angleZ != 0 ? heroController.angleZ : 0) * Mathf.Deg2Rad;
             Vector3 initialOffset = new Vector3(
-              Mathf.Cos(angleRad) * (swordOffset.x * 0.5f), // 攻撃時より少し近く
-                      Mathf.Sin(angleRad) * (swordOffset.x * 0.5f),
-              0
+                Mathf.Cos(angleRad) * (swordOffset.x * 0.5f), // 攻撃時より少し近く
+                Mathf.Sin(angleRad) * (swordOffset.x * 0.5f),
+                0
             );
             swordTransform.localPosition = initialOffset;
         }
         else
         {
-            // heroControllerがない場合の初期位置
-            swordTransform.localPosition = new Vector3(swordOffset.x * 0.5f, 0, 0);
+            swordTransform.localPosition = new Vector3(swordOffset.x * 0.5f, 0, 0);
         }
     }
 
@@ -86,70 +71,49 @@ public class PlayerAttack : MonoBehaviour
 
         if (heroController != null)
         {
-<<<<<<< HEAD
-                // 常に表示される剣の回転を設定
-                float finalAngleZ = heroController.angleZ;
-                float flipY = 0f;
-
-                if (heroController.direction == 1) // 左向きの場合
-                {
-                    flipY = 180f;
-
-                    // ★ 追加・修正: 剣の上下反転を防ぐため、Z軸の回転を打ち消す
-                    // angleZが180のとき、finalAngleZが約0度になるように調整
-                    finalAngleZ -= 180f;
-                }
-
-                float swordBaseOffset = 0f;
-
-                // Y軸で反転し、Z軸で向きの微調整を行う
-                sword.transform.rotation = Quaternion.Euler(0, flipY, finalAngleZ + swordBaseOffset);
-
-                float swordz = -1; // 手前
-
-            if (heroController.angleZ > 45 && heroController.angleZ < 150)
-            {
-                // 上向きの時は奥に回す
-                swordz = 100;
-=======
-            // ��ɕ\������錕�̉�]��ݒ�
+            // ★ 修正: Y軸回転 (flipY) のロジックを削除し、SpriteRenderer.flipX を使用
             float finalAngleZ = heroController.angleZ;
+            // float flipY = 0f; // この行は不要
 
-            if (heroController.direction == 1)//�������̎�
+            if (swordSpriteRenderer != null)
             {
-                swordSpriteRenderer.flipX = true;
+                if (heroController.direction == 1) // direction == 1 は左向きと仮定
+                {
+                    swordSpriteRenderer.flipX = true; // 剣のSpriteをX軸で反転
+                }
+                else // 右向きの場合
+                {
+                    swordSpriteRenderer.flipX = false; // 反転を解除
+                }
             }
-            else//�E�����̏ꍇ
-            {
-                swordSpriteRenderer.flipX = false;//���]����
-            }
-                //���̔��]��Z���݂̂Ő��䂷��
-                float swordBaseOffset = 0f;
+
+            // 剣の回転はZ軸のみで制御し、Y軸は常に0に
+            float swordBaseOffset = 0f; // 必要に応じて調整
             sword.transform.rotation = Quaternion.Euler(0, 0, finalAngleZ + swordBaseOffset);
+            // ↑ ここで Y軸回転は 0 に固定します。
 
-            float swordz = -1; // ��O
+            // ... (Z軸の並び順調整のコードはそのまま)
+            float swordz = -1; // 手前
 
             if (heroController.angleZ > 45 && heroController.angleZ < 150)
             {
-                // ������̎��͉��ɉ�
+                // 上向きの時は奥に回す
                 swordz = 100;
->>>>>>> e629533 (中身わからん)
             }
             else
             {
                 swordz = -1;
             }
-            // 剣の位置のZ軸だけを調整
-            Vector3 currentPos = sword.transform.position;
+            // 剣の位置のZ軸だけを調整
+            Vector3 currentPos = sword.transform.position;
             sword.transform.position = new Vector3(currentPos.x, currentPos.y, swordz);
 
-            // エフェクトの回転は Update() では設定せず、Attack() で一度だけ設定します。
-            // 常に表示される剣の位置を毎フレーム更新（静的なオフセットのみで）
-            float angleRad = heroController.angleZ * Mathf.Deg2Rad;
+            // 常に表示される剣の位置を毎フレーム更新（静的なオフセットのみで）
+            float angleRad = heroController.angleZ * Mathf.Deg2Rad;
             Vector3 initialOffset = new Vector3(
-              Mathf.Cos(angleRad) * (swordOffset.x * 0.5f), // 攻撃時より少し近く
-                      Mathf.Sin(angleRad) * (swordOffset.x * 0.5f),
-              0
+                Mathf.Cos(angleRad) * (swordOffset.x * 0.5f), // 攻撃時より少し近く
+                Mathf.Sin(angleRad) * (swordOffset.x * 0.5f),
+                0
             );
             swordTransform.localPosition = initialOffset;
         }
@@ -160,35 +124,51 @@ public class PlayerAttack : MonoBehaviour
         if (heroController == null) return;
 
         inAttack = true;
-        // 剣のモデルは常に表示
+        // 剣のモデルは常に表示
 
-        // 攻撃判定を持つエフェクトを表示
-        sword_effect.SetActive(true);
+        // 攻撃判定を持つエフェクトを表示
+        sword_effect.SetActive(true);
 
-        // エフェクトの回転をプレイヤーの向きに合わせて設定
-        float offsetAngle = 90.0f;
-        sword_effect.transform.rotation = Quaternion.Euler(180, 180, heroController.angleZ + offsetAngle);
+        // エフェクトの回転をプレイヤーの向きに合わせて設定
+        // ★ エフェクトの回転もY軸回転は0に固定し、flipXで反転させるように変更
+        float offsetAngle = 90.0f;
+        sword_effect.transform.rotation = Quaternion.Euler(180, 0, heroController.angleZ + offsetAngle); // Y軸を0に
 
-        // プレイヤーの向き（angleZ）に合わせてエフェクトの相対位置を計算（swordOffset.x分離れた位置）
-        float angleRad = heroController.angleZ * Mathf.Deg2Rad;//斬撃の角度
+        // ★ エフェクトのSpriteRendererもflipXで反転させる
+        SpriteRenderer effectSpriteRenderer = sword_effect.GetComponent<SpriteRenderer>();
+        if (effectSpriteRenderer != null)
+        {
+            if (heroController.direction == 1) // 左向きの場合
+            {
+                effectSpriteRenderer.flipX = true;
+            }
+            else
+            {
+                effectSpriteRenderer.flipX = false;
+            }
+        }
 
-        // エフェクトのオフセット（剣先、攻撃判定の位置）
-        Vector3 rotatedOffset = new Vector3(
-      Mathf.Cos(angleRad) * swordOffset.x,
-      Mathf.Sin(angleRad) * swordOffset.x,
-      0
-    );
 
-        // エフェクトのローカル座標を設定
-        effectTransform.localPosition = rotatedOffset;
+        // プレイヤーの向き（angleZ）に合わせてエフェクトの相対位置を計算（swordOffset.x分離れた位置）
+        float angleRad = heroController.angleZ * Mathf.Deg2Rad;//斬撃の角度
 
-        // エフェクトのZ座標は剣と同じか、少し手前/奥
-        Vector3 currentSwordPos = sword.transform.position;
+        // エフェクトのオフセット（剣先、攻撃判定の位置）
+        Vector3 rotatedOffset = new Vector3(
+            Mathf.Cos(angleRad) * swordOffset.x,
+            Mathf.Sin(angleRad) * swordOffset.x,
+            0
+        );
+
+        // エフェクトのローカル座標を設定
+        effectTransform.localPosition = rotatedOffset;
+
+        // エフェクトのZ座標は剣と同じか、少し手前/奥
+        Vector3 currentSwordPos = sword.transform.position;
         sword_effect.transform.position = new Vector3(
-          currentSwordPos.x + rotatedOffset.x,
-          currentSwordPos.y + rotatedOffset.y,
-          currentSwordPos.z - 0.01f // 剣より少し手前に出す
-            );
+            currentSwordPos.x + rotatedOffset.x,
+            currentSwordPos.y + rotatedOffset.y,
+            currentSwordPos.z - 0.01f // 剣より少し手前に出す
+        );
 
 
         Debug.Log($"攻撃開始！ エフェクトの位置（ローカル）: {effectTransform.localPosition} 角度: {heroController.angleZ}");
@@ -198,13 +178,11 @@ public class PlayerAttack : MonoBehaviour
 
     void StopAttack()
     {
-        // 剣のモデルは非表示にしない
+        // 剣のモデルは非表示にしない
 
-        // 攻撃判定を持つエフェクトを非表示にする
-        sword_effect.SetActive(false);
+        // 攻撃判定を持つエフェクトを非表示にする
+        sword_effect.SetActive(false);
         inAttack = false;
         Debug.Log("攻撃終了！");
     }
 }
-
-    
