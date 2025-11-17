@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6b05b38812501d14ab23b721b747877f
+guid: fcbb63e0121c0ec4cb122e73e11a2100
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -373764877966455345
-    second: half Ghost_0
+      213: 6545832062493251571
+    second: Ghost Dead_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: half Ghost_0
+      name: Ghost Dead_0
       rect:
         serializedVersion: 2
-        x: 153
-        y: 540
-        width: 624
-        height: 592
+        x: 53
+        y: 45
+        width: 962
+        height: 965
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fcdca43e2de10daf0800000000000000
-      internalID: -373764877966455345
+      spriteID: 3f7d54c549777da50800000000000000
+      internalID: 6545832062493251571
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      half Ghost_0: -373764877966455345
+      Ghost Dead_0: 6545832062493251571
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
