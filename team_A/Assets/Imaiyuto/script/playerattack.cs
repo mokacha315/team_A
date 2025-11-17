@@ -15,9 +15,15 @@ public class PlayerAttack : MonoBehaviour
 Â  Â  private bool inAttack = false;
     private GameObject sword;
     private GameObject sword_effect;
+<<<<<<< HEAD
     private Transform swordTransform; // sword ã® Transform
 Â  Â  private Transform effectTransform; // sword_effect ã® Transform
 
+=======
+    private Transform swordTransform; // sword ‚Ì Transform
+    private Transform effectTransform; // sword_effect ‚Ì Transform
+    private SpriteRenderer swordSpriteRenderer;
+>>>>>>> e629533 (ä¸­èº«ã‚ã‹ã‚‰ã‚“)
 
 Â  Â  void Start()
     {
@@ -32,10 +38,23 @@ public class PlayerAttack : MonoBehaviour
         swordTransform = sword.transform;
         effectTransform = sword_effect.transform;
 
+<<<<<<< HEAD
 Â  Â  Â  Â  // å¸¸ã«å‰£ã®ãƒ¢ãƒ‡ãƒ«ã‚’è¡¨ç¤ºã™ã‚‹
 Â  Â  Â  Â  sword.SetActive(true);
 Â  Â  Â  Â  // æ”»æ’ƒåˆ¤å®šã‚’æŒã¤ã‚¨ãƒ•ã‚§ã‚¯ãƒˆã¯åˆæœŸã¯éè¡¨ç¤º
 Â  Â  Â  Â  sword_effect.SetActive(false);
+=======
+        //Œ•‚ÌspriteRendere‚ğæ“¾‚µ‚ÄƒLƒƒƒbƒVƒ…
+        swordSpriteRenderer = sword.GetComponent<SpriteRenderer>();
+        if (swordSpriteRenderer == null)
+        {
+            Debug.LogError("Sword prefab must have a SpriteRenderer component.");
+        }
+        // í‚ÉŒ•‚Ìƒ‚ƒfƒ‹‚ğ•\¦‚·‚é
+        sword.SetActive(true);
+        // UŒ‚”»’è‚ğ‚ÂƒGƒtƒFƒNƒg‚Í‰Šú‚Í”ñ•\¦
+        sword_effect.SetActive(false);
+>>>>>>> e629533 (ä¸­èº«ã‚ã‹ã‚‰ã‚“)
 
 Â  Â  Â  Â  // å‰£ã®åˆæœŸä½ç½®ã‚’ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ãã°ã«è¨­å®šï¼ˆã‚ªãƒ•ã‚»ãƒƒãƒˆã‚’é©ç”¨ã—ã¦è‡ªç„¶ã«æŒã¤ï¼‰
 Â  Â  Â  Â  // å‰£ã‚’æŒã¤ä½ç½®ã‚’èª¿æ•´ (ä¾‹: ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã‹ã‚‰å°‘ã—é›¢ã‚ŒãŸä½ç½®)
@@ -67,6 +86,7 @@ public class PlayerAttack : MonoBehaviour
 
         if (heroController != null)
         {
+<<<<<<< HEAD
                 // å¸¸ã«è¡¨ç¤ºã•ã‚Œã‚‹å‰£ã®å›è»¢ã‚’è¨­å®š
                 float finalAngleZ = heroController.angleZ;
                 float flipY = 0f;
@@ -91,6 +111,29 @@ public class PlayerAttack : MonoBehaviour
             {
 Â  Â  Â  Â  Â  Â  Â  Â  // ä¸Šå‘ãã®æ™‚ã¯å¥¥ã«å›ã™
 Â  Â  Â  Â  Â  Â  Â  Â  swordz = 100;
+=======
+            // í‚É•\¦‚³‚ê‚éŒ•‚Ì‰ñ“]‚ğİ’è
+            float finalAngleZ = heroController.angleZ;
+
+            if (heroController.direction == 1)//¶Œü‚«‚Ì
+            {
+                swordSpriteRenderer.flipX = true;
+            }
+            else//‰EŒü‚«‚Ìê‡
+            {
+                swordSpriteRenderer.flipX = false;//”½“]‰ğœ
+            }
+                //Œ•‚Ì”½“]‚ÍZ²‚Ì‚İ‚Å§Œä‚·‚é
+                float swordBaseOffset = 0f;
+            sword.transform.rotation = Quaternion.Euler(0, 0, finalAngleZ + swordBaseOffset);
+
+            float swordz = -1; // è‘O
+
+            if (heroController.angleZ > 45 && heroController.angleZ < 150)
+            {
+                // ãŒü‚«‚Ì‚Í‰œ‚É‰ñ‚·
+                swordz = 100;
+>>>>>>> e629533 (ä¸­èº«ã‚ã‹ã‚‰ã‚“)
             }
             else
             {
