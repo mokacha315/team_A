@@ -132,7 +132,7 @@ public class PlayerAttack : MonoBehaviour
         // エフェクトの回転をプレイヤーの向きに合わせて設定
         // ★ エフェクトの回転もY軸回転は0に固定し、flipXで反転させるように変更
         float offsetAngle = 90.0f;
-        sword_effect.transform.rotation = Quaternion.Euler(180, 0, heroController.angleZ + offsetAngle); // Y軸を0に
+        sword_effect.transform.rotation = Quaternion.Euler(180, 180, heroController.angleZ + offsetAngle); // Y軸を0に
 
         // ★ エフェクトのSpriteRendererもflipXで反転させる
         SpriteRenderer effectSpriteRenderer = sword_effect.GetComponent<SpriteRenderer>();
