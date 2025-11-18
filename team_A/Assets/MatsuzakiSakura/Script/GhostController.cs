@@ -48,8 +48,11 @@ public class GhostController : MonoBehaviour
             shootTimer += Time.deltaTime;
             if (shootTimer >= shootInterval)
             {
+                GetComponent<Animator>().Play("GhostAttack");
+
+
                 Attack();
-                shootTimer -= shootInterval;
+                shootTimer = 0f;
             }
         }
         else
