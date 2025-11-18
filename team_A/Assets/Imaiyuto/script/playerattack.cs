@@ -10,7 +10,7 @@ public class PlayerAttack : MonoBehaviour
     public float attackDuration = 0.2f;    // 攻撃判定の持続時間
     public Vector2 swordOffset = new Vector2(1.0f, 0f); // 基準のオフセット（右方向）
     public HeroController heroController;//HeroController参照取得
-    public int AttackPowe = 1;//攻撃力
+    public int AttackPower = 1;//攻撃力
 
     private bool inAttack = false;
     private GameObject sword;
@@ -77,14 +77,15 @@ public class PlayerAttack : MonoBehaviour
 
             if (swordSpriteRenderer != null)
             {
-                if (heroController.direction == 1) // direction == 1 は左向きと仮定
+                if (heroController.direction == 0) // direction == 0は下向き
                 {
                     swordSpriteRenderer.flipX = true; // 剣のSpriteをX軸で反転
                 }
-                else // 右向きの場合
+                else if (heroController.direction == 1)// 左向きの場合
                 {
-                    swordSpriteRenderer.flipX = false; // 反転を解除
+                    swordSpriteRenderer.flipX = true; // 反転を解除
                 }
+              
             }
 
             // 剣の回転はZ軸のみで制御し、Y軸は常に0に
