@@ -103,7 +103,7 @@ public class HalfBossController : MonoBehaviour
             float radCenter = Mathf.Atan2(dy, dx);
 
             //角のオフセット
-            float angleOffset = 20f;
+            float angleOffset = 30f;
 
             float radOffset = angleOffset * Mathf.Deg2Rad;
 
