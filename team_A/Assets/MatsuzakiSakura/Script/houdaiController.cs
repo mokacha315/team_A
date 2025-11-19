@@ -37,6 +37,8 @@ public class houdaiController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (player == null) return;
+
         //待機時間加算
         passedTimes += Time.deltaTime;
         //Playerとの距離チェック
