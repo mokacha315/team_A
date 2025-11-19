@@ -12,6 +12,7 @@ public class HeroController : MonoBehaviour
     Rigidbody2D rbody;            //Rigidbody2D
     Animator animator;            //Animator
     bool isMoving = false;        //移動中フラグ
+    bool isInvincible = false;    // 無敵時間中フラグ
 
     //ダメージ対応
     public static int hp = 10;       //プレイヤーのHP
@@ -110,30 +111,35 @@ public class HeroController : MonoBehaviour
             return;
         }
 
-        //ゲーム中以外は何もしない
-        if (gameState != "playing")
-        {
-            return;
-        }
-        if (inDamage)
-        {
-            //ダメージ中点させる
-            float val = Mathf.Sin(Time.time * 50);
-            if (val > 0)
-            {
-                //スピライトを表示
-                gameObject.GetComponent<SpriteRenderer>().enabled = true;
-            }
-            else
-            {
-                //スプライトを非表示
-                gameObject.GetComponent<SpriteRenderer>().enabled = false;
-            }
-        }
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
 
         if (inDamage)
         {
+            float val = Mathf.Sin(Time.time * 50);
+            sr.enabled = val > 0;
             return;
+        }
+        else
+        {
+            sr.enabled = true;  //ダメージ終わったら表示は戻す
+        }
+
+        if (isInvincible)
+        {
+            float val = Mathf.Sin(Time.time * 30);     //点滅速度
+
+            if (val > 0)
+            {
+                sr.color = new Color(1f, 0.4f, 0.4f);   //赤
+            }
+            else
+            {
+                sr.color = Color.white;   //戻す
+            }
+        }
+        else
+        {
+            sr.color = Color.white;
         }
 
          //移動速度を更新する
@@ -168,20 +174,25 @@ public class HeroController : MonoBehaviour
     {
         if (gameState == "playing")
         {
+            if (isInvincible) return;
+
             hp--;  //HPを減らす
             if (hp > 0)
             {
-                //敵キャラの反対方向にヒットバックさせる
-                Vector3 v = (transform.position - enemy.transform.position).normalized;
-                rbody.AddForce(new Vector2(v.x * 4, v.y * 4), ForceMode2D.Impulse);
-                //ダメージフラグ ON
-                inDamage = true;
-                Invoke("DamageEnd", 0.25f);
+                 isInvincible = true;    //無敵ON
+                 Invoke("InvincibleEnd", 1.0f);  //１秒後に無敵OFF
+
+                 //敵キャラの反対方向にヒットバックさせる
+                 Vector3 v = (transform.position - enemy.transform.position).normalized;
+                 rbody.AddForce(new Vector2(v.x * 4, v.y * 4), ForceMode2D.Impulse);
+                 //ダメージフラグ ON
+                 inDamage = true;
+                 Invoke("DamageEnd", 0.25f);
             }
             else
             {
-                //ゲームオーバー
-                GameOver();
+                 //ゲームオーバー
+                 GameOver();
             }
         }
     }
@@ -202,5 +213,11 @@ public class HeroController : MonoBehaviour
         rbody.AddForce(new Vector2(0, 5), ForceMode2D.Impulse);       //プレイヤーを上に少し跳ね上げる
         animator.SetBool("IsDead", true);                             //アニメーションを切り替える
         Destroy(gameObject, 1.0f);                                    //１秒後にプレイヤーを消す
+    }
+
+    void InvincibleEnd()
+    {
+        isInvincible = false;
+        gameObject.GetComponent<SpriteRenderer>().color = Color.white;  //色を戻す
     }
 }
