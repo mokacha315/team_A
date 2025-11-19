@@ -2,34 +2,38 @@
 using System;
 using UnityEngine;
 using UnityEngine.Diagnostics;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class PlayerAttack : MonoBehaviour
 {
-    public GameObject swordPrefab;// 剣のプレハブ (常に表示される見た目)
-    public GameObject sword_effectPrefab;//剣のエフェクトのプレハブ (攻撃判定を持つ)
-    public float attackDuration = 0.2f;    // 攻撃判定の持続時間
-    public Vector2 swordOffset = new Vector2(1.0f, 0f); // 基準のオフセット（右方向）
+
+    public int attackPower { get { return currentWeapon.attackPower; } } //攻撃力を currentWeapon から取る
+    public WeaponData currentWeapon;//今持っている武器
+    public float attackDuration = 0.2f;    //攻撃判定の持続時間
+    public Vector2 swordOffset = new Vector2(1.0f, 0f); //基準のオフセット（右方向）
     public HeroController heroController;//HeroController参照取得
-    public int AttackPower = 1;//攻撃力
 
     private bool inAttack = false;
     private GameObject sword;
     private GameObject sword_effect;
-    private Transform swordTransform; // sword の Transform
-    private Transform effectTransform; // sword_effect の Transform
+    private UnityEngine.Transform swordTransform;// sword の Transform 
+    private UnityEngine.Transform effectTransform; // sword_effect の Transform
     private SpriteRenderer swordSpriteRenderer; // ★ 追加: 剣のSpriteRendererをキャッシュ
+
 
 
     void Start()
     {
+        // ★ 追加：武器データを基に装備処理
+        EquipWeapon(currentWeapon);
         //HeroControllerへの参照取得
         if (heroController == null)
         {
             heroController = GetComponent<HeroController>();
         }
         // 剣と剣のエフェクトをプレイヤーの子オブジェクトとして生成
-        sword = Instantiate(swordPrefab, transform);
-        sword_effect = Instantiate(sword_effectPrefab, transform);
+        //sword = Instantiate(swordPrefab, transform);
+        //sword_effect = Instantiate(sword_effectPrefab, transform);
         swordTransform = sword.transform;
         effectTransform = sword_effect.transform;
 
@@ -40,17 +44,17 @@ public class PlayerAttack : MonoBehaviour
             Debug.LogError("Sword prefab must have a SpriteRenderer component.");
         }
 
-        // 常に剣のモデルを表示する
+        //常に剣のモデルを表示する
         sword.SetActive(true);
-        // 攻撃判定を持つエフェクトは初期は非表示
+        //攻撃判定を持つエフェクトは初期は非表示
         sword_effect.SetActive(false);
 
-        // 剣の初期位置をプレイヤーのそばに設定（オフセットを適用して自然に持つ）
+        //剣の初期位置をプレイヤーのそばに設定（オフセットを適用して自然に持つ）
         if (heroController != null)
         {
             float angleRad = (heroController.angleZ != 0 ? heroController.angleZ : 0) * Mathf.Deg2Rad;
             Vector3 initialOffset = new Vector3(
-                Mathf.Cos(angleRad) * (swordOffset.x * 0.5f), // 攻撃時より少し近く
+                Mathf.Cos(angleRad) * (swordOffset.x * 0.5f), //攻撃時より少し近く
                 Mathf.Sin(angleRad) * (swordOffset.x * 0.5f),
                 0
             );
@@ -62,6 +66,27 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
+    public void ChangeSword(GameObject newSwordPrefab)//剣の種類入れ替え
+    {
+        // 現在の剣を削除
+        if (sword != null)
+        {
+            Destroy(sword);
+        }
+
+        // 新しい剣を生成
+        sword = Instantiate(newSwordPrefab, transform);
+        swordTransform = sword.transform;
+
+        // SpriteRenderer 再取得
+        swordSpriteRenderer = sword.GetComponent<SpriteRenderer>();
+
+        // 常に表示
+        sword.SetActive(true);
+
+        Debug.Log("剣を差し替えました！");
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && !inAttack)
@@ -71,35 +96,32 @@ public class PlayerAttack : MonoBehaviour
 
         if (heroController != null)
         {
-            // ★ 修正: Y軸回転 (flipY) のロジックを削除し、SpriteRenderer.flipX を使用
+            //剣本体の向き
             float finalAngleZ = heroController.angleZ;
-            // float flipY = 0f; // この行は不要
 
             if (swordSpriteRenderer != null)
             {
                 if (heroController.direction == 0) // direction == 0は下
                 {
-                    swordSpriteRenderer.flipX = true; // 剣のSpriteをX軸で反転
+                    swordSpriteRenderer.flipX = true;
                     swordSpriteRenderer.flipY = false;
                 }
                 else if (heroController.direction == 1)//左向き
                 {
-                    swordSpriteRenderer.flipX = false; // 剣のSpriteをX軸で反転
+                    swordSpriteRenderer.flipX = false;
                     swordSpriteRenderer.flipY = true;
                 }
 
                 else if (heroController.direction == 2)//上向き
                 {
                     swordSpriteRenderer.flipY = false;
+                    swordSpriteRenderer.flipX = false;
                 }
                 else//右
                 {
                     swordSpriteRenderer.flipX = false;
                     swordSpriteRenderer.flipY = false;
-
                 }
-
-
             }
 
             // 剣の回転はZ軸のみで制御し、Y軸は常に0に
@@ -133,19 +155,17 @@ public class PlayerAttack : MonoBehaviour
             swordTransform.localPosition = initialOffset;
         }
     }
-
     void Attack()
     {
         if (heroController == null) return;
 
         inAttack = true;
-        // 剣のモデルは常に表示
-
-        // 攻撃判定を持つエフェクトを表示
+        //剣のモデルは常に表示
+        //攻撃判定を持つエフェクトを表示
         sword_effect.SetActive(true);
 
-        // エフェクトの回転をプレイヤーの向きに合わせて設定
-        // ★ エフェクトの回転もY軸回転は0に固定し、flipXで反転させるように変更
+        //エフェクトの回転をプレイヤーの向きに合わせて設定
+        //エフェクトの回転もY軸回転は0に固定し、flipXで反転させるように変更
         float offsetAngle = 90.0f;
         sword_effect.transform.rotation = Quaternion.Euler(180, 180, heroController.angleZ + offsetAngle); // Y軸を0に
 
@@ -199,5 +219,21 @@ public class PlayerAttack : MonoBehaviour
         sword_effect.SetActive(false);
         inAttack = false;
         Debug.Log("攻撃終了！");
+    }
+
+    public void EquipWeapon(WeaponData newWeapon)
+    {
+        currentWeapon = newWeapon;
+
+        if (sword != null) Destroy(sword);
+        if (sword_effect != null) Destroy(sword_effect);
+
+        sword = Instantiate(newWeapon.swordPrefab, transform);
+        sword_effect = Instantiate(newWeapon.swordEffectPrefab, transform);
+
+        sword.SetActive(true);
+        sword_effect.SetActive(false);
+
+        Debug.Log("武器装備: " + newWeapon.weaponName + " / 攻撃力: " + newWeapon.attackPower);
     }
 }

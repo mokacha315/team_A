@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 209df6fdefd58b84eacac277c6039c12
+guid: 1eb467f600e67e9478d6ba0641891582
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8913806290062878021
-    second: buster_sword_0
+      213: -1826680094220631783
+    second: imai_block_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: buster_sword_0
+      name: imai_block_0
       rect:
         serializedVersion: 2
-        x: 119
+        x: 0
         y: 0
-        width: 258
-        height: 764
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 54527dbe79334bb70800000000000000
-      internalID: 8913806290062878021
+      spriteID: 911c3b9e12456a6e0800000000000000
+      internalID: -1826680094220631783
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      buster_sword_0: 8913806290062878021
+      imai_block_0: -1826680094220631783
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
