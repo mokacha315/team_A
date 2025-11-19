@@ -77,15 +77,29 @@ public class PlayerAttack : MonoBehaviour
 
             if (swordSpriteRenderer != null)
             {
-                if (heroController.direction == 0) // direction == 0は下向き
+                if (heroController.direction == 0) // direction == 0は下
                 {
                     swordSpriteRenderer.flipX = true; // 剣のSpriteをX軸で反転
+                    swordSpriteRenderer.flipY = false;
                 }
-                else if (heroController.direction == 1)// 左向きの場合
+                else if (heroController.direction == 1)//左向き
                 {
-                    swordSpriteRenderer.flipX = true; // 反転を解除
+                    swordSpriteRenderer.flipX = false; // 剣のSpriteをX軸で反転
+                    swordSpriteRenderer.flipY = true;
                 }
-              
+
+                else if (heroController.direction == 2)//上向き
+                {
+                    swordSpriteRenderer.flipY = false;
+                }
+                else//右
+                {
+                    swordSpriteRenderer.flipX = false;
+                    swordSpriteRenderer.flipY = false;
+
+                }
+
+
             }
 
             // 剣の回転はZ軸のみで制御し、Y軸は常に0に
