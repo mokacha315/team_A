@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -3979608074218353394}
   - component: {fileID: 2322078827278791256}
   m_Layer: 0
-  m_Name: buster_sword (1)_0
+  m_Name: buster_sword
   m_TagString: sword_effect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
