@@ -247,4 +247,12 @@ public class HeroController : MonoBehaviour
             sr.color = Color.white;
         }
     }
+
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            GetDamage(collision.gameObject);
+        }
+    }
 }
