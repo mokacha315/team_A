@@ -1342,6 +1342,8 @@ MonoBehaviour:
   speed: 3
   direction: 0
   angleZ: -90
+  hitBackForce: 4
+  hitBackDuration: 0.2
 --- !u!95 &618675273
 Animator:
   serializedVersion: 7
@@ -2061,8 +2063,32 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8240416008961685370, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1868929870}
   m_SourcePrefab: {fileID: 100100000, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
+--- !u!1 &1868929869 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8240416008961685370, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
+  m_PrefabInstance: {fileID: 1868929868}
+  m_PrefabAsset: {fileID: 0}
+--- !u!111 &1868929870
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868929869}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_UpdateMode: 0
+  m_CullingType: 0
 --- !u!1 &1966386862
 GameObject:
   m_ObjectHideFlags: 0
@@ -2097,7 +2123,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 76.66, y: -52.100006}
+  m_AnchoredPosition: {x: 76.65997, y: -52.100006}
   m_SizeDelta: {x: 153.33, y: 92.44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1966386864
