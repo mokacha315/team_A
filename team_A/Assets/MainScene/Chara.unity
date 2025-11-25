@@ -1481,7 +1481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 713b5c7a17564ca40876410f94460a23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentWeapon: {fileID: 11400000, guid: 786ca65d7e7820d45ad6d5a96d70fee4, type: 2}
+  currentWeapon: {fileID: 11400000, guid: 45be1e0a3eca00c4f918345be20c3b1d, type: 2}
   attackDuration: 0.2
   swordOffset: {x: 1, y: 0}
   heroController: {fileID: 0}
@@ -2004,7 +2004,7 @@ MonoBehaviour:
   retryButton: {fileID: 345714412}
   gameOverSpr: {fileID: -8467416898090648155, guid: 3e4d6ab486f9c304b937d80bf5a598ab, type: 3}
   gameClearSpr: {fileID: -1077201996842883958, guid: b54b0b638e9023f4e87293f3a1b60795, type: 3}
-  retrySceneName: dungeon
+  retrySceneName: Chara
 --- !u!1 &1213086567
 GameObject:
   m_ObjectHideFlags: 0
