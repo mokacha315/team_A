@@ -451,10 +451,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c62e3737a467ac4d98f188772e6bc54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftLimit: -15
-  rightLimit: 19
-  topLimit: 7
-  bottomLimit: -3
 --- !u!1 &519723662
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,7 +653,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  direction: 0
   angleZ: -90
+  hitBackForce: 4
+  hitBackDuration: 0.2
 --- !u!95 &618675273
 Animator:
   serializedVersion: 7
@@ -847,8 +846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 713b5c7a17564ca40876410f94460a23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swordPrefab: {fileID: 8672377866418775581, guid: 214f1c17246a7fc4d80d9abbe3469036, type: 3}
-  sword_effectPrefab: {fileID: 5479791115406603499, guid: f8b8de49e48a6f44db2fbfefefb4dd8f, type: 3}
+  currentWeapon: {fileID: 0}
   attackDuration: 0.2
   swordOffset: {x: 1, y: 0}
   heroController: {fileID: 0}
