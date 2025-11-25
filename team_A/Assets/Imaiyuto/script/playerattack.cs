@@ -24,38 +24,51 @@ public class PlayerAttack : MonoBehaviour
 
     void Start()
     {
-        // ★ 追加：武器データを基に装備処理
-        EquipWeapon(currentWeapon);
-        //HeroControllerへの参照取得
+        // 1. HeroControllerへの参照取得 (これはどこにあっても問題なし)
         if (heroController == null)
         {
             heroController = GetComponent<HeroController>();
         }
-        // 剣と剣のエフェクトをプレイヤーの子オブジェクトとして生成
 
+        // 2. 武器データを基に装備処理を実行
+        //    ==> EquipWeapon内で、現在の currentWeapon に基づいて剣(sword)とエフェクト(sword_effect)が生成されます。
+        EquipWeapon(currentWeapon);
+
+        // ===================================================================
+        // 以降の処理は、EquipWeaponによって sword/sword_effect が生成された後でなければ実行できません
+        // ===================================================================
+
+        // nullチェック: プレハブが設定されていない場合（剣が表示されない最たる原因）に備えて確認
+        if (sword == null || sword_effect == null)
+        {
+            Debug.LogError("Weapon initialization failed! Check if swordPrefab and swordEffectPrefab are set in the WeaponData asset.");
+            return; // エラーがあれば、これ以降の初期化を中断
+        }
+
+        // 3. 生成されたオブジェクトの Transform を取得してキャッシュ
         swordTransform = sword.transform;
         effectTransform = sword_effect.transform;
 
-        // ★ 追加: 剣のSpriteRendererを取得してキャッシュ
+        // 4. 生成された剣の SpriteRenderer を取得してキャッシュ
+        //    (EquipWeapon内で古い剣が破棄され、新しい剣が作られているため、ここで再取得が必要)
         swordSpriteRenderer = sword.GetComponent<SpriteRenderer>();
         if (swordSpriteRenderer == null)
         {
             Debug.LogError("Sword prefab must have a SpriteRenderer component.");
         }
 
-        //常に剣のモデルを表示する
+        // 5. 剣の表示設定 (EquipWeapon内で既に設定されていますが、念のため)
         sword.SetActive(true);
-        //攻撃判定を持つエフェクトは初期は非表示
         sword_effect.SetActive(false);
 
-        //剣の初期位置をプレイヤーのそばに設定（オフセットを適用して自然に持つ）
+        // 6. 剣の初期位置をプレイヤーのそばに設定
         if (heroController != null)
         {
             float angleRad = (heroController.angleZ != 0 ? heroController.angleZ : 0) * Mathf.Deg2Rad;
             Vector3 initialOffset = new Vector3(
-              Mathf.Cos(angleRad) * (swordOffset.x * 0.5f), //攻撃時より少し近く
-                       Mathf.Sin(angleRad) * (swordOffset.x * 0.5f),
-              0
+                Mathf.Cos(angleRad) * (swordOffset.x * 0.5f), //攻撃時より少し近く
+                Mathf.Sin(angleRad) * (swordOffset.x * 0.5f),
+                0
             );
             swordTransform.localPosition = initialOffset;
         }

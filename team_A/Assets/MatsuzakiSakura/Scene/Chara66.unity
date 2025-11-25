@@ -1893,12 +1893,16 @@ PrefabInstance:
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 8937976358256977165, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.21292163
+      objectReference: {fileID: 0}
+    - target: {fileID: 8937976358256977165, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.16
       objectReference: {fileID: 0}
     - target: {fileID: 8937976358256977165, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.27
+      value: 6.3001
       objectReference: {fileID: 0}
     - target: {fileID: 8937976358256977165, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: m_LocalPosition.z
