@@ -15,6 +15,11 @@ public class BossController : MonoBehaviour
     //攻撃中フラグ
     bool inAttack = false;
 
+    //ダメージ時色変更
+    bool isBlink = false;
+    float blinkTimer = 0f;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -24,6 +29,23 @@ public class BossController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (isBlink)
+        {
+            blinkTimer -= Time.deltaTime;
+
+            if (blinkTimer > 0f)
+            {
+                // 赤色
+                GetComponent<SpriteRenderer>().color = new Color(1f, 0.4f, 0.4f);
+            }
+            else
+            {
+                GetComponent<SpriteRenderer>().color = Color.white;
+                isBlink = false;
+            }
+        }
+
         if (hp > 0)
         {
             //Playerのゲームオブジェクトを得る
@@ -62,6 +84,11 @@ public class BossController : MonoBehaviour
         {
             //ダメージ
             hp--;
+
+            //ダメージ時赤色
+            isBlink = true;
+            blinkTimer = 0.1f;
+
             if (hp <= 0)
             {
                 //死亡

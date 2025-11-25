@@ -17,6 +17,10 @@ public class GhostController : MonoBehaviour
     bool inAttack = false;
     float shootTimer = 0f;
 
+    //ダメージ時色変更
+    bool isBlink = false;
+    float blinkTimer = 0f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,6 +30,22 @@ public class GhostController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isBlink)
+        {
+            blinkTimer -= Time.deltaTime;
+
+            if (blinkTimer > 0f)
+            {
+                // 赤色
+                GetComponent<SpriteRenderer>().color = new Color(1f, 0.4f, 0.4f);
+            }
+            else
+            {
+                GetComponent<SpriteRenderer>().color = Color.white;
+                isBlink = false;
+            }
+        }
+
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player == null) return;
 
@@ -77,6 +97,11 @@ public class GhostController : MonoBehaviour
         {
             //ダメージ
             hp--;
+
+            //ダメージ時赤色
+            isBlink = true;
+            blinkTimer = 0.1f;
+
             if (hp <= 0)
             {
                 //死亡

@@ -16,6 +16,10 @@ public class EnemyController : MonoBehaviour
     bool isActive = false;      //アクティブフラグ
     public int arrange = 0;     //配置の識別に使う
 
+    //ダメージ時色変わる
+    bool isBlink = false;
+    float blinkTimer = 0f;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,6 +31,24 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //ダメージ時赤色に変更
+        if (isBlink)
+        {
+            blinkTimer -= Time.deltaTime;
+
+            if (blinkTimer > 0f)
+            {
+                //赤色
+                GetComponent<SpriteRenderer>().color = new Color(1f, 0.4f, 0.4f);
+            }
+            else
+            {
+                //元に戻す
+                GetComponent<SpriteRenderer>().color = Color.white;
+                isBlink = false;
+            }
+        }
+
         //移動値初期化
         axisH = 0;
         axisV = 0;
@@ -104,6 +126,10 @@ public class EnemyController : MonoBehaviour
         {
             //ダメージ
             hp--;
+
+            isBlink = true;
+            blinkTimer = 0.1f;
+
             if (hp <= 0)
             {
                 //死亡
