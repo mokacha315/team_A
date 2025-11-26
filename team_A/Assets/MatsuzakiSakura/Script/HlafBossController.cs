@@ -21,15 +21,31 @@ public class HalfBossController : MonoBehaviour
     bool isBlink = false;
     float blinkTimer = 0f;
 
+    //BGM
+    public AudioClip midBossBGM; 
+    public AudioClip normalBGM;  
+    bool bgmChanged = false;
+
+    GameObject player;
+    private Animator animator;
+    private SpriteRenderer spriteRenderer;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        player = GameObject.FindGameObjectWithTag("Player");
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (player == null)
+        {
+            return;
+        }
+
         if (isBlink)
         {
             blinkTimer -= Time.deltaTime;
@@ -46,11 +62,27 @@ public class HalfBossController : MonoBehaviour
             }
         }
 
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player == null) return;
-
         Vector3 pr = player.transform.position;
         float dist = Vector2.Distance(transform.position, pr);
+
+        if (dist <= reactionDistance && !bgmChanged)
+        {
+            //範囲内に入った処理
+            if (BGMManager.Instance != null)
+            {
+                BGMManager.Instance.ChangeBGM(midBossBGM);
+            }
+            bgmChanged = true;
+        }
+        else if (dist > reactionDistance && bgmChanged)
+        {
+            //範囲外の処理
+            if (BGMManager.Instance != null)
+            {
+                BGMManager.Instance.ChangeBGM(normalBGM);
+            }
+            bgmChanged = false;
+        }
 
         if (dist <= reactionDistance)
         {
@@ -119,7 +151,6 @@ public class HalfBossController : MonoBehaviour
         GameObject ice = tr.gameObject;
 
         //弾を発射するベクトルを作る
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
         {
             float dx = player.transform.position.x - ice.transform.position.x;
