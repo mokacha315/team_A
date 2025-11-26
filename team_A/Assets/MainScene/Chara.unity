@@ -916,6 +916,8 @@ MonoBehaviour:
   speed: 1
   reactionDistance: 4
   arrange: 0
+  dropItems: []
+  dropRate: 1
 --- !u!1 &460386076
 GameObject:
   m_ObjectHideFlags: 0
@@ -1615,6 +1617,8 @@ MonoBehaviour:
   speed: 1
   reactionDistance: 4
   arrange: 0
+  dropItems: []
+  dropRate: 1
 --- !u!95 &839699057
 Animator:
   serializedVersion: 7
@@ -2550,6 +2554,7 @@ MonoBehaviour:
   reactionDistance: 7
   bulletPrefab: {fileID: 4310784387579625841, guid: fd368ab2cfeb31e4f9a2692bebdb3cb1, type: 3}
   shootSpeed: 5
+  bossBGM: {fileID: 0}
 --- !u!61 &1748773765
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27045,6 +27050,7 @@ MonoBehaviour:
   reactionDistance: 7
   bulletPrefab: {fileID: 4310784387579625841, guid: fd368ab2cfeb31e4f9a2692bebdb3cb1, type: 3}
   shootSpeed: 5
+  bossBGM: {fileID: 0}
 --- !u!50 &2050658551
 Rigidbody2D:
   serializedVersion: 5

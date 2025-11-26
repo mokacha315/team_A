@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 538787752f0429e40aeee5160e46fe72, type: 3}
-  m_Name: sword
+  m_Name: kenn
   m_EditorClassIdentifier: 
-  weaponName: 
-  attackPower: 1
-  swordPrefab: {fileID: 8672377866418775581, guid: 214f1c17246a7fc4d80d9abbe3469036, type: 3}
+  weaponName: sword
+  attackPower: 5
+  attackDuration: 0.2
+  swordPrefab: {fileID: 3406201129501653409, guid: 7cab6572349023b40af8e6e08b19feac, type: 3}
   swordEffectPrefab: {fileID: 5479791115406603499, guid: f8b8de49e48a6f44db2fbfefefb4dd8f, type: 3}
