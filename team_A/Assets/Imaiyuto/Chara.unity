@@ -389,7 +389,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12.51, y: 0.15}
+  m_AnchoredPosition: {x: -17.98, y: 0.3}
   m_SizeDelta: {x: 8.0644, y: 8.3989}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &278052621
@@ -729,7 +729,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -9.11, y: -0.5}
+  m_AnchoredPosition: {x: -16.96, y: 0.2}
   m_SizeDelta: {x: 6.96, y: 8.33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &409234042
@@ -1108,6 +1108,7 @@ MonoBehaviour:
   speed: 3
   direction: 0
   angleZ: -90
+  sword: {fileID: 0}
   hitBackForce: 4
   hitBackDuration: 0.2
 --- !u!95 &618675273
@@ -1631,7 +1632,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5.9, y: 3.05}
+  m_AnchoredPosition: {x: 19.51, y: 0.96}
   m_SizeDelta: {x: 8.0644, y: 8.3989}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &904442239
@@ -1765,7 +1766,8 @@ MonoBehaviour:
   reactionDistance: 7
   bulletPrefab: {fileID: 4310784387579625841, guid: fd368ab2cfeb31e4f9a2692bebdb3cb1, type: 3}
   shootSpeed: 5
-  bossBGM: {fileID: 0}
+  Boss: {fileID: 0}
+  normalBGM: {fileID: 0}
 --- !u!50 &931052795
 Rigidbody2D:
   serializedVersion: 5
@@ -2051,6 +2053,8 @@ MonoBehaviour:
   gameOverSpr: {fileID: -8467416898090648155, guid: 3e4d6ab486f9c304b937d80bf5a598ab, type: 3}
   gameClearSpr: {fileID: -1077201996842883958, guid: b54b0b638e9023f4e87293f3a1b60795, type: 3}
   retrySceneName: dungeon
+  gameOverBGM: {fileID: 0}
+  gameClearBGM: {fileID: 0}
 --- !u!1 &1213086567
 GameObject:
   m_ObjectHideFlags: 0
@@ -2701,7 +2705,8 @@ MonoBehaviour:
   reactionDistance: 7
   bulletPrefab: {fileID: 4310784387579625841, guid: fd368ab2cfeb31e4f9a2692bebdb3cb1, type: 3}
   shootSpeed: 5
-  bossBGM: {fileID: 0}
+  Boss: {fileID: 0}
+  normalBGM: {fileID: 0}
 --- !u!61 &1748773765
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26964,11 +26969,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8937976358256977165, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.2
+      value: 6.9
       objectReference: {fileID: 0}
     - target: {fileID: 8937976358256977165, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.56
+      value: 2.81
       objectReference: {fileID: 0}
     - target: {fileID: 8937976358256977165, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: m_LocalPosition.z
@@ -27223,11 +27228,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1427555663818126398, guid: 475e2e3ef301dab469f8eed504df9d3a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 4.41
+      value: 11.27
       objectReference: {fileID: 0}
     - target: {fileID: 1427555663818126398, guid: 475e2e3ef301dab469f8eed504df9d3a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -2.38
+      value: -3.92
       objectReference: {fileID: 0}
     - target: {fileID: 1427555663818126398, guid: 475e2e3ef301dab469f8eed504df9d3a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
