@@ -2,13 +2,38 @@ using UnityEngine;
 
 public class BGMManager : MonoBehaviour
 {
+    public static BGMManager Instance { get; private set; }
+
+    public AudioClip initialBGM;
+
     public AudioSource bgmSource;
     public float fadeSpeed = 1.0f;
 
     private AudioClip nextClip = null; //ŽŸ‚Ì‹È
     private bool isFading = false;
 
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
+    void Start()
+    {
+        if (initialBGM != null && bgmSource != null)
+        {
+            bgmSource.clip = initialBGM;
+            bgmSource.volume = 1f;
+            bgmSource.loop = true;
+            bgmSource.Play();
+        }
+    }
     void Update()
     {
         if (isFading)

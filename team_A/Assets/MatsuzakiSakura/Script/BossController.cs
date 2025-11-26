@@ -20,19 +20,25 @@ public class BossController : MonoBehaviour
     float blinkTimer = 0f;
 
     //BGM
-    public AudioClip bossBGM;
+    public AudioClip Boss;
+    public AudioClip normalBGM;
     bool bgmChanged = false;
 
+    GameObject player;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (player == null)
+        {
+            return;
+        }
 
         if (isBlink)
         {
@@ -52,40 +58,45 @@ public class BossController : MonoBehaviour
 
         if (hp > 0)
         {
-            //Playerのゲームオブジェクトを得る
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            if (player != null)
+            //プレイヤーとの距離チェック
+            Vector3 plpos = player.transform.position;
+            float dist = Vector2.Distance(transform.position, plpos);
+
+            //BGM範囲内
+            if (dist <= reactionDistance && !bgmChanged)
             {
-                //プレイヤーとの距離チェック
-                Vector3 plpos = player.transform.position;
-                float dist = Vector2.Distance(transform.position, plpos);
-                if (dist <= reactionDistance && inAttack == false)
+                if (BGMManager.Instance != null)
                 {
-                    //範囲内&攻撃中ではない&HP攻撃
-                    inAttack = true;
-                    //アニメーションを切り替える
-                    GetComponent<Animator>().Play("BossAttack");
+                    BGMManager.Instance.ChangeBGM(Boss);
                 }
-                else if (dist > reactionDistance && inAttack)
-                {
-                    inAttack = false;
-                   
-                    if (!bgmChanged)
-                    {
-                        FindObjectOfType<BGMManager>().ChangeBGM(bossBGM);
-                        bgmChanged = true;
-                    }
-
-                    //アニメーションを切り替える
-                    GetComponent<Animator>().Play("Boss");
-
-                }
+                bgmChanged = true;
             }
-            else
+            //BGM範囲外
+            else if (dist > reactionDistance && bgmChanged)
+            {
+                if (BGMManager.Instance != null)
+                {
+                    BGMManager.Instance.ChangeBGM(normalBGM);
+                }
+                bgmChanged = false;
+            }
+
+
+            if (dist <= reactionDistance && inAttack == false)
+            {
+                //範囲内&攻撃中ではない&HP攻撃
+                inAttack = true;
+
+                //アニメーションを切り替える
+                GetComponent<Animator>().Play("BossAttack");
+            }
+            else if (dist > reactionDistance && inAttack)
             {
                 inAttack = false;
+
                 //アニメーションを切り替える
                 GetComponent<Animator>().Play("Boss");
+
             }
         }
     }
@@ -122,11 +133,15 @@ public class BossController : MonoBehaviour
     //攻撃
     void Attack()
     {
+        if (player == null)
+        {
+            return;
+        }
+
         //発射口オブジェクトを取得
         Transform tr = transform.Find("gate");
         GameObject gate = tr.gameObject;
         //弾を発射するベクトルを作る
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
         {
             float dx = player.transform.position.x - gate.transform.position.x;
