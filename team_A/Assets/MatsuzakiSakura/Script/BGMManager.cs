@@ -10,6 +10,6 @@ public class BGMManager : MonoBehaviour
 
     void Awake()
     {
-        if (instance == null)
+    //    if (instance == null)
     }
 }
