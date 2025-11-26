@@ -25,6 +25,10 @@ public class UIManager : MonoBehaviour
     public Sprite gameClearSpr;      //GAME CLEAR画像
     public string retrySceneName = "";  //リトライするシーン名
 
+    //BGM
+    public AudioClip gameOverBGM;
+    public AudioClip gameClearBGM;
+
     //HP更新
     void UpdateHP()
     {
@@ -133,6 +137,12 @@ public class UIManager : MonoBehaviour
 
         //ゲームクリアにする
         HeroController.gameState = "gameclear";
+
+        if (BGMManager.Instance != null && gameClearBGM != null)
+        {
+            BGMManager.Instance.ChangeBGM(gameClearBGM);
+        }
+
         //３秒後にタイトルに戻る
         Invoke("GoToTitle", 3.0f);
     }
@@ -144,6 +154,11 @@ public class UIManager : MonoBehaviour
         mainImage.SetActive(true);     //画像表示
                                        //画像を設定する
         mainImage.GetComponent<Image>().sprite = gameOverSpr;
+
+        if (BGMManager.Instance != null && gameOverBGM != null)
+        {
+            BGMManager.Instance.ChangeBGM(gameOverBGM);
+        }
     }
 
 
