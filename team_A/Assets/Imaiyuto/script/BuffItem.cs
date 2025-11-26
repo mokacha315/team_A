@@ -1,7 +1,5 @@
 using UnityEngine;
 
-using UnityEngine;
-
 public class BuffItem : MonoBehaviour
 {
     public int attackUpValue = 2;
