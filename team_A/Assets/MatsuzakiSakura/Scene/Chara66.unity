@@ -1301,7 +1301,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1065826407}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: gate
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -1317,7 +1317,7 @@ Transform:
   m_GameObject: {fileID: 1065826406}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.14, y: -1.12, z: 0}
+  m_LocalPosition: {x: 4.8, y: 10.9, z: 0}
   m_LocalScale: {x: 2.7133846, y: 3.1164238, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1742,7 +1742,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10.69, y: 2.24}
+  m_AnchoredPosition: {x: -11.3, y: 5.48}
   m_SizeDelta: {x: 19.8585, y: 18.2052}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1748773758
@@ -1830,8 +1830,8 @@ Transform:
   m_GameObject: {fileID: 1748773758}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.01, y: 6.38, z: 0}
-  m_LocalScale: {x: 0.36854342, y: 0.32088062, z: 1}
+  m_LocalPosition: {x: -0.38, y: 3.36, z: 0}
+  m_LocalScale: {x: 0.07901487, y: 0.091156326, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1065826407}
@@ -1902,6 +1902,7 @@ MonoBehaviour:
   reactionDistance: 7
   bulletPrefab: {fileID: 4310784387579625841, guid: fd368ab2cfeb31e4f9a2692bebdb3cb1, type: 3}
   shootSpeed: 5
+  shootInterval: 1.5
   Boss: {fileID: 8300000, guid: c4a44dc1ed7bafc43a575d6e87dac6cb, type: 3}
   normalBGM: {fileID: 8300000, guid: d9bce1e4bc3fa2d468711eead576fbab, type: 3}
 --- !u!61 &1748773765
@@ -1938,17 +1939,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.33247566, y: 0.38899946}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0, y: 2, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 11.90625, y: 8.59375}
+    oldSize: {x: 36.5625, y: 31.6875}
     newSize: {x: 3.81, y: 2.75}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 11.90625, y: 8.59375}
+  m_Size: {x: 27.200115, y: 25.709648}
   m_EdgeRadius: 0
 --- !u!1 &1779664837
 GameObject:
@@ -2116,11 +2117,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8937976358256977165, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.29
+      value: 5.34
       objectReference: {fileID: 0}
     - target: {fileID: 8937976358256977165, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9
+      value: -2.72
       objectReference: {fileID: 0}
     - target: {fileID: 8937976358256977165, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2232,7 +2233,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
