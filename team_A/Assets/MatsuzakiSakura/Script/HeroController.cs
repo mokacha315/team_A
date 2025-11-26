@@ -11,6 +11,10 @@ public class HeroController : MonoBehaviour
     public float angleZ = -90.0f; //回転速度
     Rigidbody2D rbody;            //Rigidbody2D
     Animator animator;            //Animator
+
+    SpriteRenderer spriteRenderer;
+    public GameObject sword;
+
     bool isMoving = false;        //移動中フラグ
     bool isInvincible = false;    // 無敵時間中フラグ
 
@@ -21,6 +25,7 @@ public class HeroController : MonoBehaviour
 
     public float hitBackForce = 4.0f;
     public float hitBackDuration = 0.2f;
+
     //p1からp2の角度を返す
     float GetAngle(Vector2 p1, Vector2 p2)
     {
@@ -44,6 +49,12 @@ public class HeroController : MonoBehaviour
         return angle;
     }
 
+    public static void ResetStaticVariables()
+    {
+        hp = 10;
+        gameState = "playing";
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -52,8 +63,17 @@ public class HeroController : MonoBehaviour
         rbody = GetComponent<Rigidbody2D>();    //Rigidbody2Dを得る
         animator = GetComponent<Animator>();    //Animatorを得る
 
+        //SpriteRendererを得る
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
         //ゲームの状態をプレイ中にする
         gameState = "playing";
+
+        //剣を戻す
+        if (sword != null)
+        {
+            sword.SetActive(true);
+        }
     }
 
     // Update is called once per frame
@@ -119,15 +139,20 @@ public class HeroController : MonoBehaviour
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         if (sr == null) return;
 
+        if (spriteRenderer == null)
+        {
+            return;
+        }
+
         if (inDamage)
         {
             float val = Mathf.Sin(Time.time * 50);
-            sr.enabled = val > 0;
+            spriteRenderer.enabled = val > 0;
             return;
         }
         else
         {
-            sr.enabled = true;
+            spriteRenderer.enabled = true;
         }
 
         if (isInvincible)
@@ -213,9 +238,8 @@ public class HeroController : MonoBehaviour
 
         inDamage = false;                                             //ダメージフラグ OFF
 
-        SpriteRenderer sr = GetComponent<SpriteRenderer>();
-        if (sr != null)
-            sr.enabled = true;
+        if (spriteRenderer != null)
+            spriteRenderer.enabled = true;
     }
     //ゲームオーバー 
     void GameOver()
@@ -241,10 +265,9 @@ public class HeroController : MonoBehaviour
 
         isInvincible = false;
 
-        SpriteRenderer sr = GetComponent<SpriteRenderer>();
-        if (sr != null)
+        if (spriteRenderer != null)
         {
-            sr.color = Color.white;
+            spriteRenderer.color = Color.white;
         }
     }
 
