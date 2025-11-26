@@ -19,6 +19,10 @@ public class BossController : MonoBehaviour
     bool isBlink = false;
     float blinkTimer = 0f;
 
+    //BGM
+    public AudioClip bossBGM;
+    bool bgmChanged = false;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -65,8 +69,16 @@ public class BossController : MonoBehaviour
                 else if (dist > reactionDistance && inAttack)
                 {
                     inAttack = false;
+                   
+                    if (!bgmChanged)
+                    {
+                        FindObjectOfType<BGMManager>().ChangeBGM(bossBGM);
+                        bgmChanged = true;
+                    }
+
                     //アニメーションを切り替える
                     GetComponent<Animator>().Play("Boss");
+
                 }
             }
             else

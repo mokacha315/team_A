@@ -20,6 +20,10 @@ public class EnemyController : MonoBehaviour
     bool isBlink = false;
     float blinkTimer = 0f;
 
+    //アイテムドロップ
+    public GameObject[] dropItems;   //ドロップするアイテムリスト
+    public float dropRate = 1.0f;    //ドロップ確率100％
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -52,6 +56,7 @@ public class EnemyController : MonoBehaviour
         //移動値初期化
         axisH = 0;
         axisV = 0;
+
         //Playerのゲームオブジェクトを得る
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
@@ -137,9 +142,32 @@ public class EnemyController : MonoBehaviour
                 GetComponent<Collider2D>().enabled = false;
                 //アニメーションを切り替える
                 animator.SetBool("IsDead", true);
+
+                //アイテムドロップ
+                TryDropItem();
+
                 //0.5秒後に消す
                 Destroy(gameObject, 0.5f);
             }
+        }
+    }
+
+    //アイテムドロップ関数
+    void TryDropItem()
+    {
+        //設定していなければそのまま
+        if (dropItems.Length == 0) return;
+
+        float r = Random.value;  //0～1の乱数
+        if (r <= dropRate)
+        {
+            //ランダムでアイテムを選択
+            GameObject drop =
+                dropItems[Random.Range(0, dropItems.Length)];
+
+            //敵の位置にドロップ
+            Instantiate(drop, transform.position,
+                Quaternion.identity);
         }
     }
 }

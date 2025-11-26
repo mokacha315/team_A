@@ -436,8 +436,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12.41, y: 6.07}
-  m_SizeDelta: {x: -18.9596, y: 16.7861}
+  m_AnchoredPosition: {x: 12.5295, y: 5.9205}
+  m_SizeDelta: {x: -18.3863, y: 16.2063}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &127138585
 MonoBehaviour:
@@ -1141,6 +1141,8 @@ MonoBehaviour:
   speed: 1
   reactionDistance: 4
   arrange: 0
+  dropItems: []
+  dropRate: 1
 --- !u!1 &519723662
 GameObject:
   m_ObjectHideFlags: 0
@@ -1804,7 +1806,7 @@ Transform:
   m_GameObject: {fileID: 1748773758}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.45, y: 8.83, z: 0}
+  m_LocalPosition: {x: 1.5, y: 6.38, z: 0}
   m_LocalScale: {x: 0.36854342, y: 0.32088062, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1876,6 +1878,7 @@ MonoBehaviour:
   reactionDistance: 7
   bulletPrefab: {fileID: 4310784387579625841, guid: fd368ab2cfeb31e4f9a2692bebdb3cb1, type: 3}
   shootSpeed: 5
+  bossBGM: {fileID: 0}
 --- !u!61 &1748773765
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2088,11 +2091,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8937976358256977165, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.16
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8937976358256977165, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.27
+      value: 2.56
       objectReference: {fileID: 0}
     - target: {fileID: 8937976358256977165, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2126,6 +2129,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8948794445235715580, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
+      propertyPath: dropItems.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8948794445235715580, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
+      propertyPath: 'dropItems.Array.data[0]'
+      value: 
+      objectReference: {fileID: 351604584237090287, guid: 5e318594b362ed24e8f75fa45c1a83f6, type: 3}
+    - target: {fileID: 8948794445235715580, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
+      propertyPath: 'dropItems.Array.data[1]'
+      value: 
+      objectReference: {fileID: 3453301211731074941, guid: 5355decc6e03ee0428b675489c6a7e6c, type: 3}
+    - target: {fileID: 8948794445235715580, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
+      propertyPath: 'dropItems.Array.data[2]'
+      value: 
+      objectReference: {fileID: 118049412286674808, guid: 879bb23f2c3a77341b68c0708d6e8a93, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
