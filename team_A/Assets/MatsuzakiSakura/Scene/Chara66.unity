@@ -1141,7 +1141,10 @@ MonoBehaviour:
   speed: 1
   reactionDistance: 4
   arrange: 0
-  dropItems: []
+  dropItems:
+  - {fileID: 351604584237090287, guid: 5e318594b362ed24e8f75fa45c1a83f6, type: 3}
+  - {fileID: 3453301211731074941, guid: 5355decc6e03ee0428b675489c6a7e6c, type: 3}
+  - {fileID: 118049412286674808, guid: 879bb23f2c3a77341b68c0708d6e8a93, type: 3}
   dropRate: 1
 --- !u!1 &519723662
 GameObject:
