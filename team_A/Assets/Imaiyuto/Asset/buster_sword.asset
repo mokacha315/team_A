@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 538787752f0429e40aeee5160e46fe72, type: 3}
   m_Name: buster_sword
   m_EditorClassIdentifier: 
-  weaponName: sword
+  weaponName: buster_sword
   attackPower: 8
+  attackDuration: 0.2
+  attackCooldown: 0
   swordPrefab: {fileID: 1393213103400565874, guid: 7f9b49e32d71e36429e54b527304b3b6, type: 3}
   swordEffectPrefab: {fileID: 5479791115406603499, guid: f8b8de49e48a6f44db2fbfefefb4dd8f, type: 3}

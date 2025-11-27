@@ -9,8 +9,6 @@ public class PlayerAttack : MonoBehaviour
     // 公開フィールド
     public int attackPower { get { return currentWeapon.attackPower; } } //攻撃力を currentWeapon から取る
     public WeaponData currentWeapon;//今持っている武器
-    public GameObject weaponSpritePrefab;     // 剣の見た目
-    public GameObject weaponEffectPrefab;     // 斬撃エフェクト
     public float attackDuration { get {return currentWeapon.attackDuration; } } //攻撃判定の持続時間
     public float attackCooldown { get { return currentWeapon.attackCooldown; } }// 攻撃のクールタイム（秒）
     public Vector2 swordOffset = new Vector2(1.0f, 0f); //基準のオフセット（右方向）
@@ -35,7 +33,6 @@ public class PlayerAttack : MonoBehaviour
         }
 
         //武器データを基に装備処理を実行
-        //EquipWeapon内で、剣とエフェクトの生成と、Transform/SpriteRendererのキャッシュを全て完了させます。
         EquipWeapon(currentWeapon);
 
         //Transformが正しくキャッシュされているかチェック
@@ -45,21 +42,8 @@ public class PlayerAttack : MonoBehaviour
             return;
         }
 
-        //剣の初期位置をプレイヤーのそばに設定（オフセットを適用して自然に持つ）
-        if (heroController != null)
-        {
-            float angleRad = (heroController.angleZ != 0 ? heroController.angleZ : 0) * Mathf.Deg2Rad;
-            Vector3 initialOffset = new Vector3(
-                Mathf.Cos(angleRad) * (swordOffset.x * 0.5f), //攻撃時より少し近く
-                Mathf.Sin(angleRad) * (swordOffset.x * 0.5f),
-                0
-            );
-            swordTransform.localPosition = initialOffset;
-        }
-        else
-        {
-            swordTransform.localPosition = new Vector3(swordOffset.x * 0.5f, 0, 0);
-        }
+        // 剣の初期位置設定ロジックを SetInitialSwordPosition に移動
+        SetInitialSwordPosition();
     }
     void Update()
     {
@@ -109,18 +93,16 @@ public class PlayerAttack : MonoBehaviour
             swordTransform.rotation = Quaternion.Euler(0, 0, finalAngleZ + swordBaseOffset);
 
             // Z軸の並び順調整
-            float swordz = -1; // 手前
+            float swordz = -10; // 手前
             if (heroController.angleZ > 45 && heroController.angleZ < 150)
             {
-                swordz = 100; // 上向きの時は奥に回す
+                swordz = 10; // 上向きの時は奥に回す
             }
-            else
-            {
-                swordz = -1;
-            }
+            int sortingOrder=10;
+            swordSpriteRenderer.sortingOrder = sortingOrder;
             // 剣の位置のZ軸だけを調整
-            Vector3 currentPos = swordTransform.position;
-            swordTransform.position = new Vector3(currentPos.x, currentPos.y, swordz);
+            // Vector3 currentPos = swordTransform.position;
+            //swordTransform.position = new Vector3(currentPos.x, currentPos.y, swordz);
 
             // 常に表示される剣の位置を毎フレーム更新
             float angleRad = heroController.angleZ * Mathf.Deg2Rad;
@@ -212,9 +194,36 @@ public class PlayerAttack : MonoBehaviour
         effectTransform = sword_effect.transform;
         swordSpriteRenderer = sword.GetComponent<SpriteRenderer>();
 
+        // ★★★ 武器を生成し直した後、必ず初期位置を設定する！ ★★★
+        SetInitialSwordPosition();
+
         Debug.Log("武器装備: " + newWeapon.weaponName + " / 攻撃力: " + newWeapon.attackPower);
 
     }
+    void SetInitialSwordPosition()
+    {
+        // Transformが正しくキャッシュされているかチェック
+        if (swordTransform == null)
+        {
+            Debug.LogError("Sword Transform is null. Cannot set initial position.");
+            return;
+        }
 
+        //剣の初期位置をプレイヤーのそばに設定（オフセットを適用して自然に持つ）
+        if (heroController != null)
+        {
+            float angleRad = (heroController.angleZ != 0 ? heroController.angleZ : 0) * Mathf.Deg2Rad;
+            Vector3 initialOffset = new Vector3(
+                Mathf.Cos(angleRad) * (swordOffset.x * 0.5f), //攻撃時より少し近く
+                Mathf.Sin(angleRad) * (swordOffset.x * 0.5f),
+                0
+            );
+            swordTransform.localPosition = initialOffset;
+        }
+        else
+        {
+            swordTransform.localPosition = new Vector3(swordOffset.x * 0.5f, 0, 0);
+        }
+    }
 
 }
