@@ -144,7 +144,7 @@ public class UIManager : MonoBehaviour
         }
 
         //‚R•bŒã‚Éƒ^ƒCƒgƒ‹‚É–ß‚é
-        Invoke("GoToTitle", 3.0f);
+        Invoke("GoToTitle", 7.0f);
     }
 
     public void GameOver()
