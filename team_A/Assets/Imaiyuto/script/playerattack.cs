@@ -9,6 +9,8 @@ public class PlayerAttack : MonoBehaviour
     // 公開フィールド
     public int attackPower { get { return currentWeapon.attackPower; } } //攻撃力を currentWeapon から取る
     public WeaponData currentWeapon;//今持っている武器
+    public GameObject weaponSpritePrefab;     // 剣の見た目
+    public GameObject weaponEffectPrefab;     // 斬撃エフェクト
     public float attackDuration { get {return currentWeapon.attackDuration; } } //攻撃判定の持続時間
     public float attackCooldown { get { return currentWeapon.attackCooldown; } }// 攻撃のクールタイム（秒）
     public Vector2 swordOffset = new Vector2(1.0f, 0f); //基準のオフセット（右方向）
@@ -213,5 +215,6 @@ public class PlayerAttack : MonoBehaviour
         Debug.Log("武器装備: " + newWeapon.weaponName + " / 攻撃力: " + newWeapon.attackPower);
 
     }
+
 
 }

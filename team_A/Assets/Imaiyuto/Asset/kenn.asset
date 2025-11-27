@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 538787752f0429e40aeee5160e46fe72, type: 3}
   m_Name: kenn
   m_EditorClassIdentifier: 
-  weaponName: sword
+  weaponName: kenn
   attackPower: 5
   attackDuration: 0.2
+  attackCooldown: 0
+  weaponSpritePrefab: {fileID: 3406201129501653409, guid: 7cab6572349023b40af8e6e08b19feac, type: 3}
+  weaponEffectPrefab: {fileID: 5479791115406603499, guid: f8b8de49e48a6f44db2fbfefefb4dd8f, type: 3}
   swordPrefab: {fileID: 3406201129501653409, guid: 7cab6572349023b40af8e6e08b19feac, type: 3}
   swordEffectPrefab: {fileID: 5479791115406603499, guid: f8b8de49e48a6f44db2fbfefefb4dd8f, type: 3}
