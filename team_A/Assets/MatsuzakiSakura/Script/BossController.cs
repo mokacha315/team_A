@@ -12,6 +12,9 @@ public class BossController : MonoBehaviour
     public GameObject bulletPrefab;    //弾
     public float shootSpeed = 5.0f;    //弾の速度
 
+    public float shootInterval = 1.0f; //攻撃間隔
+    float shootTimer = 0f;
+
     //攻撃中フラグ
     bool inAttack = false;
 
@@ -24,12 +27,20 @@ public class BossController : MonoBehaviour
     public AudioClip normalBGM;
     bool bgmChanged = false;
 
+    private SpriteRenderer spriteRenderer;
+    private Collider2D bossCollider;
+    private Animator animator;
+
     GameObject player;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        bossCollider = GetComponent<Collider2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -82,21 +93,33 @@ public class BossController : MonoBehaviour
             }
 
 
-            if (dist <= reactionDistance && inAttack == false)
+            if (dist <= reactionDistance)
             {
                 //範囲内&攻撃中ではない&HP攻撃
-                inAttack = true;
+                if (inAttack == false)
+                {
+                    inAttack = true;
+                }
 
-                //アニメーションを切り替える
-                GetComponent<Animator>().Play("BossAttack");
+                //攻撃中はタイマー止める
+                if (inAttack)
+                {
+                    shootTimer += Time.deltaTime;
+                    if (shootTimer >= shootInterval)
+                    {
+                        Attack();
+                        shootTimer = 0f;
+                    }
+                }
             }
-            else if (dist > reactionDistance && inAttack)
+            else
             {
-                inAttack = false;
-
-                //アニメーションを切り替える
-                GetComponent<Animator>().Play("Boss");
-
+                if (inAttack)
+                {
+                    inAttack = false;
+                    //タイマーリセット
+                    shootTimer = 0f;
+                }
             }
         }
     }
@@ -111,6 +134,11 @@ public class BossController : MonoBehaviour
             //ダメージ時赤色
             isBlink = true;
             blinkTimer = 0.1f;
+
+            if (spriteRenderer != null)
+            {
+                spriteRenderer.color = new Color(1f, 0.4f, 0.4f);
+            }
 
             if (hp <= 0)
             {
