@@ -148,8 +148,6 @@ public class BossController : MonoBehaviour
                 //アニメーションを消す
                 GetComponent<Animator>().Play("BossDead");
 
-                transform.localScale = new Vector3(1f, 1f, 1f);
-
                 FindObjectOfType<UIManager>().GameClear();
 
 

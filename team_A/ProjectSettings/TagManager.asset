@@ -9,6 +9,7 @@ TagManager:
   - Boss
   - sword
   - sword_effect
+  - Item
   layers:
   - Default
   - TransparentFX

@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 4436306850984864881}
   - component: {fileID: 3395614799426039231}
   - component: {fileID: -2897117353950859381}
-  m_Layer: 0
+  - component: {fileID: 4823233973928599514}
+  m_Layer: 8
   m_Name: kenn
   m_TagString: sword_effect
   m_Icon: {fileID: 0}
@@ -147,3 +148,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 11.21, y: 11.52}
   m_EdgeRadius: 0
+--- !u!114 &4823233973928599514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3406201129501653409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63835406107151c49b0f835202bdba9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newWeapon: {fileID: 11400000, guid: 45be1e0a3eca00c4f918345be20c3b1d, type: 2}
