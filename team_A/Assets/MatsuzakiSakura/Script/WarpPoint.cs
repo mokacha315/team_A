@@ -1,10 +1,12 @@
+using System.Collections;
 using UnityEngine;
+
 
 public class WarpPoint : MonoBehaviour
 {
     public Transform warpDestination;
 
-    static float warpCooldown = 0.5f;
+    static float warpCooldown = 0.3f;
 
     static float playerWarpTimer = 0f;
 
@@ -24,10 +26,36 @@ public class WarpPoint : MonoBehaviour
         //もしPlayerが当たったら
         if (other.CompareTag("Player"))
         {
-            //プレイヤーを移動させる
-            other.transform.position = warpDestination.position;
-
-            playerWarpTimer = warpCooldown;
+            StartCoroutine(WarpRoutine(other.transform));
         }
     }
+
+    IEnumerator WarpRoutine(Transform player)
+    {
+        playerWarpTimer = warpCooldown;
+
+        HeroController hero = player.GetComponent<HeroController>();
+
+        if (hero != null)
+        {
+            hero.enabled = false;
+        }
+
+        //フェードアウト
+        FadeManager.Instance.LoadScene("", warpCooldown);
+
+        //フェードアウト時間まで待つ
+        yield return new WaitForSeconds(warpCooldown);
+
+
+        //ワープ
+        player.position = warpDestination.position;
+
+        //操作ON
+        if (hero != null)
+        {
+            hero.enabled = true;
+        }
+    }
+
 }
