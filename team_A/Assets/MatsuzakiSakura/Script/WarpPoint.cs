@@ -21,7 +21,10 @@ public class WarpPoint : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (playerWarpTimer > 0) return;
+        if (playerWarpTimer > 0)
+        {
+            return;
+        }
 
         //もしPlayerが当たったら
         if (other.CompareTag("Player"))
@@ -41,10 +44,7 @@ public class WarpPoint : MonoBehaviour
             hero.enabled = false;
         }
 
-        //フェードアウト
-        FadeManager.Instance.LoadScene("", warpCooldown);
-
-        //フェードアウト時間まで待つ
+        //フェードアウト終わるまで待つ
         yield return new WaitForSeconds(warpCooldown);
 
 
