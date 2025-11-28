@@ -17,8 +17,8 @@ public class PlayerAttack : MonoBehaviour
     // プライベートフィールド（生成・キャッシュされたオブジェクトを保持）
     private bool inAttack = false;
     private float nextAttackTiam=0f;//クールタイムを数える用の変数
-    private GameObject sword;
-    private GameObject sword_effect;
+    private GameObject sword;//剣
+    private GameObject sword_effect;//エフェクト
     private UnityEngine.Transform swordTransform;
     private UnityEngine.Transform effectTransform;
     private SpriteRenderer swordSpriteRenderer;
