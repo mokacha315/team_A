@@ -5,10 +5,9 @@ using UnityEngine;
 public class WarpPoint : MonoBehaviour
 {
     public Transform warpDestination;
-
     static float warpCooldown = 0.3f;
-
     static float playerWarpTimer = 0f;
+    private bool isWarping = false;
 
     private void Update()
     {
@@ -21,41 +20,81 @@ public class WarpPoint : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (playerWarpTimer > 0)
+        if (playerWarpTimer > 0 || isWarping)
         {
             return;
         }
 
         //もしPlayerが当たったら
-        if (other.CompareTag("Player"))
+        if (!other.CompareTag("Player"))
         {
-            StartCoroutine(WarpRoutine(other.transform));
+            return;
         }
-    }
 
-    IEnumerator WarpRoutine(Transform player)
-    {
-        playerWarpTimer = warpCooldown;
+        //主人公操作停止
+        HeroController hero = other.GetComponent<HeroController>();
+        Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
+        Collider2D playerCol = other.GetComponent<Collider2D>();
 
-        HeroController hero = player.GetComponent<HeroController>();
 
         if (hero != null)
         {
             hero.enabled = false;
         }
 
+        if (rb != null)
+        {
+            rb.velocity = Vector2.zero;
+            rb.angularVelocity = 0f;
+        }
+        if (playerCol != null)
+        {
+            playerCol.isTrigger = true;
+        }
+
+        StartCoroutine(WarpRoutine(other.transform, hero, playerCol));
+    }
+
+    IEnumerator WarpRoutine(Transform player, HeroController hero, Collider2D playerCol)
+    {
+        isWarping = true;
+        playerWarpTimer = warpCooldown;
+
+        FadeManager2 fadeManager = FindObjectOfType<FadeManager2>();
+
+        if (fadeManager != null)
+        {
+            fadeManager.FadeOut();
+        }
+
         //フェードアウト終わるまで待つ
-        yield return new WaitForSeconds(warpCooldown);
+        yield return new WaitForSeconds(fadeManager != null ? fadeManager.fadeDuration : warpCooldown); ;
 
 
-        //ワープ
-        player.position = warpDestination.position;
+        //ワープ (プレイヤー位置ずらす)
+        player.position = warpDestination.position + new Vector3(0, 1.0f, 0);
 
-        //操作ON
+        //衝突待つ
+        if (playerCol != null)
+        {
+            playerCol.isTrigger = false;
+        }
+
         if (hero != null)
         {
             hero.enabled = true;
         }
+
+
+        //フェードイン
+        if (fadeManager != null)
+        {
+            fadeManager.FadeIn();
+        }
+
+        //フラグはずす
+        yield return new WaitForSeconds(0.05f);
+        isWarping = false;
     }
 
 }
