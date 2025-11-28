@@ -74,17 +74,13 @@ public class WarpPoint : MonoBehaviour
         //ワープ (プレイヤー位置ずらす)
         player.position = warpDestination.position + new Vector3(0, 1.0f, 0);
 
-        //衝突待つ
+
+        //当たり判定を戻す
+        yield return new WaitForSeconds(0.1f);
         if (playerCol != null)
         {
             playerCol.isTrigger = false;
         }
-
-        if (hero != null)
-        {
-            hero.enabled = true;
-        }
-
 
         //フェードイン
         if (fadeManager != null)
@@ -92,8 +88,15 @@ public class WarpPoint : MonoBehaviour
             fadeManager.FadeIn();
         }
 
+        yield return new WaitForSeconds(fadeManager != null ? fadeManager.fadeDuration : 0.3f);
+
+
+        if (hero != null)
+        {
+            hero.enabled = true;
+        }
+
         //フラグはずす
-        yield return new WaitForSeconds(0.05f);
         isWarping = false;
     }
 
