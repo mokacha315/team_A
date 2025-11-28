@@ -813,7 +813,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 700, y: 600}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1657,8 +1657,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentWeapon: {fileID: 11400000, guid: 786ca65d7e7820d45ad6d5a96d70fee4, type: 2}
-  weaponSpritePrefab: {fileID: 0}
-  weaponEffectPrefab: {fileID: 0}
   swordOffset: {x: 1, y: 0}
   heroController: {fileID: 0}
 --- !u!114 &618675280
