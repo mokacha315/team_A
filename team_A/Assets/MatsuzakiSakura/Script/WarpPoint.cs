@@ -17,7 +17,6 @@ public class WarpPoint : MonoBehaviour
 
     private void Update()
     {
-        //ï¿½^ï¿½Cï¿½}ï¿½[ï¿½ï¿½ï¿½ï¿½
         if (playerWarpTimer > 0)
         {
             playerWarpTimer -= Time.deltaTime;
@@ -31,13 +30,11 @@ public class WarpPoint : MonoBehaviour
             return;
         }
 
-        //ï¿½ï¿½ï¿½ï¿½Playerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         if (!other.CompareTag("Player"))
         {
             return;
         }
 
-        //ï¿½ï¿½lï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½~
         HeroController hero = other.GetComponent<HeroController>();
         Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
         Collider2D playerCol = other.GetComponent<Collider2D>();
@@ -50,7 +47,7 @@ public class WarpPoint : MonoBehaviour
 
         if (rb != null)
         {
-            rb.linearVelocity = Vector2.zero;
+            rb.velocity = Vector2.zero;
             rb.angularVelocity = 0f;
         }
         if (playerCol != null)
@@ -73,32 +70,18 @@ public class WarpPoint : MonoBehaviour
             fadeManager.FadeOut();
         }
 
-        //ï¿½tï¿½Fï¿½[ï¿½hï¿½Aï¿½Eï¿½gï¿½Iï¿½ï¿½ï¿½Ü‚Å‘Ò‚ï¿½
-        yield return new WaitForSeconds(fadeManager != null ? fadeManager.fadeDuration : warpCooldown); ;
+        yield return new WaitForSeconds(fadeManager != null ? fadeManager.fadeDuration : warpCooldown);
 
-
-<<<<<<< HEAD
-        //ï¿½ï¿½ï¿½[ï¿½v (ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½Ê’uï¿½ï¿½ï¿½ç‚·)
-        player.position = warpDestination.position + new Vector3(0, 1.0f, 0);
-=======
-        //ƒ[ƒv (ƒvƒŒƒCƒ„[ˆÊ’u‚¸‚ç‚·)
-<<<<<<< HEAD
-        player.position = warpPosition + new Vector3(0, 1.0f, 0);
->>>>>>> f6d4043bfb7e15666470e26b0c539322b3920e32
-=======
         Vector3 targetPos = (lastBossWarpPosition != Vector3.zero) ? lastBossWarpPosition : warpPosition;
         player.position = targetPos + new Vector3(0, 1.0f, 0);
->>>>>>> f6094b0 (ãƒ¯ãƒ¼ãƒ—)
 
-
-        //ï¿½ï¿½ï¿½ï¿½ï¿½è”»ï¿½ï¿½ï¿½ß‚ï¿½
+        
         yield return new WaitForSeconds(0.1f);
         if (playerCol != null)
         {
             playerCol.isTrigger = false;
         }
 
-        //ï¿½tï¿½Fï¿½[ï¿½hï¿½Cï¿½ï¿½
         if (fadeManager != null)
         {
             fadeManager.FadeIn();
@@ -112,7 +95,6 @@ public class WarpPoint : MonoBehaviour
             hero.enabled = true;
         }
 
-        //ï¿½tï¿½ï¿½ï¿½Oï¿½Í‚ï¿½ï¿½ï¿½
         isWarping = false;
     }
 
