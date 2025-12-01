@@ -146,7 +146,8 @@ public class HalfBossController : MonoBehaviour
                 {
                     var warp = Instantiate(warpPrefab, transform.position, Quaternion.identity);
                     WarpPoint wp = warp.GetComponent<WarpPoint>();
-                    wp.warpPosition = transform.position; 
+                    wp.warpPosition = transform.position;
+                    WarpPoint.lastBossWarpPosition = transform.position;
                 }
 
 

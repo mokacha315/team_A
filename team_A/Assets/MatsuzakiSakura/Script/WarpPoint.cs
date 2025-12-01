@@ -7,6 +7,9 @@ public class WarpPoint : MonoBehaviour
     //ƒ[ƒvæ‚ÌÀ•W
     public Vector3 warpPosition;
 
+    //ƒ{ƒX‚Ìƒ[ƒvÀ•W
+    public static Vector3 lastBossWarpPosition;
+
     public Transform warpDestination;
     static float warpCooldown = 0.3f;
     static float playerWarpTimer = 0f;
@@ -79,8 +82,13 @@ public class WarpPoint : MonoBehaviour
         player.position = warpDestination.position + new Vector3(0, 1.0f, 0);
 =======
         //ƒ[ƒv (ƒvƒŒƒCƒ„[ˆÊ’u‚¸‚ç‚·)
+<<<<<<< HEAD
         player.position = warpPosition + new Vector3(0, 1.0f, 0);
 >>>>>>> f6d4043bfb7e15666470e26b0c539322b3920e32
+=======
+        Vector3 targetPos = (lastBossWarpPosition != Vector3.zero) ? lastBossWarpPosition : warpPosition;
+        player.position = targetPos + new Vector3(0, 1.0f, 0);
+>>>>>>> f6094b0 (ãƒ¯ãƒ¼ãƒ—)
 
 
         //ï¿½ï¿½ï¿½ï¿½ï¿½è”»ï¿½ï¿½ï¿½ß‚ï¿½
