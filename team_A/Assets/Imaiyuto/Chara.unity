@@ -149,11 +149,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8470148528438507824, guid: 7cab6572349023b40af8e6e08b19feac, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.52
+      value: -13.06
       objectReference: {fileID: 0}
     - target: {fileID: 8470148528438507824, guid: 7cab6572349023b40af8e6e08b19feac, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.02
+      value: -4.11
       objectReference: {fileID: 0}
     - target: {fileID: 8470148528438507824, guid: 7cab6572349023b40af8e6e08b19feac, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1284,6 +1284,7 @@ MonoBehaviour:
   sword: {fileID: 0}
   hitBackForce: 4
   hitBackDuration: 0.2
+  weapon: {fileID: 0}
 --- !u!95 &618675273
 Animator:
   serializedVersion: 7
@@ -1469,6 +1470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentWeapon: {fileID: 11400000, guid: 786ca65d7e7820d45ad6d5a96d70fee4, type: 2}
+  extraDamage: 0
   swordOffset: {x: 1, y: 0}
   heroController: {fileID: 0}
 --- !u!82 &618675280
@@ -27113,6 +27115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  player: {fileID: 0}
 --- !u!114 &1791744664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27126,6 +27129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  player: {fileID: 0}
 --- !u!114 &1791744665
 MonoBehaviour:
   m_ObjectHideFlags: 0

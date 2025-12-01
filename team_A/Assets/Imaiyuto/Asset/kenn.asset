@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: kenn
   m_EditorClassIdentifier: 
   weaponName: kenn
-  attackPower: 5
+  attackPower: 9
   attackDuration: 0.2
   attackCooldown: 0
   swordPrefab: {fileID: 3406201129501653409, guid: 7cab6572349023b40af8e6e08b19feac, type: 3}
