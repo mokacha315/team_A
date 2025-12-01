@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class WarpPoint : MonoBehaviour
 {
+    public enum WarpType { WarpA, WarpB }
+    public WarpType warpType;
+
     //ワープ先の座標
     public Vector3 warpPosition;
+    public Transform warpBDestination;
 
     //ボスのワープ座標
     public static Vector3 lastBossWarpPosition;
+    public static Transform warpAReference;
 
     public Transform warpDestination;
     static float warpCooldown = 0.3f;
@@ -72,10 +77,22 @@ public class WarpPoint : MonoBehaviour
 
         yield return new WaitForSeconds(fadeManager != null ? fadeManager.fadeDuration : warpCooldown);
 
-        Vector3 targetPos = (lastBossWarpPosition != Vector3.zero) ? lastBossWarpPosition : warpPosition;
-        player.position = targetPos + new Vector3(0, 1.0f, 0);
+        Vector3 targetPos = warpPosition;
 
-        
+        if (warpType == WarpType.WarpA && warpBDestination != null)
+        {
+            // WarpAに入ったらWarpBの位置に移動
+            targetPos = warpBDestination.position;
+        }
+        else if (warpType == WarpType.WarpB && warpAReference != null)
+        {
+            // WarpBに入ったらWarpAの位置に移動
+            targetPos = warpAReference.position;
+        }
+
+        player.position = targetPos + new Vector3(0, 1f, 0);
+
+
         yield return new WaitForSeconds(0.1f);
         if (playerCol != null)
         {
