@@ -10,6 +10,8 @@ TagManager:
   - sword
   - sword_effect
   - Item
+  - buster_sword_effect
+  - kenn_effect
   layers:
   - Default
   - TransparentFX

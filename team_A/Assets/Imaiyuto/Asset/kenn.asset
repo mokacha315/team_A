@@ -16,7 +16,5 @@ MonoBehaviour:
   attackPower: 5
   attackDuration: 0.2
   attackCooldown: 0
-  weaponSpritePrefab: {fileID: 3406201129501653409, guid: 7cab6572349023b40af8e6e08b19feac, type: 3}
-  weaponEffectPrefab: {fileID: 5479791115406603499, guid: f8b8de49e48a6f44db2fbfefefb4dd8f, type: 3}
   swordPrefab: {fileID: 3406201129501653409, guid: 7cab6572349023b40af8e6e08b19feac, type: 3}
-  swordEffectPrefab: {fileID: 5479791115406603499, guid: f8b8de49e48a6f44db2fbfefefb4dd8f, type: 3}
+  swordEffectPrefab: {fileID: 5479791115406603499, guid: 4df172d44a476b4438f53c5731add719, type: 3}

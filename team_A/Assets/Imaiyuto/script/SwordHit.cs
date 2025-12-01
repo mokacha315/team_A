@@ -2,29 +2,20 @@ using UnityEngine;
 
 public class SwordHit : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)//他のオブジェクトが剣の当たり判定に触れたときに呼ばれる
+    [Header("この武器のダメージ")]
+    public int damage = 1;
+
+    private int extraDamage = 1;
+
+    //現在のダメージ
+    public int CurrentDamage => damage + extraDamage;
+
+    //バフを拾ってダメージ増加
+    public void AddDamage(int amount)
     {
-        //触れた相手が[Enemy]タグを持っているかチェック
-        if (collision.CompareTag("Enemy"))
-        {
-            Debug.Log("肉のたたき");//デバック用
-
-           // Enemyスクリプトを取得してダメージ処理を呼ぶ
-            Enemy enemy = collision.GetComponent<Enemy>();
-            if (enemy != null)//Enemyスクリプトがついていれば
-            {
-                enemy.hp--;//敵の体力を減らす
-            }
-            //EnemyAttackスクリプトを取得して敵の球を打ち消す
-            EnemyAttack enemyattack=collision.GetComponent<EnemyAttack>();
-            if(enemy!=null)
-            {
-              //  enemyattack.hp-=1000;
-            }
-
-        }
-        }
+        extraDamage += amount;
     }
+}
 
 
 

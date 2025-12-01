@@ -151,4 +151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf5cf3493dc20984085bd28c8ca31bd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  warpDestination: {fileID: 2246060005497797426, guid: f61a155072a1ce042b46f6cd785b0e41, type: 3}
+  warpType: 1
+  warpPosition: {x: 0, y: 0, z: 0}
+  warpBDestination: {fileID: 2246060005497797426, guid: f61a155072a1ce042b46f6cd785b0e41, type: 3}
