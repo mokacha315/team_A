@@ -35,6 +35,9 @@ public class HeroController : MonoBehaviour
     public float hitBackForce = 4.0f;
     public float hitBackDuration = 0.2f;
 
+    //攻撃力
+    public SwordHit weapon;
+
     //p1からp2の角度を返す
     float GetAngle(Vector2 p1, Vector2 p2)
     {
@@ -67,10 +70,13 @@ public class HeroController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        weapon = sword.GetComponent<SwordHit>();
+
         Application.targetFrameRate = 60;
 
         rbody = GetComponent<Rigidbody2D>();    //Rigidbody2Dを得る
         animator = GetComponent<Animator>();    //Animatorを得る
+
 
         //SpriteRendererを得る
         spriteRenderer = GetComponent<SpriteRenderer>();
