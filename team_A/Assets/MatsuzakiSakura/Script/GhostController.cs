@@ -24,10 +24,18 @@ public class GhostController : MonoBehaviour
     bool isBlink = false;
     float blinkTimer = 0f;
 
+    GameObject player;
+    PlayerAttack playerAttack;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
 
+        if (player != null)
+        {
+            playerAttack = player.GetComponent<PlayerAttack>();
+        }
     }
 
     // Update is called once per frame
@@ -102,7 +110,10 @@ public class GhostController : MonoBehaviour
             SwordHit swordhit = collision.gameObject.GetComponent<SwordHit>();
             if (swordhit == null) return;
 
-          //  hp -= swordhit.CurrentDamage;
+            int extra = playerAttack.extraDamage;
+            int totalDamage = swordhit.damage + extra;
+            //HPを減らす
+            hp -= totalDamage;
 
 
             //ダメージ時赤色

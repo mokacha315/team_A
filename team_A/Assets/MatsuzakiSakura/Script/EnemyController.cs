@@ -24,12 +24,22 @@ public class EnemyController : MonoBehaviour
     public GameObject[] dropItems;   //ドロップするアイテムリスト
     public float dropRate = 1.0f;    //ドロップ確率100％
 
+    GameObject player;
+    PlayerAttack playerAttack;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+
         rbody = GetComponent<Rigidbody2D>();      //Rigidbody2Dを得る
         animator = GetComponent<Animator>();      //Animatorを得る
+
+        if (player != null)
+        {
+            playerAttack = player.GetComponent<PlayerAttack>();
+        }
     }
 
     // Update is called once per frame
@@ -133,7 +143,10 @@ public class EnemyController : MonoBehaviour
             SwordHit swordhit = collision.gameObject.GetComponent<SwordHit>();
             if (swordhit == null) return;
 
-            //hp -= swordhit.CurrentDamage;
+            int extra = playerAttack.extraDamage;
+            int totalDamage = swordhit.damage + extra;
+            //HPを減らす
+            hp -= totalDamage;
 
             isBlink = true;
             blinkTimer = 0.1f;

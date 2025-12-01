@@ -33,6 +33,8 @@ public class BossController : MonoBehaviour
 
     GameObject player;
 
+    PlayerAttack playerAttack;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -41,6 +43,11 @@ public class BossController : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         bossCollider = GetComponent<Collider2D>();
         animator = GetComponent<Animator>();
+
+        if (player != null)
+        {
+            playerAttack = player.GetComponent<PlayerAttack>();
+        }
     }
 
     // Update is called once per frame
@@ -130,11 +137,13 @@ public class BossController : MonoBehaviour
 {
             SwordHit swordhit = collision.gameObject.GetComponent<SwordHit>();
             if (swordhit == null) return;
-            // ★ PlayerAttack からバフ値を取得する
-           //int extra = (playerAttack != null) ? plan.gameobject.GetComponent<SwordHit>();
-            //int totalDamage = swordhit.damage + player.extraDamage;
-            // ★ ボスのHPを減らす
-            //hp -= totalDamage;
+
+            PlayerAttack playerAttack = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAttack>();
+
+            int extra = playerAttack.extraDamage;
+            int totalDamage = swordhit.damage + extra;
+            //ボスのHPを減らす
+            hp -= totalDamage;
 
             //ダメージ時赤色
             isBlink = true;

@@ -33,12 +33,19 @@ public class HalfBossController : MonoBehaviour
     private Animator animator;
     private SpriteRenderer spriteRenderer;
 
+    PlayerAttack playerAttack;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        if (player != null)
+        {
+            playerAttack = player.GetComponent<PlayerAttack>();
+        }
     }
 
     // Update is called once per frame
@@ -133,8 +140,10 @@ public class HalfBossController : MonoBehaviour
                 return;
             }
 
-            //SwordHitスクリプトからダメージ
-            hp -= swordhit.CurrentDamage;
+            int extra = playerAttack.extraDamage;
+            int totalDamage = swordhit.damage + extra;
+            //HPを減らす
+            hp -= totalDamage;
 
             //ダメージ時赤色
             isBlink = true;
@@ -143,6 +152,12 @@ public class HalfBossController : MonoBehaviour
             if (hp <= 0)
             {
                 //死亡
+                //BGM戻す
+                if (BGMManager.Instance != null)
+                {
+                    BGMManager.Instance.ChangeBGM(normalBGM);
+                }
+
                 //当たりを消す
                 GetComponent<Collider2D>().enabled = false;
                 //アニメーションを消す

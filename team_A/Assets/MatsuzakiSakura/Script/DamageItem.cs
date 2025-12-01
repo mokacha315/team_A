@@ -2,15 +2,17 @@ using UnityEngine;
 
 public class DamageItem : MonoBehaviour
 {
+    public int buffValue = 2;
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-           
-            var player = collision.GetComponent<HeroController>();
-            if (player != null && player.weapon != null)
+            PlayerAttack pa = collision.GetComponent<PlayerAttack>();
+            
+            if (pa != null)
             {
-               // player.weapon.AddDamage(2); // 1å≈íËÇ≈ëùÇ‚Ç∑
+                pa.AddDamage(buffValue);
             }
 
             Destroy(gameObject);
