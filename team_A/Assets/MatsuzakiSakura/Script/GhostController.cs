@@ -96,7 +96,11 @@ public class GhostController : MonoBehaviour
         if (collision.gameObject.tag == "sword")
         {
             //ダメージ
-            hp--;
+            SwordHit swordhit = collision.gameObject.GetComponent<SwordHit>();
+            if (swordhit == null) return;
+
+            hp -= swordhit.CurrentDamage;
+
 
             //ダメージ時赤色
             isBlink = true;
