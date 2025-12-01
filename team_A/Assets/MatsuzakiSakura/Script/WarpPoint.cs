@@ -88,12 +88,16 @@ public class WarpPoint : MonoBehaviour
         else if (warpType == WarpType.WarpB)
         {
             // WarpBÇ…ì¸Ç¡ÇΩÇÁWarpAÇÃà íuÇ…à⁄ìÆ
-            targetPos = warpAEnterPosition != Vector3.zero ? warpAEnterPosition : warpPosition;
+            if (WarpPoint.warpAEnterPosition != Vector3.zero)
+            {
+                targetPos = WarpPoint.warpAEnterPosition;
+            }
         }
 
+        //ÉèÅ[Év
         player.position = targetPos + new Vector3(0, 1f, 0);
 
-
+        //ìñÇΩÇËîªíËñﬂÇ∑
         yield return new WaitForSeconds(0.1f);
         if (playerCol != null)
         {
