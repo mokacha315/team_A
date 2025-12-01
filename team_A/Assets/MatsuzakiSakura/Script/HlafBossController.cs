@@ -12,6 +12,9 @@ public class HalfBossController : MonoBehaviour
     public float shootSpeed = 5.0f;    //弾の速度
     public float shootInterval = 1.5f; //攻撃間隔
 
+    //倒したらワープドロップ
+    public GameObject warpPrefab;
+
 
     //攻撃中フラグ
     bool inAttack = false;
@@ -137,6 +140,12 @@ public class HalfBossController : MonoBehaviour
                 GetComponent<Collider2D>().enabled = false;
                 //アニメーションを消す
                 GetComponent<Animator>().Play("Hlaf Boss Dead");
+
+                //ワープドロップ
+                if (warpPrefab != null)
+                {
+                    Instantiate(warpPrefab, transform.position, Quaternion.identity);
+                }
 
                 //１秒後に消す
                 Destroy(gameObject, 1);
