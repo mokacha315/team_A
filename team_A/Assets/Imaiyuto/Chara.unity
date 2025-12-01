@@ -1278,7 +1278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 748938c5a6d50364da219db5f820d627, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  baseSpeed: 3
   direction: 0
   angleZ: -90
   sword: {fileID: 0}
