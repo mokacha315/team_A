@@ -1,0 +1,22 @@
+using UnityEngine;
+
+public class HealItem : MonoBehaviour
+{
+    public int healAmount = 3; //âÒïúó 
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            HeroController.hp += healAmount;
+
+            //HPêßå¿
+            if (HeroController.hp > 10)
+            {
+                HeroController.hp = 10;
+            }
+
+            Destroy(gameObject); //ÉAÉCÉeÉÄè¡Ç∑
+        }
+    }
+}
