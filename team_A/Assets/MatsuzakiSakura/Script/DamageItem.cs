@@ -9,7 +9,7 @@ public class DamageItem : MonoBehaviour
             SwordHit weapon = collision.GetComponent<SwordHit>();
             if (weapon != null)
             {
-                weapon.AddDamage(1); // 1ŒÅ’è‚Å‘‚â‚·
+                weapon.AddDamage(2); // 1ŒÅ’è‚Å‘‚â‚·
             }
 
             Destroy(gameObject);
