@@ -12,7 +12,7 @@ public class SpeedItem : MonoBehaviour
 
             if (hero != null)
             {
-                hero.AddSpeed(speedUpAmount); //速度アップ
+                hero.AddSpeed(SpeedAmount); //速度アップ
             }
 
             Destroy(gameObject); //アイテム消す
