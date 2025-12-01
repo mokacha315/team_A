@@ -12,7 +12,10 @@ public class GhostController : MonoBehaviour
     public float shootSpeed = 5.0f;    //弾の速度
     public float shootInterval = 1.5f; //攻撃間隔
 
- 
+    //アイテムドロップ
+    public GameObject[] dropItems;   //ドロップするアイテムリスト
+    public float dropRate = 1.0f;    //ドロップ確率100％
+
     //攻撃中フラグ
     bool inAttack = false;
     float shootTimer = 0f;
@@ -144,6 +147,25 @@ public class GhostController : MonoBehaviour
             //発射
             Rigidbody2D rbody = bullet.GetComponent<Rigidbody2D>();
             rbody.AddForce(v, ForceMode2D.Impulse);
+        }
+    }
+
+    //アイテムドロップ関数
+    void TryDropItem()
+    {
+        //設定していなければそのまま
+        if (dropItems.Length == 0) return;
+
+        float r = Random.value;  //0～1の乱数
+        if (r <= dropRate)
+        {
+            //ランダムでアイテムを選択
+            GameObject drop =
+                dropItems[Random.Range(0, dropItems.Length)];
+
+            //敵の位置にドロップ
+            Instantiate(drop, transform.position,
+                Quaternion.identity);
         }
     }
 }
