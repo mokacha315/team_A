@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class HeroController : MonoBehaviour
 {
-    public float speed = 3.0f;    //移動スピード
-    private float extraSpeed = 1f; //アイテムで増える速度
-    public float Speed => Speed + extraSpeed; //現在の速度
+    public float baseSpeed = 3.0f;    //移動スピード
+    private float extraSpeed = 0f; //アイテムで増える速度
+    public float Speed => baseSpeed + extraSpeed; //現在の速度
+
+    public void AddSpeed(float amount)
+    {
+        extraSpeed += amount;
+    }
 
     public int direction = 0;     //移動方向
     float axisH;                  //横軸
@@ -180,7 +185,7 @@ public class HeroController : MonoBehaviour
         //移動速度を更新する
         if (!inDamage)
         {
-            rbody.linearVelocity = new Vector2(axisH, axisV).normalized * speed;
+            rbody.linearVelocity = new Vector2(axisH, axisV).normalized * Speed;
         }
     }
 
@@ -280,11 +285,5 @@ public class HeroController : MonoBehaviour
         {
             GetDamage(collision.gameObject);
         }
-    }
-
-    //スピード関数
-    public void AddSpeed(float amount)
-    {
-        extraSpeed += amount;
     }
 }
