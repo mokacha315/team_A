@@ -7,7 +7,7 @@ public class DamageItem : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
            
-            var player = collision.GetComponent<Player>();
+            var player = collision.GetComponent<HeroController>();
             if (player != null && player.weapon != null)
             {
                 player.weapon.AddDamage(2); // 1å≈íËÇ≈ëùÇ‚Ç∑
