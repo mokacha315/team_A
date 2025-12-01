@@ -10,7 +10,7 @@ public class DamageItem : MonoBehaviour
             var player = collision.GetComponent<HeroController>();
             if (player != null && player.weapon != null)
             {
-                player.weapon.AddDamage(2); // 1ŒÅ’è‚Å‘‚â‚·
+               // player.weapon.AddDamage(2); // 1ŒÅ’è‚Å‘‚â‚·
             }
 
             Destroy(gameObject);

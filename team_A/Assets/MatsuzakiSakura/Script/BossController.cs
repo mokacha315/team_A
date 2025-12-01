@@ -126,15 +126,15 @@ public class BossController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "sword")
-        {
+        if(collision.gameObject.tag == "sword")
+{
             SwordHit swordhit = collision.gameObject.GetComponent<SwordHit>();
             if (swordhit == null) return;
-            // ★ 攻撃力合計を計算する
-            HeroController player = FindObjectOfType<HeroController>();
-            int totalDamage = swordhit.damage + player.extraDamage;
+            // ★ PlayerAttack からバフ値を取得する
+           //int extra = (playerAttack != null) ? plan.gameobject.GetComponent<SwordHit>();
+            //int totalDamage = swordhit.damage + player.extraDamage;
             // ★ ボスのHPを減らす
-            hp -= totalDamage;
+            //hp -= totalDamage;
 
             //ダメージ時赤色
             isBlink = true;

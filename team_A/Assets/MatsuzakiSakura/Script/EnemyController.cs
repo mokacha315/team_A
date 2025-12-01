@@ -133,7 +133,7 @@ public class EnemyController : MonoBehaviour
             SwordHit swordhit = collision.gameObject.GetComponent<SwordHit>();
             if (swordhit == null) return;
 
-            hp -= swordhit.CurrentDamage;
+            //hp -= swordhit.CurrentDamage;
 
             isBlink = true;
             blinkTimer = 0.1f;

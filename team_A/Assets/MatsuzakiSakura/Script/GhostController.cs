@@ -102,7 +102,7 @@ public class GhostController : MonoBehaviour
             SwordHit swordhit = collision.gameObject.GetComponent<SwordHit>();
             if (swordhit == null) return;
 
-            hp -= swordhit.CurrentDamage;
+          //  hp -= swordhit.CurrentDamage;
 
 
             //ダメージ時赤色
