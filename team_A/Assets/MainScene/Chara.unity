@@ -1385,9 +1385,7 @@ GameObject:
   - component: {fileID: 618675274}
   - component: {fileID: 618675273}
   - component: {fileID: 618675272}
-  - component: {fileID: 618675278}
   - component: {fileID: 618675279}
-  - component: {fileID: 618675280}
   - component: {fileID: 618675281}
   m_Layer: 3
   m_Name: Hero
@@ -1571,21 +1569,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.1, y: -5.2}
+  m_AnchoredPosition: {x: -6.36, y: -4.05}
   m_SizeDelta: {x: 6.29, y: 9.62}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &618675278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 618675271}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8415956339e480c41a98d93853c535e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &618675279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1601,19 +1587,6 @@ MonoBehaviour:
   currentWeapon: {fileID: 11400000, guid: 786ca65d7e7820d45ad6d5a96d70fee4, type: 2}
   swordOffset: {x: 1, y: 0}
   heroController: {fileID: 0}
---- !u!114 &618675280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 618675271}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccc337f53cf35524fa3cbe9335e3d4dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackUpValue: 2
 --- !u!114 &618675281
 MonoBehaviour:
   m_ObjectHideFlags: 0
