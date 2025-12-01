@@ -144,9 +144,9 @@ public class HalfBossController : MonoBehaviour
                 //ワープドロップ
                 if (warpPrefab != null)
                 {
-
                     var warp = Instantiate(warpPrefab, transform.position, Quaternion.identity);
-                    DontDestroyOnLoad(warp);
+                    WarpPoint wp = warp.GetComponent<WarpPoint>();
+                    wp.warpPosition = transform.position; 
                 }
 
 

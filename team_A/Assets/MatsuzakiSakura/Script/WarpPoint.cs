@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class WarpPoint : MonoBehaviour
 {
+    //ワープ先の座標
+    public Vector3 warpPosition;
+
     public Transform warpDestination;
     static float warpCooldown = 0.3f;
     static float playerWarpTimer = 0f;
@@ -72,7 +75,7 @@ public class WarpPoint : MonoBehaviour
 
 
         //ワープ (プレイヤー位置ずらす)
-        player.position = warpDestination.position + new Vector3(0, 1.0f, 0);
+        player.position = warpPosition + new Vector3(0, 1.0f, 0);
 
 
         //当たり判定を戻す
