@@ -11,11 +11,9 @@ public class WarpPoint : MonoBehaviour
     public Vector3 warpPosition;
     public Transform warpBDestination;
 
-    //ボスのワープ座標
-    public static Vector3 lastBossWarpPosition;
-    public static Transform warpAReference;
+    //warpAに入ったときの位置を保存
+    public static Vector3 warpAEnterPosition;
 
-    public Transform warpDestination;
     static float warpCooldown = 0.3f;
     static float playerWarpTimer = 0f;
     private bool isWarping = false;
@@ -81,13 +79,16 @@ public class WarpPoint : MonoBehaviour
 
         if (warpType == WarpType.WarpA && warpBDestination != null)
         {
-            // WarpAに入ったらWarpBの位置に移動
+            // WarpAに入ったらプレイヤーの位置を保存
+            warpAEnterPosition = player.position;
+
+            //WarpBに移動
             targetPos = warpBDestination.position;
         }
-        else if (warpType == WarpType.WarpB && warpAReference != null)
+        else if (warpType == WarpType.WarpB)
         {
             // WarpBに入ったらWarpAの位置に移動
-            targetPos = warpAReference.position;
+            targetPos = warpAEnterPosition != Vector3.zero ? warpAEnterPosition : warpPosition;
         }
 
         player.position = targetPos + new Vector3(0, 1f, 0);
