@@ -128,15 +128,13 @@ public class BossController : MonoBehaviour
     {
         if (collision.gameObject.tag == "sword")
         {
-            //ダメージ
             SwordHit swordhit = collision.gameObject.GetComponent<SwordHit>();
-            if (swordhit == null)
-            {
-                return;
-            }
-
-            //SwordHitスクリプトからダメージ
-            hp -= swordhit.CurrentDamage;
+            if (swordhit == null) return;
+            // ★ 攻撃力合計を計算する
+            HeroController player = FindObjectOfType<HeroController>();
+            int totalDamage = swordhit.damage + player.extraDamage;
+            // ★ ボスのHPを減らす
+            hp -= totalDamage;
 
             //ダメージ時赤色
             isBlink = true;
