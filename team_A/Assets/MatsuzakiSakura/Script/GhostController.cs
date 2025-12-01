@@ -117,6 +117,9 @@ public class GhostController : MonoBehaviour
                 //アニメーションを消す
                 GetComponent<Animator>().Play("GhostDead");
 
+                //ドロップ
+                TryDropItem();
+
                 //１秒後に消す
                 Destroy(gameObject, 1);
             }
