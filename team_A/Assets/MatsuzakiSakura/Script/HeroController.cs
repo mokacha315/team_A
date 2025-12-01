@@ -38,6 +38,9 @@ public class HeroController : MonoBehaviour
     //攻撃力
     public SwordHit weapon;
 
+    public GameObject swordPrefab;
+    public Transform hand;
+
     //p1からp2の角度を返す
     float GetAngle(Vector2 p1, Vector2 p2)
     {
@@ -70,7 +73,10 @@ public class HeroController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        weapon = sword.GetComponent<SwordHit>();
+        var s = Instantiate(swordPrefab, hand.position, hand.rotation);
+        s.transform.SetParent(hand);   
+        weapon = s.GetComponent<SwordHit>();
+
 
         Application.targetFrameRate = 60;
 
