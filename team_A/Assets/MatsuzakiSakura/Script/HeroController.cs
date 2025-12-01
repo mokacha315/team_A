@@ -8,9 +8,10 @@ public class HeroController : MonoBehaviour
     private float extraSpeed = 0f; //アイテムで増える速度
     public float Speed => baseSpeed + extraSpeed; //現在の速度
 
-    public void AddSpeed(float amount)
+    public void AddSpeed(float amount, float duration = 10f)
     {
         extraSpeed += amount;
+        StartCoroutine(RemoveSpeedAfterTime(amount, duration));
     }
 
     public int direction = 0;     //移動方向
@@ -285,5 +286,11 @@ public class HeroController : MonoBehaviour
         {
             GetDamage(collision.gameObject);
         }
+    }
+
+    private IEnumerator RemoveSpeedAfterTime(float amount, float duration)
+    {
+        yield return new WaitForSeconds(duration);  //10秒待つ
+        extraSpeed -= amount;                        //スピード元に戻る
     }
 }
