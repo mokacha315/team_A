@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class WarpPoint : MonoBehaviour
 {
+    //ƒ[ƒvæ‚ÌÀ•W
+    public Vector3 warpPosition;
+
     public Transform warpDestination;
     static float warpCooldown = 0.3f;
     static float playerWarpTimer = 0f;
@@ -71,8 +74,13 @@ public class WarpPoint : MonoBehaviour
         yield return new WaitForSeconds(fadeManager != null ? fadeManager.fadeDuration : warpCooldown); ;
 
 
+<<<<<<< HEAD
         //ï¿½ï¿½ï¿½[ï¿½v (ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½Ê’uï¿½ï¿½ï¿½ç‚·)
         player.position = warpDestination.position + new Vector3(0, 1.0f, 0);
+=======
+        //ƒ[ƒv (ƒvƒŒƒCƒ„[ˆÊ’u‚¸‚ç‚·)
+        player.position = warpPosition + new Vector3(0, 1.0f, 0);
+>>>>>>> f6d4043bfb7e15666470e26b0c539322b3920e32
 
 
         //ï¿½ï¿½ï¿½ï¿½ï¿½è”»ï¿½ï¿½ï¿½ß‚ï¿½
