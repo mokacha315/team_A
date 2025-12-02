@@ -7,12 +7,12 @@ public class BossController : MonoBehaviour
     //ƒqƒbƒgƒ|ƒCƒ“ƒg
     public int hp = 15;
     //”½‰‹——£
-    public float reactionDistance = 7.0f;
+    public float reactionDistance = 10.0f;
 
     public GameObject bulletPrefab;    //’e
     public float shootSpeed = 5.0f;    //’e‚Ì‘¬“x
 
-    public float shootInterval = 1.0f; //UŒ‚ŠÔŠu
+    public float shootInterval = 0.8f; //UŒ‚ŠÔŠu
     float shootTimer = 0f;
 
     //UŒ‚’†ƒtƒ‰ƒO

@@ -5,7 +5,7 @@ using UnityEngine;
 public class HalfBossController : MonoBehaviour
 {
     public int hp = 7;   //ヒットポイント
-    public float reactionDistance = 7.0f;   //反応距離
+    public float reactionDistance = 10.0f;   //反応距離
     public float Speed = 0.1f;    //移動スピード
 
     public GameObject bulletPrefab;    //弾
