@@ -113,6 +113,7 @@ public class UIManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        hp = HeroController.hp;
         UpdateHP();         //HPXV
         //‰æ‘œ‚ğ”ñ•\¦‚É‚·‚é
         Invoke("InactiveImage", 1.0f);
