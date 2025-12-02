@@ -259,6 +259,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1791744657}
+  - {fileID: 1692642504}
   - {fileID: 618675277}
   - {fileID: 292976660}
   - {fileID: 519723665}
@@ -1595,6 +1596,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentWeapon: {fileID: 11400000, guid: 786ca65d7e7820d45ad6d5a96d70fee4, type: 2}
+  extraDamage: 0
   swordOffset: {x: 1, y: 0}
   heroController: {fileID: 0}
 --- !u!114 &618675281
@@ -3882,6 +3884,84 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d844ba14e93007479d65f5cd2429cef, type: 3}
+--- !u!1001 &1692642503
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 138373103}
+    m_Modifications:
+    - target: {fileID: 3406201129501653409, guid: 7cab6572349023b40af8e6e08b19feac, type: 3}
+      propertyPath: m_Name
+      value: kenn
+      objectReference: {fileID: 0}
+    - target: {fileID: 3406201129501653409, guid: 7cab6572349023b40af8e6e08b19feac, type: 3}
+      propertyPath: m_TagString
+      value: Item
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436306850984864881, guid: 7cab6572349023b40af8e6e08b19feac, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8470148528438507824, guid: 7cab6572349023b40af8e6e08b19feac, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8470148528438507824, guid: 7cab6572349023b40af8e6e08b19feac, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8470148528438507824, guid: 7cab6572349023b40af8e6e08b19feac, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 8470148528438507824, guid: 7cab6572349023b40af8e6e08b19feac, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8470148528438507824, guid: 7cab6572349023b40af8e6e08b19feac, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8470148528438507824, guid: 7cab6572349023b40af8e6e08b19feac, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8470148528438507824, guid: 7cab6572349023b40af8e6e08b19feac, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8470148528438507824, guid: 7cab6572349023b40af8e6e08b19feac, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8470148528438507824, guid: 7cab6572349023b40af8e6e08b19feac, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8470148528438507824, guid: 7cab6572349023b40af8e6e08b19feac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8470148528438507824, guid: 7cab6572349023b40af8e6e08b19feac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8470148528438507824, guid: 7cab6572349023b40af8e6e08b19feac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7cab6572349023b40af8e6e08b19feac, type: 3}
+--- !u!4 &1692642504 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8470148528438507824, guid: 7cab6572349023b40af8e6e08b19feac, type: 3}
+  m_PrefabInstance: {fileID: 1692642503}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1713062717
 GameObject:
   m_ObjectHideFlags: 0
@@ -30595,6 +30675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  player: {fileID: 0}
 --- !u!114 &1791744664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30608,6 +30689,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  player: {fileID: 0}
 --- !u!114 &1791744665
 MonoBehaviour:
   m_ObjectHideFlags: 0
