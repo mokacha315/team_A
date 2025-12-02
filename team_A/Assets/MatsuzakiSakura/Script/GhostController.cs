@@ -104,7 +104,7 @@ public class GhostController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "sword" || collision.gameObject.tag == "master_sowd_effect" || collision.gameObject.tag == "kenn_effect")
+        if (collision.gameObject.tag == "sword" || collision.gameObject.tag == "buster_sowd_effect" || collision.gameObject.tag == "kenn_effect")
         {
             //É_ÉÅÅ[ÉW
             SwordHit swordhit = collision.gameObject.GetComponent<SwordHit>();
