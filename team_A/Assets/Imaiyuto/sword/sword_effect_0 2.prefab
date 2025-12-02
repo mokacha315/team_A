@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 242325814660812438}
   m_Layer: 0
   m_Name: sword_effect_0 2
-  m_TagString: sword
+  m_TagString: kenn_effect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -167,6 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 9
+  player: {fileID: 0}
 --- !u!61 &242325814660812438
 BoxCollider2D:
   m_ObjectHideFlags: 0
