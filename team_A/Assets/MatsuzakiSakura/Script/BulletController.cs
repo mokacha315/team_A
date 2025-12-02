@@ -27,7 +27,7 @@ public class BulletController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         // Œ•‚É“–‚½‚Á‚½‚ç’e‚ğÁ‚·
-        if (collision.gameObject.CompareTag("sword"))
+        if (collision.gameObject.tag == "sword" || collision.gameObject.tag == "buster_sword_effect" || collision.gameObject.tag == "kenn_effect")
         {
             Debug.Log("’e‚ªŒ•‚É“–‚½‚Á‚ÄÁ‚¦‚½I");
             Destroy(gameObject);
