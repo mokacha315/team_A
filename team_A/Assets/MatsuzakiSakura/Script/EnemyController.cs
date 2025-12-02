@@ -137,7 +137,7 @@ public class EnemyController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "sword" || collision.gameObject.tag == "buster_sowd_effect" || collision.gameObject.tag == "kenn_effect")
+        if (collision.gameObject.tag == "sword" || collision.gameObject.tag == "buster_sword_effect" || collision.gameObject.tag == "kenn_effect")
         {
             //ダメージ
             SwordHit swordhit = collision.gameObject.GetComponent<SwordHit>();
