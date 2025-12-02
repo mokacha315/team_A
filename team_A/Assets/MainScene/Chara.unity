@@ -3892,6 +3892,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 138373103}
     m_Modifications:
+    - target: {fileID: 3395614799426039231, guid: 7cab6572349023b40af8e6e08b19feac, type: 3}
+      propertyPath: damage
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 3406201129501653409, guid: 7cab6572349023b40af8e6e08b19feac, type: 3}
       propertyPath: m_Name
       value: kenn
@@ -3914,11 +3918,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8470148528438507824, guid: 7cab6572349023b40af8e6e08b19feac, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.19
+      value: -9.39
       objectReference: {fileID: 0}
     - target: {fileID: 8470148528438507824, guid: 7cab6572349023b40af8e6e08b19feac, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.17
+      value: -3.64
       objectReference: {fileID: 0}
     - target: {fileID: 8470148528438507824, guid: 7cab6572349023b40af8e6e08b19feac, type: 3}
       propertyPath: m_LocalPosition.z
