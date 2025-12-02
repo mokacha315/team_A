@@ -133,8 +133,8 @@ public class BossController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "sword")
-{
+        if (collision.gameObject.tag == "sword" || collision.gameObject.tag == "master_sowd_effect" || collision.gameObject.tag == "kenn_effect")
+        {
             SwordHit swordhit = collision.gameObject.GetComponent<SwordHit>();
             if (swordhit == null) return;
 
