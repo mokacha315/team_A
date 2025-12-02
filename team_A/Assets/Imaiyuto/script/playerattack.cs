@@ -19,6 +19,10 @@ public class PlayerAttack : MonoBehaviour
     public Vector2 swordOffset = new Vector2(1.0f, 0f); //基準のオフセット（右方向）
     public HeroController heroController;//HeroController参照取得
 
+    //SE
+    public AudioSource audioSource;
+    public AudioClip attackSE;
+
     // プライベートフィールド（生成・キャッシュされたオブジェクトを保持）
     private bool inAttack = false;
     private float nextAttackTiam = 0f;//クールタイムを数える用の変数
@@ -121,6 +125,13 @@ public class PlayerAttack : MonoBehaviour
     {
         //nullチェック
         if (heroController == null || sword_effect == null || effectTransform == null) return;
+
+        //SE再生
+        if (audioSource != null && attackSE != null)
+        {
+            audioSource.PlayOneShot(attackSE);
+        }
+
 
         inAttack = true;
         sword_effect.SetActive(true);
