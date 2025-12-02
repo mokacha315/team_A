@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6779747690702194822}
   - component: {fileID: -3979608074218353394}
   - component: {fileID: 2322078827278791256}
+  - component: {fileID: -8683133332521576879}
   m_Layer: 0
   m_Name: buster_sword
   m_TagString: sword_effect
@@ -149,3 +150,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 8.31, y: 9.84}
   m_EdgeRadius: 0
+--- !u!114 &-8683133332521576879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393213103400565874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63835406107151c49b0f835202bdba9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newWeapon: {fileID: 11400000, guid: 889be81470282dd46a132edd4e1a8e95, type: 2}
