@@ -9,8 +9,8 @@ public class GhostController : MonoBehaviour
     public float Speed = 0.1f;    //移動スピード
 
     public GameObject bulletPrefab;    //弾
-    public float shootSpeed = 5.0f;    //弾の速度
-    public float shootInterval = 1.5f; //攻撃間隔
+    public float shootSpeed = 4.0f;    //弾の速度
+    public float shootInterval = 10f; //攻撃間隔
 
     //アイテムドロップ
     public GameObject[] dropItems;   //ドロップするアイテムリスト
@@ -27,6 +27,9 @@ public class GhostController : MonoBehaviour
     GameObject player;
     PlayerAttack playerAttack;
 
+    //死亡時
+    bool isDead = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -41,6 +44,11 @@ public class GhostController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isDead)
+        {
+            return;
+        }
+
         if (isBlink)
         {
             blinkTimer -= Time.deltaTime;
@@ -67,21 +75,11 @@ public class GhostController : MonoBehaviour
         {
             //プレイヤーについていく
             transform.position = Vector3.MoveTowards(transform.position, pr, Speed * Time.deltaTime);
-            
-            //攻撃アニメーション
-            if (!inAttack)
-            {
-                inAttack = true;
-                GetComponent<Animator>().Play("GhostAttack");
-            }
 
             //一定間隔で弾を撃つ
             shootTimer += Time.deltaTime;
             if (shootTimer >= shootInterval)
             {
-                GetComponent<Animator>().Play("GhostAttack");
-
-
                 Attack();
                 shootTimer = 0f;
             }
@@ -89,14 +87,7 @@ public class GhostController : MonoBehaviour
         else
         {
             //離れたらアニメーションを戻す
-            if (inAttack)
-            {
-                inAttack = false;
-                GetComponent<Animator>().Play("Ghost");
-            }
-
-            //タイマーリセット
-            shootTimer = 0f;
+            GetComponent<Animator>().Play("Ghost");
         }
 
             
@@ -122,10 +113,12 @@ public class GhostController : MonoBehaviour
 
             if (hp <= 0)
             {
+                isDead = true;
+
                 //死亡
                 //当たりを消す
                 GetComponent<Collider2D>().enabled = false;
-                //アニメーションを消す
+                //アニメーション
                 GetComponent<Animator>().Play("GhostDead");
 
                 //ドロップ
