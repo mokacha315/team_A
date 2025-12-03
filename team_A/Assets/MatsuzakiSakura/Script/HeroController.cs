@@ -6,11 +6,23 @@ public class HeroController : MonoBehaviour
 {
     public float baseSpeed = 3.0f;    //移動スピード
     private float extraSpeed = 0f; //アイテムで増える速度
-    public float Speed => baseSpeed + extraSpeed; //現在の速度
+   public float Speed => baseSpeed + extraSpeed; //現在の速度
+
+    //効果時間
+    private float speedTimer = 0f;
+    private Coroutine speedCoroutine;
 
     public void AddSpeed(float amount, float duration = 10f)
     {
         extraSpeed += amount;
+
+        speedTimer = duration;
+        
+        if (speedCoroutine != null)
+        {
+            StopCoroutine(speedCoroutine);
+        }
+
         StartCoroutine(RemoveSpeedAfterTime(amount, duration));
     }
 
