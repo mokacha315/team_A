@@ -6798,7 +6798,7 @@ MonoBehaviour:
   reactionDistance: 4
   arrange: 0
   dropItems:
-  - {fileID: 2046095416186025214, guid: 89c387796522e4f4d9e24dcfe77bacb9, type: 3}
+  - {fileID: 2046095416186025214, guid: 2e3bd5f9f640da34490c525ba08fe954, type: 3}
   - {fileID: 3453301211731074941, guid: 5355decc6e03ee0428b675489c6a7e6c, type: 3}
   - {fileID: 118049412286674808, guid: 3f7261adf13e8bf4ead81436455398d8, type: 3}
   dropRate: 1

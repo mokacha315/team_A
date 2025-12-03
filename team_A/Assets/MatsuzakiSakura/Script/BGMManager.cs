@@ -36,6 +36,15 @@ public class BGMManager : MonoBehaviour
     }
     void Update()
     {
+        if (TitleManager.startPressed)
+        {
+            //フェードアウト
+            if (bgmSource.volume > 0f && nextClip != null)
+            {
+                bgmSource.volume -= fadeSpeed * Time.deltaTime;
+            }
+        }
+
         if (isFading)
         {
             //フェードアウト

@@ -9,6 +9,10 @@ public class TitleManager : MonoBehaviour
     public GameObject startButton;      //スタートボタン
     public string firstSceneName;       //ゲーム開始シーン名
 
+    //スタートボタン
+    public static bool startPressed = false;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +28,7 @@ public class TitleManager : MonoBehaviour
     //スタートボタン押し
     public void StartButtonClicked()
     {
+        startPressed = true;
         FadeManager.Instance.LoadScene(firstSceneName, 1.0f);
-
     }
 }
