@@ -17,4 +17,4 @@ MonoBehaviour:
   attackDuration: 0.3
   attackCooldown: 1.2
   swordPrefab: {fileID: 1393213103400565874, guid: 7f9b49e32d71e36429e54b527304b3b6, type: 3}
-  swordEffectPrefab: {fileID: 2511982497195843689, guid: 14dcff935672a6a4da928ffb73d6b04c, type: 3}
+  swordEffectPrefab: {fileID: 5479791115406603499, guid: 84e6cd3a898adb94da2d0f8d945cbb56, type: 3}
