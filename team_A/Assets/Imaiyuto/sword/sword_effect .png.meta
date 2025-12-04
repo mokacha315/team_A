@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: fee6b3771890ae34f9fc31f95c5a98fe
+guid: e82e04d71a196e34ba73aa361fbc789d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7395214535723796322
-    second: sword_effect_down_0
-  - first:
-      213: -9219833271550940657
-    second: sword_effect_down_1
-  - first:
-      213: 1808833297323979299
-    second: sword_effect_down_2
+      213: 4508418370190923712
+    second: sword_effect _0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -106,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sword_effect_down_0
+      name: sword_effect _0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 16
-        height: 778
+        x: 96
+        y: 187
+        width: 781
+        height: 470
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,52 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e98b060bf8bee5990800000000000000
-      internalID: -7395214535723796322
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sword_effect_down_1
-      rect:
-        serializedVersion: 2
-        x: 137
-        y: 131
-        width: 863
-        height: 647
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f0ae0e00d729c0080800000000000000
-      internalID: -9219833271550940657
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sword_effect_down_2
-      rect:
-        serializedVersion: 2
-        x: 928
-        y: 25
-        width: 46
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 322f4e0ec444a1910800000000000000
-      internalID: 1808833297323979299
+      spriteID: 0c7531efe9e119e30800000000000000
+      internalID: 4508418370190923712
       vertices: []
       indices: 
       edges: []
@@ -185,9 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      sword_effect_down_0: -7395214535723796322
-      sword_effect_down_1: -9219833271550940657
-      sword_effect_down_2: 1808833297323979299
+      sword_effect _0: 4508418370190923712
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
