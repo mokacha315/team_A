@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class SEManager : MonoBehaviour
+public class StartSEManager : MonoBehaviour
 {
-    public static SEManager Instance;
+    public static StartSEManager Instance;
 
     public AudioSource seSource;
 
@@ -11,6 +11,7 @@ public class SEManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
