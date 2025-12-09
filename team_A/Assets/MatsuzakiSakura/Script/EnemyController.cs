@@ -46,6 +46,14 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //ゲームオーバー・クリアの場合動かない
+        if (HeroController.gameState == "gameclear" || HeroController.gameState == "gameend")
+        {
+            rbody.velocity = Vector2.zero;
+
+            return;
+        }
+
         //ダメージ時赤色に変更
         if (isBlink)
         {
@@ -125,6 +133,12 @@ public class EnemyController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (HeroController.gameState == "gameclear" || HeroController.gameState == "gameend")
+        {
+            rbody.velocity = Vector2.zero;
+            return;
+        }
+
         if (isActive && hp > 0)
         {
             //移動

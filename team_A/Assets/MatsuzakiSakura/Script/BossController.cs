@@ -35,6 +35,10 @@ public class BossController : MonoBehaviour
 
     PlayerAttack playerAttack;
 
+    //アイテムドロップ
+    public GameObject[] dropItems;   //ドロップするアイテムリスト
+    public float dropRate = 1.0f;    //ドロップ確率100％
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -53,6 +57,22 @@ public class BossController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // ゲームオーバー・クリアなら動かない
+        if (HeroController.gameState == "gameclear" || HeroController.gameState == "gameend")
+        {
+            // 攻撃停止
+            inAttack = false;
+            shootTimer = 0f;
+
+            // アニメーション停止
+            if (animator != null)
+            {
+                animator.enabled = false;
+            }
+
+            return;
+        }
+
         if (player == null)
         {
             return;
@@ -162,11 +182,17 @@ public class BossController : MonoBehaviour
                 //アニメーションを消す
                 GetComponent<Animator>().Play("BossDead");
 
-                FindObjectOfType<UIManager>().GameClear();
-
-
                 //１秒後に消す
                 Destroy(gameObject, 1);
+
+                //アイテムドロップ
+                TryDropItem();
+
+                //ステージBGMに戻す
+                if (BGMManager.Instance != null && normalBGM != null)
+                {
+                    BGMManager.Instance.ChangeBGM(normalBGM);
+                }
             }
         }
     }
@@ -199,6 +225,25 @@ public class BossController : MonoBehaviour
             //発射
             Rigidbody2D rbody = bullet.GetComponent<Rigidbody2D>();
             rbody.AddForce(v, ForceMode2D.Impulse);
+        }
+    }
+
+    //アイテムドロップ関数
+    void TryDropItem()
+    {
+        //設定していなければそのまま
+        if (dropItems.Length == 0) return;
+
+        float r = Random.value;  //0～1の乱数
+        if (r <= dropRate)
+        {
+            //ランダムでアイテムを選択
+            GameObject drop =
+                dropItems[Random.Range(0, dropItems.Length)];
+
+            //敵の位置にドロップ
+            Instantiate(drop, transform.position,
+                Quaternion.identity);
         }
     }
 }

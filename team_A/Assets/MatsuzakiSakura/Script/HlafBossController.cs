@@ -51,6 +51,15 @@ public class HalfBossController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // ゲームオーバー・クリアなら動かない
+        if (HeroController.gameState == "gameclear" || HeroController.gameState == "gameend")
+        {
+            // 移動停止
+            inAttack = false;
+            shootTimer = 0f;
+            return;
+        }
+
         if (player == null)
         {
             return;

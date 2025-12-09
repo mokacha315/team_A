@@ -37,6 +37,12 @@ public class houdaiController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // ゲームクリア・ゲームオーバーなら動かない
+        if (HeroController.gameState == "gameclear" || HeroController.gameState == "gameend")
+        {
+            return;
+        }
+
         if (player == null) return;
 
         //待機時間加算
