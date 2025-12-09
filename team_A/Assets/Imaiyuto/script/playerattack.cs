@@ -208,7 +208,7 @@ public class PlayerAttack : MonoBehaviour
         effectTransform = sword_effect.transform;
         swordSpriteRenderer = sword.GetComponent<SpriteRenderer>();
 
-        // ★★★ 武器を生成し直した後、必ず初期位置を設定する！ ★★★
+        //武器を生成し直した後、必ず初期位置を設定する
         SetInitialSwordPosition();
 
         Debug.Log("武器装備: " + newWeapon.weaponName + " / 攻撃力: " + newWeapon.attackPower);
