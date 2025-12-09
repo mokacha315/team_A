@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 2730030551238350513}
   - component: {fileID: 5778288086864955119}
   m_Layer: 7
-  m_Name: houdai
+  m_Name: houdaiLeft
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

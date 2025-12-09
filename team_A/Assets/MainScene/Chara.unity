@@ -5390,7 +5390,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10.5, y: -3.5}
+  m_AnchoredPosition: {x: 174.6, y: 54.85}
   m_SizeDelta: {x: 6.1189, y: 9.62}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &618675279
@@ -6377,13 +6377,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77121b9cec6a7c84cb39f0ada68c7ccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 400
+  hp: 1
   reactionDistance: 7
   bulletPrefab: {fileID: 4310784387579625841, guid: fd368ab2cfeb31e4f9a2692bebdb3cb1, type: 3}
   shootSpeed: 5
   shootInterval: 0.8
   Boss: {fileID: 8300000, guid: c4a44dc1ed7bafc43a575d6e87dac6cb, type: 3}
   normalBGM: {fileID: 8300000, guid: d9bce1e4bc3fa2d468711eead576fbab, type: 3}
+  dropItems:
+  - {fileID: 1983235533272244572, guid: 8cea95c4a1c46744aadb53b8a5bb3c93, type: 3}
+  dropRate: 1
 --- !u!50 &718176395
 Rigidbody2D:
   serializedVersion: 5

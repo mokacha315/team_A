@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class houdaiController : MonoBehaviour
+public class RighthoudaiController : MonoBehaviour
 {
     public GameObject objPrefab;       //î≠ê∂Ç≥ÇπÇÈPrefabÉfÅ[É^
     public float delayTime = 3.0f;     //íxâÑéûä‘
@@ -63,7 +63,7 @@ public class houdaiController : MonoBehaviour
                 float angleZ = transform.localEulerAngles.z;
                 float x = Mathf.Cos(angleZ * Mathf.Deg2Rad);
                 float y = Mathf.Sin(angleZ * Mathf.Deg2Rad);
-                Vector2 v = Vector2.left * firespeed;
+                Vector2 v = Vector2.right * firespeed;
                 rbody.AddForce(v, ForceMode2D.Impulse);
             }
         }
