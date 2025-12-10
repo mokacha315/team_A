@@ -1,14 +1,23 @@
 using NUnit.Framework.Internal.Execution;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class ItemPickup : MonoBehaviour
-{
+{ 
+    public AudioSource audioSource;
+    public AudioClip ItemSE;//アイテムSE
+   
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         // アイテムタグと一致
         if (collision.CompareTag("Item"))
         {
             Debug.Log("アイテムを拾った: " + collision.name);
+            if (audioSource != null && ItemSE != null)
+            {
+                audioSource.PlayOneShot(ItemSE);
+            }
 
             // バフアイテム (攻撃力アップなど)
             BuffItem buff = collision.GetComponent<BuffItem>();
