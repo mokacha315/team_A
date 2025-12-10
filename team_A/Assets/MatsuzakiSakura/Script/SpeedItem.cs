@@ -4,6 +4,7 @@ public class SpeedItem : MonoBehaviour
 {
     public float SpeedAmount = 2.0f; //è„è∏ó 
 
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))

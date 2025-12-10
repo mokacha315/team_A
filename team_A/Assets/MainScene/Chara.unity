@@ -5524,6 +5524,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3e0b7b18071f5c4396447806689d054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 618675282}
+  ItemSE: {fileID: 8300000, guid: d3ba408513d96f644ae603ea78d874e1, type: 3}
 --- !u!82 &618675282
 AudioSource:
   m_ObjectHideFlags: 0
@@ -75897,7 +75899,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8039204122718072566, guid: 89076a4e91977df49896065f6cf81ef9, type: 3}
       propertyPath: m_Name
-      value: 'WarpB '
+      value: WarpBoss
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

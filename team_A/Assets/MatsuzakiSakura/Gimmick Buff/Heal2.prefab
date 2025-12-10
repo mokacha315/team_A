@@ -180,3 +180,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healAmount: 2
+  BuffSE: {fileID: 8300000, guid: d3ba408513d96f644ae603ea78d874e1, type: 3}

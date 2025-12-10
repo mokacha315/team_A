@@ -9,12 +9,13 @@ public class DamageItem : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             PlayerAttack pa = collision.GetComponent<PlayerAttack>();
-            
+
+
+
             if (pa != null)
             {
                 pa.AddDamage(buffValue);
             }
-
             Destroy(gameObject);
         }
     }

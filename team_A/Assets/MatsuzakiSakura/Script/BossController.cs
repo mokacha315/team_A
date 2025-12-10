@@ -100,8 +100,11 @@ public class BossController : MonoBehaviour
             Vector3 plpos = player.transform.position;
             float dist = Vector2.Distance(transform.position, plpos);
 
+            float enterDistance = reactionDistance;  //“G‚ÌUŒ‚”ÍˆÍ‚É“ü‚é‹——£
+            float exitDistance = reactionDistance + 1f; //“G‚ÌUŒ‚”ÍˆÍ‚©‚ço‚é‹——£
+
             //BGM”ÍˆÍ“à
-            if (dist <= reactionDistance && !bgmChanged)
+            if (dist <= enterDistance && !bgmChanged)
             {
                 if (BGMManager.Instance != null)
                 {
@@ -110,7 +113,7 @@ public class BossController : MonoBehaviour
                 bgmChanged = true;
             }
             //BGM”ÍˆÍŠO
-            else if (dist > reactionDistance && bgmChanged)
+            else if (dist > exitDistance && bgmChanged)
             {
                 if (BGMManager.Instance != null)
                 {

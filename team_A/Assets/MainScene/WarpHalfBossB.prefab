@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3153217446793263246}
   - component: {fileID: 7206776075460823058}
   m_Layer: 0
-  m_Name: 'WarpB '
+  m_Name: WarpHalfBossB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
