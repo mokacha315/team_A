@@ -1,5 +1,4 @@
 using UnityEngine;
-
 [CreateAssetMenu(fileName = "NewWeaponData", menuName = "Weapon/WeaponData")]
 public class WeaponData : ScriptableObject
 {
@@ -9,5 +8,7 @@ public class WeaponData : ScriptableObject
     public float attackCooldown; //攻撃のクールタイム（秒）
     public GameObject swordPrefab;//今もってる剣のプレハブ
     public GameObject swordEffectPrefab;//今もってる剣のエフェクトプレハブ
-   
+
+    //剣情報表示用Sprite
+    public Sprite infoDisplaySprite;
 }

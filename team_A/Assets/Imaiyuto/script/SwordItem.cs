@@ -18,4 +18,9 @@ public class SwordItem : MonoBehaviour
             Debug.LogWarning("PlayerAttack ‚ª player ‚ÉŒ©‚Â‚©‚ç‚È‚¢");
         }
     }
+    //ŠO•”‚©‚çWeaponData‚É•Ô‚·ŠÖ”
+    public WeaponData GetWeaponData()
+    {
+        return newWeapon;
+    }
 }
