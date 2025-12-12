@@ -140,6 +140,7 @@ public class HeroController : MonoBehaviour
             //下向き
             dir = 0;
         }
+
         else
         {
             //左向き

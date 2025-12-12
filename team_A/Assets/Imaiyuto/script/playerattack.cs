@@ -22,7 +22,7 @@ public class PlayerAttack : MonoBehaviour
     //SE
     public AudioSource audioSource;
     public AudioClip attackSE;
-    
+
 
     // プライベートフィールド（生成・キャッシュされたオブジェクトを保持）
     private bool inAttack = false;
@@ -91,7 +91,7 @@ public class PlayerAttack : MonoBehaviour
                     swordSpriteRenderer.flipY = false;
                     swordSpriteRenderer.flipX = false;
                 }
-                else//右
+                else //右
                 {
                     swordSpriteRenderer.flipX = false;
                     swordSpriteRenderer.flipY = false;
@@ -100,7 +100,7 @@ public class PlayerAttack : MonoBehaviour
 
             // 剣の回転はZ軸のみで制御し、Y軸は常に0に
             float swordBaseOffset = 0f;
-            swordTransform.rotation = Quaternion.Euler(0, 0, finalAngleZ + swordBaseOffset);
+            swordTransform.rotation = Quaternion.Euler(0, 45, finalAngleZ + swordBaseOffset);
 
             // Z軸の並び順調整
             float swordz = -10; // 手前
