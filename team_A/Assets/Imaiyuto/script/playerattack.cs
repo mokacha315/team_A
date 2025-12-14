@@ -22,7 +22,7 @@ public class PlayerAttack : MonoBehaviour
     //SE
     public AudioSource audioSource;
     public AudioClip attackSE;
-    
+
 
     // プライベートフィールド（生成・キャッシュされたオブジェクトを保持）
     private bool inAttack = false;
@@ -76,6 +76,7 @@ public class PlayerAttack : MonoBehaviour
 
             if (swordSpriteRenderer != null)
             {
+
                 if (heroController.direction == 0) // direction == 0は下
                 {
                     swordSpriteRenderer.flipX = true;
@@ -91,7 +92,12 @@ public class PlayerAttack : MonoBehaviour
                     swordSpriteRenderer.flipY = false;
                     swordSpriteRenderer.flipX = false;
                 }
-                else//右
+                else if (heroController.direction == 2)//右
+                {
+                    swordSpriteRenderer.flipX = false;
+                    swordSpriteRenderer.flipY = false;
+                }
+                else
                 {
                     swordSpriteRenderer.flipX = false;
                     swordSpriteRenderer.flipY = false;
