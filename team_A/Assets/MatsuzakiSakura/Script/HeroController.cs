@@ -124,41 +124,24 @@ public class HeroController : MonoBehaviour
         Vector2 toPt = new Vector2(fromPt.x + axisH, fromPt.y + axisV);
         angleZ = GetAngle(fromPt, toPt);
         //移動角度から向いている方向とアニメーション更新
-        int dir;
+        int dir = direction;
 
-        if (angleZ >= -22.5f && angleZ < 22.5f)
+        if (angleZ >= -45.0f && angleZ < 45.0f)
         {
             dir = 3; // 右
         }
-        else if (angleZ >= 22.5f && angleZ < 67.5f)
-        {
-            dir = 4; // 右上
-        }
-        else if (angleZ >= 67.5f && angleZ < 112.5f)
+        else if (angleZ >= 45.0f && angleZ < 135.0f)
         {
             dir = 2; // 上
         }
-        else if (angleZ >= 112.5f && angleZ < 157.5f)
-        {
-            dir = 5; // 左上
-        }
-        else if (angleZ >= 157.5f || angleZ < -157.5f)
+        else if (angleZ >= 135.0f || angleZ < -135.0f)
         {
             dir = 1; // 左
         }
-        else if (angleZ >= -157.5f && angleZ < -112.5f)
-        {
-            dir = 6; // 左下
-        }
-        else if (angleZ >= -112.5f && angleZ < -67.5f)
+        else if (angleZ >= -135.0f && angleZ < -45.0f)
         {
             dir = 0; // 下
         }
-        else
-        {
-            dir = 7; // 右下
-        }
-
         if (dir != direction)
         {
             direction = dir;
