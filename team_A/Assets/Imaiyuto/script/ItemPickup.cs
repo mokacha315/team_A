@@ -7,18 +7,11 @@ public class ItemPickup : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip ItemSE;//アイテムSE
 
-    private ItemDisplayManager displayManager;//ItemDisplayManagerへの参照
 
     //start関数でManagerを取得
     void Start()
     {
-        // シーン内に一つだけ存在するManagerを取得
-        displayManager = FindObjectOfType<ItemDisplayManager>();
 
-        if (displayManager == null)
-        {
-            Debug.LogError("ItemDisplayManagerが見つかりませんでした。シーンに配置されているか確認してください。");
-        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)

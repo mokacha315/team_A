@@ -92,7 +92,7 @@ public class PlayerAttack : MonoBehaviour
                     swordSpriteRenderer.flipY = false;
                     swordSpriteRenderer.flipX = false;
                 }
-                else if (heroController.direction == 2)//右
+                else if (heroController.direction == 3)//右
                 {
                     swordSpriteRenderer.flipX = false;
                     swordSpriteRenderer.flipY = false;

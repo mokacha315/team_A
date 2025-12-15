@@ -114,34 +114,36 @@ public class HeroController : MonoBehaviour
         }
 
 
-        if (isMoving == false)
+      
+        axisH = Input.GetAxisRaw("Horizontal");   //左右キー入力
+        axisV = Input.GetAxisRaw("Vertical");     //上下キー入力
+        
+        if (axisH != 0 || axisV != 0)
         {
-            axisH = Input.GetAxisRaw("Horizontal");   //左右キー入力
-            axisV = Input.GetAxisRaw("Vertical");     //上下キー入力
+            angleZ = Mathf.Atan2(axisV, axisH) * Mathf.Rad2Deg;
         }
-        //キー入力から移動角度を求める
-        Vector2 fromPt = transform.position;
-        Vector2 toPt = new Vector2(fromPt.x + axisH, fromPt.y + axisV);
-        angleZ = GetAngle(fromPt, toPt);
+
         //移動角度から向いている方向とアニメーション更新
         int dir = direction;
 
-        if (angleZ >= -45.0f && angleZ < 45.0f)
+        
+        if (axisH > 0)
         {
             dir = 3; // 右
         }
-        else if (angleZ >= 45.0f && angleZ < 135.0f)
-        {
-            dir = 2; // 上
-        }
-        else if (angleZ >= 135.0f || angleZ < -135.0f)
+        else if (axisH < 0)
         {
             dir = 1; // 左
         }
-        else if (angleZ >= -135.0f && angleZ < -45.0f)
+        else if (axisV > 0)
+        {
+            dir = 2; // 上
+        }
+        else if (axisV < 0)
         {
             dir = 0; // 下
         }
+
         if (dir != direction)
         {
             direction = dir;
