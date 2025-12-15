@@ -126,26 +126,39 @@ public class HeroController : MonoBehaviour
         //移動角度から向いている方向とアニメーション更新
         int dir;
 
-        if (angleZ >= -60 && angleZ < 60)
+        if (angleZ >= -22.5f && angleZ < 22.5f)
         {
-            //右向き
-            dir = 3;
+            dir = 3; // 右
         }
-        else if (angleZ >= 60 && angleZ <= 120)
+        else if (angleZ >= 22.5f && angleZ < 67.5f)
         {
-            //上向き
-            dir = 2;
+            dir = 4; // 右上
         }
-        else if (angleZ >= -120 && angleZ <= -60)
+        else if (angleZ >= 67.5f && angleZ < 112.5f)
         {
-            //下向き
-            dir = 0;
+            dir = 2; // 上
+        }
+        else if (angleZ >= 112.5f && angleZ < 157.5f)
+        {
+            dir = 5; // 左上
+        }
+        else if (angleZ >= 157.5f || angleZ < -157.5f)
+        {
+            dir = 1; // 左
+        }
+        else if (angleZ >= -157.5f && angleZ < -112.5f)
+        {
+            dir = 6; // 左下
+        }
+        else if (angleZ >= -112.5f && angleZ < -67.5f)
+        {
+            dir = 0; // 下
         }
         else
         {
-            //左向き
-            dir = 1;
+            dir = 7; // 右下
         }
+
         if (dir != direction)
         {
             direction = dir;
