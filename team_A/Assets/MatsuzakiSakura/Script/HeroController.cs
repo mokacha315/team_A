@@ -88,8 +88,11 @@ public class HeroController : MonoBehaviour
         Application.targetFrameRate = 60;
 
         rbody = GetComponent<Rigidbody2D>();    //Rigidbody2Dを得る
-        animator = GetComponent<Animator>();    //Animatorを得る
+        rbody.bodyType = RigidbodyType2D.Dynamic;
+        rbody.gravityScale = 0;
 
+
+        animator = GetComponent<Animator>();    //Animatorを得る
 
         //SpriteRendererを得る
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -113,55 +116,61 @@ public class HeroController : MonoBehaviour
             return;
         }
 
-
-      
         axisH = Input.GetAxisRaw("Horizontal");   //左右キー入力
         axisV = Input.GetAxisRaw("Vertical");     //上下キー入力
-        
+
         if (axisH != 0 || axisV != 0)
         {
-            angleZ = Mathf.Atan2(axisV, axisH) * Mathf.Rad2Deg;
+            //移動角度から向いている方向とアニメーション更新
+            float angle = Mathf.Atan2(axisV, axisH) * Mathf.Rad2Deg;
+
+            int dir;
+
+            if (angle >= -45f && angle < 45f)
+            {
+                dir = 3; // 右
+            }
+            else if (angle >= 45f && angle < 135f)
+            {
+                dir = 2;          // 上
+            }
+            else if (angle >= -135f && angle < -45f)
+            {
+                dir = 0;          // 下
+            }
+            else
+            {
+                dir = 1;          // 左
+            }
+
+            if (dir != direction)
+            {
+                direction = dir;
+                animator.SetInteger("Direction", direction);
+            }
         }
 
-        //移動角度から向いている方向とアニメーション更新
-        int dir = direction;
-
-        
-        if (axisH > 0)
+        if (gameState == "playing" && !inDamage)
         {
-            dir = 3; // 右
-        }
-        else if (axisH < 0)
-        {
-            dir = 1; // 左
-        }
-        else if (axisV > 0)
-        {
-            dir = 2; // 上
-        }
-        else if (axisV < 0)
-        {
-            dir = 0; // 下
+            Vector2 move = new Vector2(axisH, axisV); 
+            transform.position += (Vector3)(move * Speed * Time.deltaTime);
         }
 
-        if (dir != direction)
-        {
-            direction = dir;
-            animator.SetInteger("Direction", direction);
-        }
-    }
-
-    private void FixedUpdate()
-    {
         if (gameObject == null) return;
 
 
         if (gameState != "playing")
         {
-            rbody.linearVelocity = Vector2.zero;  
-            animator.SetFloat("Speed", 0);        
+            rbody.linearVelocity = Vector2.zero;
+            animator.SetFloat("Speed", 0);
             return;
         }
+
+        if (axisH != 0 || axisV != 0)
+        {
+            angleZ = Mathf.Atan2(axisV, axisH) * Mathf.Rad2Deg;
+        }
+
 
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         if (sr == null) return;
@@ -199,14 +208,8 @@ public class HeroController : MonoBehaviour
         {
             sr.color = Color.white;
         }
-
-
-        //移動速度を更新する
-        if (!inDamage)
-        {
-            rbody.linearVelocity = new Vector2(axisH, axisV).normalized * Speed;
-        }
     }
+
 
     public void SetAxis(float h, float v)
     {
