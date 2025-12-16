@@ -119,7 +119,9 @@ public class HeroController : MonoBehaviour
         axisH = Input.GetAxisRaw("Horizontal");   //左右キー入力
         axisV = Input.GetAxisRaw("Vertical");     //上下キー入力
 
-        if (axisH != 0 || axisV != 0)
+        Vector2 move = new Vector2(axisH, axisV);
+
+        if (move != Vector2.zero)
         {
             //移動角度から向いている方向とアニメーション更新
             float angle = Mathf.Atan2(axisV, axisH) * Mathf.Rad2Deg;
@@ -150,64 +152,41 @@ public class HeroController : MonoBehaviour
             }
         }
 
-        if (gameState == "playing" && !inDamage)
-        {
-            Vector2 move = new Vector2(axisH, axisV); 
-            transform.position += (Vector3)(move * Speed * Time.deltaTime);
-        }
+        animator.SetFloat("Speed", move.sqrMagnitude);
 
-        if (gameObject == null) return;
-
-
-        if (gameState != "playing")
-        {
-            rbody.linearVelocity = Vector2.zero;
-            animator.SetFloat("Speed", 0);
-            return;
-        }
-
-        if (axisH != 0 || axisV != 0)
-        {
-            angleZ = Mathf.Atan2(axisV, axisH) * Mathf.Rad2Deg;
-        }
-
-
-        SpriteRenderer sr = GetComponent<SpriteRenderer>();
-        if (sr == null) return;
-
-        if (spriteRenderer == null)
-        {
-            return;
-        }
-
+        // ダメージ点滅
         if (inDamage)
         {
-            float val = Mathf.Sin(Time.time * 50);
-            spriteRenderer.enabled = val > 0;
+            spriteRenderer.enabled = Mathf.Sin(Time.time * 50) > 0;
             return;
         }
-        else
-        {
-            spriteRenderer.enabled = true;
-        }
+        spriteRenderer.enabled = true;
 
+        // 無敵点滅
         if (isInvincible)
         {
-            float val = Mathf.Sin(Time.time * 30);     //点滅速度
-
-            if (val > 0)
+            if (Mathf.Sin(Time.time * 30) > 0)
             {
-                sr.color = new Color(1f, 0.4f, 0.4f);   //赤
+                spriteRenderer.color = new Color(1f, 0.4f, 0.4f);
             }
             else
             {
-                sr.color = Color.white;   //戻す
+                spriteRenderer.color = Color.white;
             }
         }
         else
         {
-            sr.color = Color.white;
+            spriteRenderer.color = Color.white;
         }
+    }
+
+    void FixedUpdate()
+    {
+        if (gameState != "playing") return;
+        if (inDamage) return;
+
+        Vector2 move = new Vector2(axisH, axisV);
+        rbody.velocity = move * Speed;
     }
 
 
