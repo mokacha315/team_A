@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 161.01173, y: 60.639576}
+  m_AnchoredPosition: {x: 161.65, y: 59.94}
   m_SizeDelta: {x: 5.44, y: 5.43}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &4008542853398953757
@@ -153,4 +153,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   warpType: 0
   warpPosition: {x: 0, y: 0, z: 0}
-  warpBDestination: {fileID: 3187343997773673663, guid: 06d3cb56be05c6d47adbf905427b7cec, type: 3}
+  warpBDestination: {fileID: 3005667629142371337, guid: fe328942b16441d458ff561da3135ac5, type: 3}
