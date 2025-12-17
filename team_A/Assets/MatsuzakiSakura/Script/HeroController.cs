@@ -32,6 +32,7 @@ public class HeroController : MonoBehaviour
     public float angleZ = -90.0f; //回転速度
     Rigidbody2D rbody;            //Rigidbody2D
     Animator animator;            //Animator
+    AudioSource audioSource;      //オーディオソース
 
     SpriteRenderer spriteRenderer;
     public GameObject sword;
@@ -49,6 +50,10 @@ public class HeroController : MonoBehaviour
 
     //攻撃力
     public SwordHit weapon;
+
+    //SE
+    public AudioClip DamageSE;
+    public AudioClip DeadSE;
 
 
     //p1からp2の角度を返す
@@ -93,6 +98,8 @@ public class HeroController : MonoBehaviour
 
 
         animator = GetComponent<Animator>();    //Animatorを得る
+
+        audioSource = GetComponent<AudioSource>(); //AudioSourceを得る
 
         //SpriteRendererを得る
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -152,8 +159,8 @@ public class HeroController : MonoBehaviour
 
         if (gameState == "playing" && !inDamage)
         {
-            Vector2 move = new Vector2(axisH, axisV); 
-            transform.position += (Vector3)(move * Speed * Time.deltaTime);
+            Vector2 move = new Vector2(axisH, axisV);
+            rbody.velocity = move * Speed;
         }
 
         if (gameObject == null) return;
@@ -242,6 +249,9 @@ public class HeroController : MonoBehaviour
             if (isInvincible) return;
 
             hp--;  //HPを減らす
+
+            audioSource.PlayOneShot(DamageSE);
+
             if (hp > 0)
             {
                  isInvincible = true;    //無敵ON
@@ -275,6 +285,8 @@ public class HeroController : MonoBehaviour
     void GameOver()
     {
         gameState = "gameover";
+
+        audioSource.PlayOneShot(DeadSE);
 
         CancelInvoke();
 

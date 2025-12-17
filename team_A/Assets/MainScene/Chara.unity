@@ -5390,6 +5390,8 @@ MonoBehaviour:
   hitBackForce: 4
   hitBackDuration: 0.2
   weapon: {fileID: 0}
+  DamageSE: {fileID: 8300000, guid: 90890002070b59643b38d479179e40cc, type: 3}
+  DeadSE: {fileID: 8300000, guid: a578373f674da374381c77084335307f, type: 3}
 --- !u!95 &618675273
 Animator:
   serializedVersion: 7
