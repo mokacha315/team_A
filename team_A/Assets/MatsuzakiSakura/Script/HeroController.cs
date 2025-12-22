@@ -160,6 +160,12 @@ public class HeroController : MonoBehaviour
         if (gameState == "playing" && !inDamage)
         {
             Vector2 move = new Vector2(axisH, axisV);
+
+            if (move.magnitude > 1f)
+            {
+                move = move.normalized;
+            }
+
             rbody.velocity = move * Speed;
         }
 
