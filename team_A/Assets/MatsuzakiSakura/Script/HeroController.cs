@@ -133,21 +133,21 @@ public class HeroController : MonoBehaviour
 
             int dir;
 
-            if (angle >= -45f && angle < 45f)
+            if (angle >= -45f && angle <= 45f)
             {
                 dir = 3; // 右
             }
-            else if (angle >= 45f && angle < 135f)
+            else if (angle > 45f && angle < 135f)
             {
                 dir = 2;          // 上
             }
-            else if (angle >= -135f && angle < -45f)
+            else if (angle >= 135f || angle <= -135f)
             {
-                dir = 0;          // 下
+                dir = 1;          // 左
             }
             else
             {
-                dir = 1;          // 左
+                dir = 0;          // 下
             }
 
             if (dir != direction)
