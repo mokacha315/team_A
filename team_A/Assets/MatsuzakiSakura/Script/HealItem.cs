@@ -8,7 +8,10 @@ public class HealItem : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            HeroController.hp += healAmount;
+            if (HeroController.hp > 0)
+            {
+                HeroController.hp = Mathf.Min(HeroController.hp + healAmount, 10);
+            }
 
             //HP§ŒÀ
             if (HeroController.hp > 10)
