@@ -2,15 +2,20 @@ using UnityEngine;
 
 public class SwordHit : MonoBehaviour
 {
-    public int damage = 1; // 武器の基本ダメージ
-    public PlayerAttack player; // プレイヤーの参照
-    void Start()
+    public int damage = 1;
+    private PlayerAttack player;
+
+    void Awake()
     {
         player = FindObjectOfType<PlayerAttack>();
     }
-    public int CurrentDamage => damage + player.extraDamage;
+
+    public int CurrentDamage
+    {
+        get
+        {
+            if (player == null) return damage;
+            return damage + player.extraDamage;
+        }
+    }
 }
-
-
-
-

@@ -218,6 +218,7 @@ public class PlayerAttack : MonoBehaviour
 
         Debug.Log("武器装備: " + newWeapon.weaponName + " / 攻撃力: " + newWeapon.attackPower);
 
+        
     }
     void SetInitialSwordPosition()
     {
