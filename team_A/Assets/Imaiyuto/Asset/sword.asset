@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: sword
   m_EditorClassIdentifier: 
   weaponName: 
-  attackPower: 0
+  attackPower: 1
   attackDuration: 0.2
   attackCooldown: 0.5
   swordPrefab: {fileID: 8672377866418775581, guid: 214f1c17246a7fc4d80d9abbe3469036, type: 3}
   swordEffectPrefab: {fileID: 3155876953153235176, guid: bc4de9e929324444ebe5beaae5ab1784, type: 3}
+  infoDisplaySprite: {fileID: 0}
