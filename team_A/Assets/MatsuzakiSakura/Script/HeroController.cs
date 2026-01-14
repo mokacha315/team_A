@@ -55,6 +55,10 @@ public class HeroController : MonoBehaviour
     public AudioClip DamageSE;
     public AudioClip DeadSE;
 
+    //敵に当たり続けたら継続でダメージ
+    bool touchingEnemy = false;
+    GameObject currentEnemy = null;
+
 
     //p1からp2の角度を返す
     float GetAngle(Vector2 p1, Vector2 p2)
@@ -241,11 +245,24 @@ public class HeroController : MonoBehaviour
     //接触
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Enemy" && !inDamage)
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            GetDamage(collision.gameObject);
+            touchingEnemy = true;
+            currentEnemy = collision.gameObject;
+
+            GetDamage(collision.gameObject); //初めの一発
         }
     }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            touchingEnemy = false;
+            currentEnemy = null;
+        }
+    }
+
 
     //ダメージ
     void GetDamage(GameObject enemy)
@@ -316,6 +333,12 @@ public class HeroController : MonoBehaviour
         if (spriteRenderer != null)
         {
             spriteRenderer.color = Color.white;
+        }
+
+        //無敵が終わった後に、まだ敵に当たっていたら継続ダメ
+        if (touchingEnemy && currentEnemy != null && gameState == "playing")
+        {
+            GetDamage(currentEnemy);
         }
     }
 
