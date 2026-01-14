@@ -241,7 +241,7 @@ public class HeroController : MonoBehaviour
     //接触
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy" && !inDamage)
         {
             GetDamage(collision.gameObject);
         }
