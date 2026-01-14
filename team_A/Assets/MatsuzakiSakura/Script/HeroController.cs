@@ -319,14 +319,6 @@ public class HeroController : MonoBehaviour
         }
     }
 
-    void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Enemy")
-        {
-            GetDamage(collision.gameObject);
-        }
-    }
-
     private IEnumerator RemoveSpeedAfterTime(float amount, float duration)
     {
         yield return new WaitForSeconds(duration);  //10秒待つ
