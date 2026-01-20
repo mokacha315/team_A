@@ -39,7 +39,7 @@ public class HeroController : MonoBehaviour
     public static int hp = 10;       //プレイヤーのHP
     public static string gameState;  //ゲームの状態
     bool inDamage = false;           //ダメージ中のフラグ
-    //ダメージ時少し後ろに下がる
+    //ダメージ時ヒットバック　
     public float hitBackForce = 4.0f;
 
     //攻撃力
@@ -90,6 +90,11 @@ public class HeroController : MonoBehaviour
         }
     }
 
+
+    /// <summary>
+    /// 主人公の移動処理・向き・アニメーション更新
+    /// ゲーム中以外の時主人公の動きを止める・点滅処理
+    /// </summary>
     // Update is called once per frame
     void Update()
     {
@@ -148,12 +153,13 @@ public class HeroController : MonoBehaviour
             return;
         }
 
+        //角度更新
         if (axisH != 0 || axisV != 0)
         {
             angleZ = Mathf.Atan2(axisV, axisH) * Mathf.Rad2Deg;
         }
 
-
+        //SpriteRendererがなければ終了
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         if (sr == null) return;
 
@@ -162,7 +168,7 @@ public class HeroController : MonoBehaviour
             return;
         }
 
-        
+        //ダメージ時点滅表示
         if (inDamage)
         {
             float val = Mathf.Sin(Time.time * 50);
@@ -174,7 +180,7 @@ public class HeroController : MonoBehaviour
             spriteRenderer.enabled = true;
         }
 
-        //ダメージ時赤点滅
+        //赤点滅
         if (isInvincible)
         {
             float val = Mathf.Sin(Time.time * 30);     //点滅速度
@@ -206,7 +212,10 @@ public class HeroController : MonoBehaviour
         }
     }
 
-    //接触
+    /// <summary>
+    /// 敵への接触したときの処理
+    /// </summary>
+    /// <param name="collision">当たった敵の情報(タグ)</param>
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
@@ -214,10 +223,14 @@ public class HeroController : MonoBehaviour
             touchingEnemy = true;
             currentEnemy = collision.gameObject;
 
-            GetDamage(collision.gameObject); //初めの一発
+            GetDamage(collision.gameObject); //初めのダメージ
         }
     }
 
+    /// <summary>
+    /// 敵への接触が終わった時に呼ばれて、接触フラグを解除する
+    /// </summary>
+    /// <param name="collision">当たった敵の情報(タグ)</param>
     void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
@@ -227,7 +240,11 @@ public class HeroController : MonoBehaviour
         }
     }
 
-    //ダメージ
+    /// <summary>
+    /// 敵に接触したときのダメージの処理
+    /// HPを減らし、その後に無敵時間・ヒットバック
+    /// </summary>
+    /// <param name="enemy">敵</param>
     void GetDamage(GameObject enemy)
     {
         if (gameState == "playing")
@@ -257,12 +274,16 @@ public class HeroController : MonoBehaviour
             }
         }
     }
-    //ダメージ終了
+
+    /// <summary>
+    /// ダメージ演出終了後にダメージグラフOFF
+    /// HPが0になった時に主人公の動きを止めてGameOverの文字やBGM・アニメーションを出す
+    /// </summary>
     void DamageEnd()
     {
         if (gameObject == null) return;
 
-        inDamage = false;                                             //ダメージフラグ OFF
+        inDamage = false;                  //ダメージフラグ OFF
 
         if (spriteRenderer != null)
             spriteRenderer.enabled = true;
@@ -287,6 +308,10 @@ public class HeroController : MonoBehaviour
         Destroy(gameObject, 1.0f);                                    //１秒後にプレイヤーを消す
     }
 
+    /// <summary>
+    /// 無敵時間の終了の処理
+    /// 点滅解除・無敵時間終了後も敵に当たっていた場合継続ダメージ
+    /// </summary>
     void InvincibleEnd()
     {
         if (gameObject == null) return;

@@ -12,6 +12,9 @@ public class BGMManager : MonoBehaviour
     private AudioClip nextClip = null; //ŽŸ‚Ì‹È
     private bool isFading = false;
 
+    /// <summary>
+    /// 
+    /// </summary>
     void Awake()
     {
         if (Instance == null)
