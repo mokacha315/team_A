@@ -5,26 +5,22 @@ using UnityEngine;
 public class HeroController : MonoBehaviour
 {
     public float baseSpeed = 3.0f;    //移動スピード
-    private float extraSpeed = 0f; //アイテムで増える速度
+    private float extraSpeed = 0f;    //アイテムで増える速度
    public float Speed => baseSpeed + extraSpeed; //現在の速度
 
-    //効果時間
-    private float speedTimer = 0f;
-    private Coroutine speedCoroutine;
 
+    private float SpeedTime = 0f;
+    /// <summary>
+    /// スピードアップの効果時間
+    /// </summary>
+    /// <param name="amount">スピード</param>
+    /// <param name="duration">効果時間</param>
     public void AddSpeed(float amount, float duration = 10f)
     {
-        extraSpeed += amount;
-
-        speedTimer = duration;
-        
-        if (speedCoroutine != null)
-        {
-            StopCoroutine(speedCoroutine);
-        }
-
-        StartCoroutine(RemoveSpeedAfterTime(amount, duration));
+        extraSpeed = amount;
+        SpeedTime = duration;
     }
+
 
     public int direction = 0;     //移動方向
     float axisH;                  //横軸
@@ -37,16 +33,14 @@ public class HeroController : MonoBehaviour
     SpriteRenderer spriteRenderer;
     public GameObject sword;
 
-    bool isMoving = false;        //移動中フラグ
-    bool isInvincible = false;    // 無敵時間中フラグ
+    bool isInvincible = false;    //無敵時間中フラグ
 
     //ダメージ対応
     public static int hp = 10;       //プレイヤーのHP
     public static string gameState;  //ゲームの状態
     bool inDamage = false;           //ダメージ中のフラグ
-
+    //ダメージ時少し後ろに下がる
     public float hitBackForce = 4.0f;
-    public float hitBackDuration = 0.2f;
 
     //攻撃力
     public SwordHit weapon;
@@ -59,36 +53,18 @@ public class HeroController : MonoBehaviour
     bool touchingEnemy = false;
     GameObject currentEnemy = null;
 
-
-    //p1からp2の角度を返す
-    float GetAngle(Vector2 p1, Vector2 p2)
-    {
-        float angle;
-        if (axisH != 0 || axisV != 0)
-        {
-            //移動中であれば角度を更新する
-            //p1からp2への差分（原点を０にするため）
-            float dx = p2.x - p1.x;
-            float dy = p2.y - p1.y;
-            //アークタンジェント２関数で関数（ラジアン）を求める
-            float rad = Mathf.Atan2(dy, dx);
-            //ラジアンを度に変換して返す
-            angle = rad * Mathf.Rad2Deg;
-        }
-        else
-        {
-            //停止中であれば以前の角度を維持
-            angle = angleZ;
-        }
-        return angle;
-    }
-
+    /// <summary>
+    /// もう一度ゲームを始める時にHPを満タンに戻す
+    /// </summary>
     public static void ResetStaticVariables()
     {
         hp = 10;
         gameState = "playing";
     }
 
+    /// <summary>
+    /// 主人公の初期化
+    /// </summary>
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -96,17 +72,13 @@ public class HeroController : MonoBehaviour
 
         Application.targetFrameRate = 60;
 
-        rbody = GetComponent<Rigidbody2D>();    //Rigidbody2Dを得る
+        rbody = GetComponent<Rigidbody2D>();            //Rigidbody2Dを得る
         rbody.bodyType = RigidbodyType2D.Dynamic;
         rbody.gravityScale = 0;
 
-
-        animator = GetComponent<Animator>();    //Animatorを得る
-
-        audioSource = GetComponent<AudioSource>(); //AudioSourceを得る
-
-        //SpriteRendererを得る
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();            //Animatorを得る
+        audioSource = GetComponent<AudioSource>();      //AudioSourceを得る
+        spriteRenderer = GetComponent<SpriteRenderer>();//SpriteRendererを得る
 
         //ゲームの状態をプレイ中にする
         gameState = "playing";
@@ -121,11 +93,6 @@ public class HeroController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //ゲーム中以外は何もしない
-        if (gameState != "playing")
-        {
-            return;
-        }
 
         axisH = Input.GetAxisRaw("Horizontal");   //左右キー入力
         axisV = Input.GetAxisRaw("Vertical");     //上下キー入力
@@ -139,7 +106,7 @@ public class HeroController : MonoBehaviour
 
             if (angle >= -45f && angle <= 45f)
             {
-                dir = 3; // 右
+                dir = 3;          // 右
             }
             else if (angle > 45f && angle < 135f)
             {
@@ -173,8 +140,6 @@ public class HeroController : MonoBehaviour
             rbody.velocity = move * Speed;
         }
 
-        if (gameObject == null) return;
-
 
         if (gameState != "playing")
         {
@@ -197,6 +162,7 @@ public class HeroController : MonoBehaviour
             return;
         }
 
+        
         if (inDamage)
         {
             float val = Mathf.Sin(Time.time * 50);
@@ -208,6 +174,7 @@ public class HeroController : MonoBehaviour
             spriteRenderer.enabled = true;
         }
 
+        //ダメージ時赤点滅
         if (isInvincible)
         {
             float val = Mathf.Sin(Time.time * 30);     //点滅速度
@@ -225,20 +192,17 @@ public class HeroController : MonoBehaviour
         {
             sr.color = Color.white;
         }
-    }
 
+        //スピードアップタイム
+        if (SpeedTime > 0f)
+        {
+            SpeedTime -= Time.deltaTime;
 
-    public void SetAxis(float h, float v)
-    {
-        axisH = h;
-        axisV = v;
-        if (axisH == 0 && axisV == 0)
-        {
-            isMoving = false;
-        }
-        else
-        {
-            isMoving = true;
+            if (SpeedTime <= 0f)
+            {
+                extraSpeed = 0f;  //効果終了
+                SpeedTime = 0f;
+            }
         }
     }
 
@@ -262,7 +226,6 @@ public class HeroController : MonoBehaviour
             currentEnemy = null;
         }
     }
-
 
     //ダメージ
     void GetDamage(GameObject enemy)
@@ -340,11 +303,5 @@ public class HeroController : MonoBehaviour
         {
             GetDamage(currentEnemy);
         }
-    }
-
-    private IEnumerator RemoveSpeedAfterTime(float amount, float duration)
-    {
-        yield return new WaitForSeconds(duration);  //10秒待つ
-        extraSpeed -= amount;                        //スピード元に戻る
     }
 }
