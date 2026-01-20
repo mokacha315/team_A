@@ -1,4 +1,154 @@
-﻿using System;
+﻿//using System;
+//using UnityEngine;
+
+//public class PlayerAttack : MonoBehaviour
+//{
+//    public int attackPower { get { return currentWeapon.attackPower; } }
+//    public WeaponData currentWeapon;
+//    public float attackDuration { get { return currentWeapon.attackDuration; } }
+//    public float attackCooldown { get { return currentWeapon.attackCooldown; } }
+//    public int extraDamage = 0;
+
+//    public void AddDamage(int value) { extraDamage += value; }
+
+//    public Vector2 swordOffset = new Vector2(1.0f, 0f);
+//    public HeroController heroController;
+
+//    public AudioSource audioSource;
+//    public AudioClip attackSE;
+
+//    private bool inAttack = false;
+//    private float nextAttackTiam = 0f;
+//    private GameObject sword;
+//    private GameObject sword_effect;
+//    private Transform swordTransform;
+//    private Transform effectTransform;
+//    private SpriteRenderer swordSpriteRenderer;
+
+//    void Start()
+//    {
+//        if (heroController == null) heroController = GetComponent<HeroController>();
+//        EquipWeapon(currentWeapon);
+//        SetInitialSwordPosition();
+//    }
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    void Update()
+//    {
+//        if (Input.GetKeyDown(KeyCode.Space) && !inAttack)
+//        {
+//            if (Time.time >= nextAttackTiam)
+//            {
+//                Attack();
+//                nextAttackTiam = Time.time + attackCooldown;
+//            }
+//        }
+
+
+//        if (heroController != null && swordTransform != null && swordSpriteRenderer != null)
+//        {
+//            float angle = heroController.angleZ;
+//            float normAngle = (angle % 360 + 360) % 360; //正規化
+//            float displayAngle = 0f;
+
+//            //斜め上
+//            bool isDiagonalUp = Mathf.Abs(Mathf.Abs(angle % 90) - 45f) < 10f && (normAngle > 0 && normAngle < 180);
+
+//            //斜め下
+//            bool isDiagonalLeftDown = Mathf.Abs(normAngle - 225f) < 20f;  //左下
+//            bool isDiagonalRightDown = Mathf.Abs(normAngle - 315f) < 20f; //右下
+
+//            if (isDiagonalUp)
+//            {
+//                swordSpriteRenderer.flipX = false;
+//                swordSpriteRenderer.flipY = false;
+//                displayAngle = angle - 45f;
+//            }
+//            else if (isDiagonalLeftDown)
+//            {
+//                //左下を反転させて外側に向ける
+//                swordSpriteRenderer.flipX = false;
+//                swordSpriteRenderer.flipY = true;
+//                displayAngle = angle - 45f;//斜めの向き調整
+//            }
+//            else if (isDiagonalRightDown)
+//            {
+//                // 右下の反転させずに外側に向ける（ここを修正）
+//                swordSpriteRenderer.flipX = false;
+//                swordSpriteRenderer.flipY = false;
+//                displayAngle = angle + 45f; //斜めの向きの調整
+//            }
+//            else
+//            {
+//                // 4方向（上下左右）
+//                swordSpriteRenderer.flipY = false;
+//                if (heroController.direction == 1 || heroController.direction == 2)
+//                    swordSpriteRenderer.flipX = true;
+//                else
+//                    swordSpriteRenderer.flipX = false;
+
+//                displayAngle = 0f;
+//            }
+
+//            // 回転・表示順・位置の適用
+//            swordTransform.rotation = Quaternion.Euler(0, 0, displayAngle);
+
+//            // 表示順
+//            int baseOrder = 100;
+//            swordSpriteRenderer.sortingOrder = (normAngle > 10 && normAngle < 170) ? baseOrder - 1 : baseOrder + 1;
+
+//            // 位置の更新
+//            float angleRad = angle * Mathf.Deg2Rad;
+//            swordTransform.localPosition = new Vector3(
+//                Mathf.Cos(angleRad) * (swordOffset.x * 0.5f),
+//                Mathf.Sin(angleRad) * (swordOffset.x * 0.5f),
+//                0
+//            );
+//        }
+
+//        // --- 以下のメソッドは以前と同様 ---
+//        void Attack()
+//        {
+//            if (heroController == null || sword_effect == null || effectTransform == null) return;
+//            if (audioSource != null && attackSE != null) audioSource.PlayOneShot(attackSE);
+
+//            inAttack = true;
+//            sword_effect.SetActive(true);
+//            float offsetAngle = 90.0f;
+//            effectTransform.rotation = Quaternion.Euler(180, 180, heroController.angleZ + offsetAngle);
+//            float angleRad = heroController.angleZ * Mathf.Deg2Rad;
+//            Vector3 rotatedOffset = new Vector3(Mathf.Cos(angleRad) * swordOffset.x, Mathf.Sin(angleRad) * swordOffset.x, 0);
+//            effectTransform.localPosition = rotatedOffset;
+//            Invoke(nameof(StopAttack), attackDuration);
+//        }
+
+//        void StopAttack() { if (sword_effect != null) sword_effect.SetActive(false); inAttack = false; }
+//    }
+
+//    public void EquipWeapon(WeaponData newWeapon)
+//    {
+//        currentWeapon = newWeapon;
+//        if (sword != null) Destroy(sword);
+//        if (sword_effect != null) Destroy(sword_effect);
+//        sword = Instantiate(newWeapon.swordPrefab, transform);
+//        sword_effect = Instantiate(newWeapon.swordEffectPrefab, transform);
+//        sword.SetActive(true);
+//        sword_effect.SetActive(false);
+//        swordTransform = sword.transform;
+//        effectTransform = sword_effect.transform;
+//        swordSpriteRenderer = sword.GetComponent<SpriteRenderer>();
+//        SetInitialSwordPosition();
+//    }
+
+//    void SetInitialSwordPosition()
+//    {
+//        if (swordTransform == null || heroController == null) return;
+//        float angleRad = heroController.angleZ * Mathf.Deg2Rad;
+//        swordTransform.localPosition = new Vector3(Mathf.Cos(angleRad) * (swordOffset.x * 0.5f), Mathf.Sin(angleRad) * (swordOffset.x * 0.5f), 0);
+//    }
+//}
+using System;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
@@ -11,7 +161,7 @@ public class PlayerAttack : MonoBehaviour
 
     public void AddDamage(int value) { extraDamage += value; }
 
-    public Vector2 swordOffset = new Vector2(1.0f, 0f);
+    public Vector2 swordOffset = new Vector2(1.5f, 0f); // 1.0から1.5に増やすとより前方に表示されます
     public HeroController heroController;
 
     public AudioSource audioSource;
@@ -29,11 +179,11 @@ public class PlayerAttack : MonoBehaviour
     {
         if (heroController == null) heroController = GetComponent<HeroController>();
         EquipWeapon(currentWeapon);
-        SetInitialSwordPosition();
     }
 
     void Update()
     {
+        // 攻撃の入力判定
         if (Input.GetKeyDown(KeyCode.Space) && !inAttack)
         {
             if (Time.time >= nextAttackTiam)
@@ -43,74 +193,63 @@ public class PlayerAttack : MonoBehaviour
             }
         }
 
+        // 剣（手持ち武器）の見た目更新
         if (heroController != null && swordTransform != null && swordSpriteRenderer != null)
         {
-            float angle = heroController.angleZ;
-            float displayAngle = 0f;
-            float underAngle = 0f;
-            // 1. 斜め判定 (45, 135, -45, -135度付近)
-            // 先ほど「-45で治った」とのことですので、斜めの時は一律で角度補正を適用します
-            // bool isDiagonal = Mathf.Abs(Mathf.Abs(angle) - 45f) < 10f || Mathf.Abs(Mathf.Abs(angle) - 135f) < 10f;
-            bool isDiagonal = Mathf.Abs(Mathf.Abs(angle % 90) - 45f) < 10f;
-
-            if (isDiagonal)
-            {
-                // 斜めの時はFlipをオフにして、移動角度に合わせて回転させる
-                swordSpriteRenderer.flipX = false;
-                swordSpriteRenderer.flipY = false;
-                displayAngle = angle - 45f; // 斜めの基準補正
-
-            }
-            else
-            {
-                //上下左右（4方向）の時はFlipで制御し、回転は0で固定
-                if (heroController.direction == 0) // 下
-                {
-                    swordSpriteRenderer.flipX = false;
-                    swordSpriteRenderer.flipY = false;
-                    displayAngle = 0f;
-                }
-                else if (heroController.direction == 1) // 左
-                {
-                    swordSpriteRenderer.flipX = true;
-                    swordSpriteRenderer.flipY = false;
-                    displayAngle = 0f;
-                }
-                else if (heroController.direction == 2) //上
-                {
-                    swordSpriteRenderer.flipX = true;
-                    swordSpriteRenderer.flipY = false;
-                    displayAngle = 0f;
-                }
-                else //右(3)
-                {
-                    swordSpriteRenderer.flipX = false;
-                    swordSpriteRenderer.flipY = false;
-                    displayAngle = 0f;
-                }
-            }
-
-
-            // 2. 回転の適用
-            swordTransform.rotation = Quaternion.Euler(0, 0, displayAngle);
-
-            // 3. 表示順の修正（消えないように値を大きく設定）
-            // プレイヤーのSorting Layerが「Default」なら、100以上にすれば確実に前に出ます
-            // 上向き(0 < angle < 180)の時だけキャラの背後に回す
-            int baseOrder = 100;
-            swordSpriteRenderer.sortingOrder = (angle > 10 && angle < 170) ? baseOrder - 1 : baseOrder + 1;
-
-            // 4. 位置の更新
-            float angleRad = angle * Mathf.Deg2Rad;
-            swordTransform.localPosition = new Vector3(
-                Mathf.Cos(angleRad) * (swordOffset.x * 0.5f),
-                Mathf.Sin(angleRad) * (swordOffset.x * 0.5f),
-                0
-            );
+            UpdateSwordVisuals();
         }
     }
 
-    // --- 以下のメソッドは以前と同様 ---
+    // 剣の向きと位置を更新する処理
+    private void UpdateSwordVisuals()
+    {
+        float angle = heroController.angleZ;
+        float normAngle = (angle % 360 + 360) % 360;
+        float displayAngle = 0f;
+
+        bool isDiagonalUp = Mathf.Abs(Mathf.Abs(angle % 90) - 45f) < 10f && (normAngle > 0 && normAngle < 180);
+        bool isDiagonalLeftDown = Mathf.Abs(normAngle - 225f) < 20f;
+        bool isDiagonalRightDown = Mathf.Abs(normAngle - 315f) < 20f;
+
+        if (isDiagonalUp)
+        {
+            swordSpriteRenderer.flipX = false;
+            swordSpriteRenderer.flipY = false;
+            displayAngle = angle - 45f;
+        }
+        else if (isDiagonalLeftDown)
+        {
+            swordSpriteRenderer.flipX = false;
+            swordSpriteRenderer.flipY = true;
+            displayAngle = angle - 45f;
+        }
+        else if (isDiagonalRightDown)
+        {
+            swordSpriteRenderer.flipX = false;
+            swordSpriteRenderer.flipY = false;
+            displayAngle = angle + 45f;
+        }
+        else
+        {
+            swordSpriteRenderer.flipY = false;
+            swordSpriteRenderer.flipX = (heroController.direction == 1 || heroController.direction == 2);
+            displayAngle = 0f;
+        }
+
+        swordTransform.rotation = Quaternion.Euler(0, 0, displayAngle);
+
+        int baseOrder = 100;
+        swordSpriteRenderer.sortingOrder = (normAngle > 10 && normAngle < 170) ? baseOrder - 1 : baseOrder + 1;
+
+        float angleRad = angle * Mathf.Deg2Rad;
+        swordTransform.localPosition = new Vector3(
+            Mathf.Cos(angleRad) * (swordOffset.x * 0.5f),
+            Mathf.Sin(angleRad) * (swordOffset.x * 0.5f),
+            -0.01f // Zを少しマイナスにしてキャラより手前に
+        );
+    }
+
+    // 攻撃実行
     void Attack()
     {
         if (heroController == null || sword_effect == null || effectTransform == null) return;
@@ -118,28 +257,50 @@ public class PlayerAttack : MonoBehaviour
 
         inAttack = true;
         sword_effect.SetActive(true);
-        float offsetAngle = 90.0f;
+
+        // エフェクトの回転（左右で消えないように修正）
+        float offsetAngle =90f;
         effectTransform.rotation = Quaternion.Euler(180, 180, heroController.angleZ + offsetAngle);
+
+        // エフェクトの位置（主人公の前方にオフセット分だけ離す）
         float angleRad = heroController.angleZ * Mathf.Deg2Rad;
-        Vector3 rotatedOffset = new Vector3(Mathf.Cos(angleRad) * swordOffset.x, Mathf.Sin(angleRad) * swordOffset.x, 0);
+        Vector3 rotatedOffset = new Vector3(
+            Mathf.Cos(angleRad) * swordOffset.x,
+            Mathf.Sin(angleRad) * swordOffset.x,
+            -1f // Zをマイナスにして確実にキャラの前に表示
+        );
         effectTransform.localPosition = rotatedOffset;
+
+        // 親（プレイヤー）が反転していてもエフェクトが消えないようにスケールを固定
+        effectTransform.localScale = Vector3.one;
+
         Invoke(nameof(StopAttack), attackDuration);
     }
 
-    void StopAttack() { if (sword_effect != null) sword_effect.SetActive(false); inAttack = false; }
+    void StopAttack()
+    {
+        if (sword_effect != null) sword_effect.SetActive(false);
+        inAttack = false;
+    }
 
     public void EquipWeapon(WeaponData newWeapon)
     {
+        if (newWeapon == null) return;
         currentWeapon = newWeapon;
+
         if (sword != null) Destroy(sword);
         if (sword_effect != null) Destroy(sword_effect);
+
         sword = Instantiate(newWeapon.swordPrefab, transform);
         sword_effect = Instantiate(newWeapon.swordEffectPrefab, transform);
+
         sword.SetActive(true);
         sword_effect.SetActive(false);
+
         swordTransform = sword.transform;
         effectTransform = sword_effect.transform;
         swordSpriteRenderer = sword.GetComponent<SpriteRenderer>();
+
         SetInitialSwordPosition();
     }
 
@@ -147,6 +308,10 @@ public class PlayerAttack : MonoBehaviour
     {
         if (swordTransform == null || heroController == null) return;
         float angleRad = heroController.angleZ * Mathf.Deg2Rad;
-        swordTransform.localPosition = new Vector3(Mathf.Cos(angleRad) * (swordOffset.x * 0.5f), Mathf.Sin(angleRad) * (swordOffset.x * 0.5f), 0);
+        swordTransform.localPosition = new Vector3(
+            Mathf.Cos(angleRad) * (swordOffset.x * 0.5f),
+            Mathf.Sin(angleRad) * (swordOffset.x * 0.5f),
+            -0.01f
+        );
     }
 }
