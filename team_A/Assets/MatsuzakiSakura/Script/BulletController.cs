@@ -6,6 +6,9 @@ public class BulletController : MonoBehaviour
 {
     public float deleteTime = 3.0f;     //削除する時間指定
 
+    /// <summary>
+    /// deleteTimeに設定された時間がたつと弾が消える
+    /// </summary>
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,22 +21,27 @@ public class BulletController : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// オブジェクトに当たると弾を消す
+    /// </summary>
+    /// <param name="collision">ぶつかったオブジェクト</param>
     private void OnCollisionEnter2D(Collision2D collision)
     {
        Destroy(gameObject);     //何かに接触したら消す
     }
 
-    // 他のオブジェクトと当たったとき
+    /// <summary>
+    /// 剣に当たると弾を消す処理と、主人公に当たったらダメージ
+    /// </summary>
+    /// <param name="collision">ぶつかったオブジェクト</param>
     void OnTriggerEnter2D(Collider2D collision)
     {
-        // 剣に当たったら弾を消す
         if (collision.gameObject.tag == "sword" || collision.gameObject.tag == "buster_sword_effect" || collision.gameObject.tag == "kenn_effect")
         {
             Debug.Log("弾が剣に当たって消えた！");
             Destroy(gameObject);
         }
 
-        // プレイヤーに当たったらダメージ処理して弾を消す
         else if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("プレイヤーが弾に当たった！");

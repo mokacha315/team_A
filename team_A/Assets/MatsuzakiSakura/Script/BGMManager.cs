@@ -28,18 +28,22 @@ public class BGMManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// BGMを再生する処理
     /// </summary>
     void Start()
     {
         if (initialBGM != null && bgmSource != null)
         {
-            bgmSource.clip = initialBGM;
-            bgmSource.volume = 1f;
-            bgmSource.loop = true;
-            bgmSource.Play();
+            bgmSource.clip = initialBGM; //BGMセット
+            bgmSource.volume = 1f;       //音量
+            bgmSource.loop = true;       //ループオン
+            bgmSource.Play();            //再生
         }
     }
+
+    /// <summary>
+    /// BGMのフェードアウト・フェードイン
+    /// </summary>
     void Update()
     {
         if (TitleManager.startPressed)
@@ -78,6 +82,10 @@ public class BGMManager : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// 曲の切り替え
+    /// </summary>
+    /// <param name="newClip">これから再生したいBGM</param>
     public void ChangeBGM(AudioClip newClip)
     {
         if (bgmSource.clip == newClip) //同じ曲ならなにもしない

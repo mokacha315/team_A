@@ -39,6 +39,9 @@ public class BossController : MonoBehaviour
     public GameObject[] dropItems;   //ドロップするアイテムリスト
     public float dropRate = 1.0f;    //ドロップ確率100％
 
+    /// <summary>
+    /// 必要なオブジェクトをコンポーネントして、プレイヤーの情報がわかるようにする
+    /// </summary>
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -54,6 +57,11 @@ public class BossController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// ゲームオーバー・クリア時に動かないようにする
+    /// 主人公の攻撃が当たると一定時間赤色になる
+    /// ボスの範囲内に入ったら、Boss専用BGMにし、Bossの攻撃開始
+    /// </summary>
     // Update is called once per frame
     void Update()
     {
@@ -154,6 +162,11 @@ public class BossController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 主人公の剣に当たったらダメージを受ける(点滅あり)
+    /// 死亡処理・アイテムドロップ・BGM切り替え
+    /// </summary>
+    /// <param name="collision">ボスにぶつかってきたもの(剣)</param>
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "sword" || collision.gameObject.tag == "buster_sword_effect" || collision.gameObject.tag == "kenn_effect")
@@ -199,7 +212,10 @@ public class BossController : MonoBehaviour
             }
         }
     }
-    //攻撃
+
+    /// <summary>
+    /// オブジェクト(gate)から主人公の位置を計算して、主人公に向かって弾を発射する
+    /// </summary>
     void Attack()
     {
         if (player == null)
@@ -231,7 +247,9 @@ public class BossController : MonoBehaviour
         }
     }
 
-    //アイテムドロップ関数
+    /// <summary>
+    /// ボスの死亡後にアイテムをドロップ(ドア)
+    /// </summary>
     void TryDropItem()
     {
         //設定していなければそのまま
