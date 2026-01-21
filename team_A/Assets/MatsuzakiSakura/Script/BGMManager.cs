@@ -13,7 +13,7 @@ public class BGMManager : MonoBehaviour
     private bool isFading = false;
 
     /// <summary>
-    /// 
+    /// BGMManager‚ğƒV[ƒ““à‚P‚Â‚¾‚¯‚É‚·‚é
     /// </summary>
     void Awake()
     {
@@ -27,6 +27,9 @@ public class BGMManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     void Start()
     {
         if (initialBGM != null && bgmSource != null)
