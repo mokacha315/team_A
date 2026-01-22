@@ -11,16 +11,15 @@ public class DamageItem : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
+            return;
+
+        PlayerAttack pa = collision.GetComponentInParent<PlayerAttack>();
+
+        if (pa != null)
         {
-            PlayerAttack pa = collision.GetComponent<PlayerAttack>();
-
-
-
-            if (pa != null)
-            {
-                pa.AddDamage(buffValue);
-            }
+            pa.AddDamage(buffValue);
             Destroy(gameObject);
         }
+
     }
 }
