@@ -53,6 +53,8 @@ public class HeroController : MonoBehaviour
     bool touchingEnemy = false;
     GameObject currentEnemy = null;
 
+    Vector2 moveInput;
+
     /// <summary>
     /// もう一度ゲームを始める時にHPを満タンに戻す
     /// </summary>
@@ -113,6 +115,12 @@ public class HeroController : MonoBehaviour
         axisH = Input.GetAxisRaw("Horizontal");   //左右キー入力
         axisV = Input.GetAxisRaw("Vertical");     //上下キー入力
 
+        moveInput = new Vector2(axisH, axisV);
+        if (moveInput.magnitude > 1f)
+        {
+            moveInput = moveInput.normalized;
+        }
+
         if (axisH != 0 || axisV != 0)
         {
             //移動角度から向いている方向とアニメーション更新
@@ -142,18 +150,6 @@ public class HeroController : MonoBehaviour
                 direction = dir;
                 animator.SetInteger("Direction", direction);
             }
-        }
-
-        if (gameState == "playing" && !inDamage)
-        {
-            Vector2 move = new Vector2(axisH, axisV);
-
-            if (move.magnitude > 1f)   //move.magnitude 長さ
-            {
-                move = move.normalized;//move.normalizes 正規化されたVector2
-            }
-
-            rbody.velocity = move * Speed;
         }
 
 
@@ -324,6 +320,21 @@ public class HeroController : MonoBehaviour
         if (touchingEnemy && currentEnemy != null && gameState == "playing")
         {
             GetDamage(currentEnemy);
+        }
+    }
+
+    /// <summary>
+    /// 移動
+    /// </summary>
+    void FixedUpdate()
+    {
+        if (gameState == "playing" && !inDamage)
+        {
+            rbody.velocity = moveInput * Speed;
+        }
+        else
+        {
+            rbody.velocity = Vector2.zero;
         }
     }
 }
