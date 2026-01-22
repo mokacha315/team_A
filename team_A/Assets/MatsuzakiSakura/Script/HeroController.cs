@@ -98,6 +98,17 @@ public class HeroController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //スピードアップタイム
+        if (SpeedTime > 0f)
+        {
+            SpeedTime -= Time.deltaTime;
+
+            if (SpeedTime <= 0f)
+            {
+                extraSpeed = 0f;  //効果終了
+                SpeedTime = 0f;
+            }
+        }
 
         axisH = Input.GetAxisRaw("Horizontal");   //左右キー入力
         axisV = Input.GetAxisRaw("Vertical");     //上下キー入力
@@ -137,9 +148,9 @@ public class HeroController : MonoBehaviour
         {
             Vector2 move = new Vector2(axisH, axisV);
 
-            if (move.magnitude > 1f)
+            if (move.magnitude > 1f)   //move.magnitude 長さ
             {
-                move = move.normalized;
+                move = move.normalized;//move.normalizes 正規化されたVector2
             }
 
             rbody.velocity = move * Speed;
@@ -150,7 +161,6 @@ public class HeroController : MonoBehaviour
         {
             rbody.linearVelocity = Vector2.zero;
             animator.SetFloat("Speed", 0);
-            return;
         }
 
         //角度更新
@@ -173,7 +183,6 @@ public class HeroController : MonoBehaviour
         {
             float val = Mathf.Sin(Time.time * 50);
             spriteRenderer.enabled = val > 0;
-            return;
         }
         else
         {
@@ -197,18 +206,6 @@ public class HeroController : MonoBehaviour
         else
         {
             sr.color = Color.white;
-        }
-
-        //スピードアップタイム
-        if (SpeedTime > 0f)
-        {
-            SpeedTime -= Time.deltaTime;
-
-            if (SpeedTime <= 0f)
-            {
-                extraSpeed = 0f;  //効果終了
-                SpeedTime = 0f;
-            }
         }
     }
 
