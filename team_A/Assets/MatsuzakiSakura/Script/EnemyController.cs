@@ -29,6 +29,9 @@ public class EnemyController : MonoBehaviour
     PlayerAttack playerAttack;
 
 
+    /// <summary>
+    /// 必要なオブジェクトをコンポーネントして、プレイヤーの情報がわかるようにする
+    /// </summary>
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -43,6 +46,10 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// ゲームオーバー・クリア時に動きを止め、ダメージ時に赤色に変わる
+    /// 主人公の位置を計算し、ついていく、アニメーション変更
+    /// </summary>
     // Update is called once per frame
     void Update()
     {
@@ -130,7 +137,9 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// HPが0、ゲームクリア・オーバー時に敵の移動を止める
+    /// </summary>
     void FixedUpdate()
     {
         if (HeroController.gameState == "gameclear" || HeroController.gameState == "gameend")
@@ -150,6 +159,11 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 主人公の剣(エフェクト)に当たるとHPを減らす。
+    /// HPが0になるとアニメーション変更、アイテムドロップ、0.5秒後に消す
+    /// </summary>
+    /// <param name="collision">剣(エフェクト)のオブジェクト</param>
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "sword" || collision.gameObject.tag == "buster_sword_effect" || collision.gameObject.tag == "kenn_effect")
@@ -183,7 +197,9 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    //アイテムドロップ関数
+    /// <summary>
+    /// アイテムをドロップさせる処理
+    /// </summary>
     void TryDropItem()
     {
         //設定していなければそのまま
