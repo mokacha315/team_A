@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    public int attackPower { get { return currentWeapon.attackPower + extraDamage; } }
+    public int attackPower { get { return currentWeapon.attackPower; } }
     public WeaponData currentWeapon;
     public float attackDuration { get { return currentWeapon.attackDuration; } }
     public float attackCooldown { get { return currentWeapon.attackCooldown; } }
