@@ -25,13 +25,18 @@ public class PlayerAttack : MonoBehaviour
     private Transform swordTransform;
     private Transform effectTransform;
     private SpriteRenderer swordSpriteRenderer;
-
+    /// <summary>
+    /// 主人公の情報と武器の情報取得
+    /// </summary>
     void Start()
     {
         if (heroController == null) heroController = GetComponent<HeroController>();
         EquipWeapon(currentWeapon);
     }
-
+    /// <summary>
+    /// もっている剣の向きや生成される場所の調整
+    /// 武器を拾った時の処理
+    /// </summary>
     void Update()
     {
         // 攻撃の入力判定
@@ -99,6 +104,9 @@ public class PlayerAttack : MonoBehaviour
             -0.01f // Zを少しマイナスにしてキャラより手前に
         );
     }
+    /// <summary>
+    /// 攻撃の処理、攻撃判定を持っているエフェクトの向きやエフェクトの大きさ調整
+    /// </summary>
     void Attack()
     {
         if (heroController == null || sword_effect == null || effectTransform == null) return;
@@ -129,13 +137,18 @@ public class PlayerAttack : MonoBehaviour
 
         Invoke(nameof(StopAttack), attackDuration);
     }
-
+    /// <summary>
+    /// 攻撃をした後攻撃判定を持つエフェクトを消す処理
+    /// </summary>
     void StopAttack()
     {
         if (sword_effect != null) sword_effect.SetActive(false);
         inAttack = false;
     }
-
+    /// <summary>
+    /// 武器データの管理
+    /// </summary>
+    /// <param name="newWeapon"></param>
     public void EquipWeapon(WeaponData newWeapon)
     {
         if (newWeapon == null) return;
@@ -156,7 +169,9 @@ public class PlayerAttack : MonoBehaviour
 
         SetInitialSwordPosition();
     }
-
+    /// <summary>
+    /// 不明 家でやりましょう
+    /// </summary>
     void SetInitialSwordPosition()
     {
         if (swordTransform == null || heroController == null) return;

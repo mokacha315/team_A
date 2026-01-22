@@ -5,12 +5,17 @@ public class AttackUI : MonoBehaviour
 {
     private PlayerAttack player;
     public Text attackText;
-
+    /// <summary>
+    /// 起動時の攻撃力を参照している
+    /// </summary>
     void Start()
     {
         // 起動時にシーン内から PlayerAttack を自動で探して記憶する
         player = FindObjectOfType<PlayerAttack>();
     }
+    /// <summary>
+    /// 攻撃力を表示するためのもの
+    /// </summary>
         void Update()
         {
             if (player != null && attackText != null)

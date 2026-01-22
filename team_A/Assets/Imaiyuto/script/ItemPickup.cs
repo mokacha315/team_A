@@ -13,7 +13,10 @@ public class ItemPickup : MonoBehaviour
     {
 
     }
-
+    /// <summary>
+    /// アイテムを拾った時の反映とSEなど
+    /// </summary>
+    /// <param name="collision"></param>
     void OnTriggerEnter2D(Collider2D collision)
     {
         // アイテムタグと一致
