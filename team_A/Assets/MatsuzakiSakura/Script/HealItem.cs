@@ -16,18 +16,20 @@ public class HealItem : MonoBehaviour
             return;
         }
 
+        HeroController hero = collision.GetComponentInParent<HeroController>();
+
         if (!collision.CompareTag("Player"))
         {
             return;
         }
 
-        HeroController hero = collision.GetComponentInParent<HeroController>(); 
-
-        if (hero != null)
+        if (hero == null)
         {
-            used = true;
-            HeroController.hp = Mathf.Min(HeroController.hp + healAmount, 10);
-            Destroy(gameObject);
+            return;
         }
+
+        used = true;
+        HeroController.hp = Mathf.Min(HeroController.hp + healAmount, 10);
+        Destroy(gameObject);
     }
 }

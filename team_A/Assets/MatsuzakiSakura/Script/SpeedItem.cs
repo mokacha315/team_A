@@ -12,18 +12,20 @@ public class SpeedItem : MonoBehaviour
             return;
         }
 
+        HeroController hero = collision.GetComponentInParent<HeroController>();
+
         if (!collision.CompareTag("Player"))
         {
             return;
         }
 
-        HeroController hero = collision.GetComponent<HeroController>();
-
-        if (hero != null)
+        if (hero == null)
         {
-            used = true;
-            hero.AddSpeed(SpeedAmount); //速度アップ
-            Destroy(gameObject); //アイテム消す
+            return;
         }
+
+        used = true;
+        hero.AddSpeed(SpeedAmount); //速度アップ
+        Destroy(gameObject); //アイテム消す
     }
 }

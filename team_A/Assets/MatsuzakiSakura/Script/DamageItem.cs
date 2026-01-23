@@ -16,19 +16,21 @@ public class DamageItem : MonoBehaviour
             return;
         }
 
+        PlayerAttack pa = collision.GetComponentInParent<PlayerAttack>();
+
         if (!collision.CompareTag("Player"))
         {
             return;
         }
 
-        PlayerAttack pa = collision.GetComponentInParent<PlayerAttack>();
-
-        if (pa != null)
+        if (pa == null)
         {
-            used = true;   
-            pa.AddDamage(buffValue);
-            Destroy(gameObject);
+            return;
         }
+
+        used = true;
+        pa.AddDamage(buffValue);
+        Destroy(gameObject);
 
     }
 }
