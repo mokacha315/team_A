@@ -31,7 +31,7 @@ public class GhostController : MonoBehaviour
     bool isDead = false;
 
     /// <summary>
-    /// 
+    /// PlayerAttackコンポーネントを取得して保持する処理
     /// </summary>
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -44,6 +44,11 @@ public class GhostController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// ゲームオーバー・クリア、死亡時は動きを止める
+    /// 点滅時は赤色にする
+    /// 主人公の位置を取得し、一定距離内で接近し、一定間隔で弾をとばす(離れたら待機用アニメーション)
+    /// </summary>
     // Update is called once per frame
     void Update()
     {
@@ -105,6 +110,10 @@ public class GhostController : MonoBehaviour
             
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="collision"></param>
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "sword" || collision.gameObject.tag == "buster_sword_effect" || collision.gameObject.tag == "kenn_effect")
