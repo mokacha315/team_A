@@ -30,6 +30,9 @@ public class GhostController : MonoBehaviour
     //Ž€–SŽž
     bool isDead = false;
 
+    /// <summary>
+    /// 
+    /// </summary>
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
