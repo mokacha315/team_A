@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bff5509f1d3e35c4e88f36a4ecdf9dc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 20
+  hp: 70
   reactionDistance: 10
   Speed: 0.5
   bulletPrefab: {fileID: 6970960854110308251, guid: e38f06cc94fe4ad4d8673394e0a37f8e, type: 3}
@@ -926,7 +926,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8948794445235715580, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: hp
-      value: 40
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 8948794445235715580, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: dropRate
@@ -2151,7 +2151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bff5509f1d3e35c4e88f36a4ecdf9dc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 20
+  hp: 50
   reactionDistance: 10
   Speed: 0.5
   bulletPrefab: {fileID: 6970960854110308251, guid: e38f06cc94fe4ad4d8673394e0a37f8e, type: 3}
@@ -2735,7 +2735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bff5509f1d3e35c4e88f36a4ecdf9dc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 20
+  hp: 70
   reactionDistance: 10
   Speed: 0.5
   bulletPrefab: {fileID: 6970960854110308251, guid: e38f06cc94fe4ad4d8673394e0a37f8e, type: 3}
@@ -3023,7 +3023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bff5509f1d3e35c4e88f36a4ecdf9dc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 20
+  hp: 50
   reactionDistance: 10
   Speed: 0.5
   bulletPrefab: {fileID: 6970960854110308251, guid: e38f06cc94fe4ad4d8673394e0a37f8e, type: 3}
@@ -3236,7 +3236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deff8a4f29c835a45b2c95d49ab0bf61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 30
+  hp: 70
   speed: 1
   reactionDistance: 4
   arrange: 0
@@ -6340,7 +6340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77121b9cec6a7c84cb39f0ada68c7ccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+  hp: 300
   reactionDistance: 7
   bulletPrefab: {fileID: 4310784387579625841, guid: fd368ab2cfeb31e4f9a2692bebdb3cb1, type: 3}
   shootSpeed: 5
@@ -6788,7 +6788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bff5509f1d3e35c4e88f36a4ecdf9dc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 20
+  hp: 50
   reactionDistance: 10
   Speed: 0.5
   bulletPrefab: {fileID: 6970960854110308251, guid: e38f06cc94fe4ad4d8673394e0a37f8e, type: 3}
@@ -10352,7 +10352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bff5509f1d3e35c4e88f36a4ecdf9dc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 20
+  hp: 50
   reactionDistance: 10
   Speed: 0.5
   bulletPrefab: {fileID: 6970960854110308251, guid: e38f06cc94fe4ad4d8673394e0a37f8e, type: 3}
@@ -10669,7 +10669,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8948794445235715580, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: hp
-      value: 40
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 8948794445235715580, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: dropRate
@@ -11436,7 +11436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bff5509f1d3e35c4e88f36a4ecdf9dc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 20
+  hp: 50
   reactionDistance: 10
   Speed: 0.5
   bulletPrefab: {fileID: 6970960854110308251, guid: e38f06cc94fe4ad4d8673394e0a37f8e, type: 3}
@@ -11841,7 +11841,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c54c4c2d8b8949a43a4f117583eefceb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 60
+  hp: 150
   reactionDistance: 7
   Speed: 0.1
   bulletPrefab: {fileID: 9118785275550441057, guid: 908fb000b3752ad4591bda2d7129a2c8, type: 3}
@@ -13646,7 +13646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deff8a4f29c835a45b2c95d49ab0bf61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 30
+  hp: 70
   speed: 1
   reactionDistance: 4
   arrange: 0
