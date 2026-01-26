@@ -17,6 +17,7 @@ public class HeroController : MonoBehaviour
     /// <param name="duration">効果時間</param>
     public void AddSpeed(float amount, float duration = 10f)
     {
+        Debug.Log($"AddSpeed 呼ばれた amount={amount}, duration={duration}");
         extraSpeed = amount;
         SpeedTime = duration;
     }
@@ -106,6 +107,7 @@ public class HeroController : MonoBehaviour
 
             if (SpeedTime <= 0f)
             {
+                Debug.Log("Speed リセットされた");
                 extraSpeed = 0f;  //効果終了
                 SpeedTime = 0f;
             }

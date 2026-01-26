@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -1071797710967889645}
   - component: {fileID: -1923387929609813087}
   - component: {fileID: 7092915905347567812}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: sword_effect _0 (2)
   m_TagString: kenn_effect
   m_Icon: {fileID: 0}
@@ -176,4 +176,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 2
-  player: {fileID: 0}

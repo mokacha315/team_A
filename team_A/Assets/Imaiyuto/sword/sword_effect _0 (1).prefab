@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -7536331295081702063}
   - component: {fileID: 8785608575331400344}
   - component: {fileID: 1358702418331277220}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: sword_effect _0 (1)
   m_TagString: buster_sword_effect
   m_Icon: {fileID: 0}
@@ -176,4 +176,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 8
-  player: {fileID: 0}

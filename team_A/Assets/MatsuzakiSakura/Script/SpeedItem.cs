@@ -14,11 +14,6 @@ public class SpeedItem : MonoBehaviour
 
         HeroController hero = collision.GetComponentInParent<HeroController>();
 
-        if (!collision.CompareTag("Player"))
-        {
-            return;
-        }
-
         if (hero == null)
         {
             return;

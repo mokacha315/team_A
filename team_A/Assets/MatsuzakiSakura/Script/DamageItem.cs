@@ -18,11 +18,6 @@ public class DamageItem : MonoBehaviour
 
         PlayerAttack pa = collision.GetComponentInParent<PlayerAttack>();
 
-        if (!collision.CompareTag("Player"))
-        {
-            return;
-        }
-
         if (pa == null)
         {
             return;

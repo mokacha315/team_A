@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1243905747260876364}
   - component: {fileID: 7146331726130750150}
   - component: {fileID: -3343604197668775399}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: AttackUp
   m_TagString: Item
   m_Icon: {fileID: 0}
