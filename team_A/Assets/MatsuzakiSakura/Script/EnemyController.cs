@@ -192,7 +192,7 @@ public class EnemyController : MonoBehaviour
                 TryDropItem();
 
                 //0.5秒後に消す
-                Destroy(gameObject, 0.5f);
+                Destroy(gameObject, 1f);
             }
         }
     }
