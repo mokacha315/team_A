@@ -12,7 +12,7 @@ public class PlayerAttack : MonoBehaviour
 
     public void AddDamage(int value) { extraDamage += value; }
 
-    public Vector2 swordOffset = new Vector2(1.5f, 0f); // 1.0から1.5に増やすとより前方に表示されます
+    public Vector2 swordOffset = new Vector2(1.5f, 0f); //1.0から1.5に増やすとより前方に表示されます
     public HeroController heroController;
 
     public AudioSource audioSource;
@@ -39,7 +39,7 @@ public class PlayerAttack : MonoBehaviour
     /// </summary>
     void Update()
     {
-        // 攻撃の入力判定
+        //攻撃の入力判定
         if (Input.GetKeyDown(KeyCode.Space) && !inAttack)
         {
             if (Time.time >= nextAttackTiam)
@@ -49,14 +49,14 @@ public class PlayerAttack : MonoBehaviour
             }
         }
 
-        // 剣（手持ち武器）の見た目更新
+        //剣の見た目更新
         if (heroController != null && swordTransform != null && swordSpriteRenderer != null)
         {
             UpdateSwordVisuals();
         }
     }
 
-    // 剣の向きと位置を更新する処理
+    //剣の向きと位置を更新する処理
     private void UpdateSwordVisuals()
     {
         float angle = heroController.angleZ;
