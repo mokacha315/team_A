@@ -53,6 +53,11 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (hp <= 0)
+        {
+            return;
+        }
+
         //ゲームオーバー・クリアの場合動かない
         if (HeroController.gameState == "gameclear" || HeroController.gameState == "gameend")
         {
@@ -97,8 +102,16 @@ public class EnemyController : MonoBehaviour
             {
                 isActive = false;      //非アクティブにする
             }
-            //アニメーションを切り替える
-            animator.SetBool("IsActive", isActive);
+
+            if (animator.GetBool("IsDead") == true)
+            {
+                isActive = false;
+            }
+
+                //アニメーションを切り替える
+                //animator.SetBool("IsActive", isActive);
+
+
             if (isActive)
             {
                 animator.SetBool("IsActive", isActive);
@@ -182,6 +195,12 @@ public class EnemyController : MonoBehaviour
 
             if (hp <= 0)
             {
+                Debug.Log(name + " should play death animation now.");
+                GetComponent<Collider2D>().enabled = false;
+
+                // デバッグ: Animator状態を確認
+                AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+                Debug.Log(name + " CurrentAnimatorState: " + stateInfo.fullPathHash + ", normalizedTime: " + stateInfo.normalizedTime);
                 //死亡
                 //当たりを消す
                 GetComponent<Collider2D>().enabled = false;

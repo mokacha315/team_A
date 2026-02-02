@@ -52,6 +52,11 @@ public class GhostController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (hp <= 0)
+        {
+            return;
+        }
+
         // ゲームオーバー・クリアなら動かない
         if (HeroController.gameState == "gameclear" || HeroController.gameState == "gameend")
         {
