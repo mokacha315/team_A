@@ -198,9 +198,6 @@ public class EnemyController : MonoBehaviour
                 Debug.Log(name + " should play death animation now.");
                 GetComponent<Collider2D>().enabled = false;
 
-                // デバッグ: Animator状態を確認
-                AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
-                Debug.Log(name + " CurrentAnimatorState: " + stateInfo.fullPathHash + ", normalizedTime: " + stateInfo.normalizedTime);
                 //死亡
                 //当たりを消す
                 GetComponent<Collider2D>().enabled = false;
