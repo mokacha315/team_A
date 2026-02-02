@@ -200,7 +200,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 23073750}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: gate2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1175,7 +1175,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 167661909}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: gate2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5668,7 +5668,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10.83, y: -2.46}
+  m_AnchoredPosition: {x: 73.14, y: 34.59}
   m_SizeDelta: {x: 6.1189, y: 9.62}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &618675279
@@ -7118,7 +7118,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 743882279}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: gate2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7532,7 +7532,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 833759468}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: gate2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15164,7 +15164,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1643976171}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: gate2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16281,7 +16281,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -34.69995, y: 14}
+  m_AnchoredPosition: {x: -40.400024, y: 2.7999878}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1791744656
@@ -74290,7 +74290,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1839315935}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: gate2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75346,7 +75346,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1922228384}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: gate2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
