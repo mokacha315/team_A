@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
     [Header("弾のパラメータ")]
     public float lifeTime = 3f;   //存在時間
     public int damage = 10;       //プレイヤーに与えるダメージ
-    public int bulletHP = 1;      //弾の体力（例：3なら3回当たるまで消えない）
+    public int bulletHP = 1;      //弾の体力
 
     void Start()
     {

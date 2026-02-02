@@ -10,7 +10,7 @@ public class EnemyAttack : MonoBehaviour
     public float attackGaugeMax = 4f;  // 攻撃ゲージの最大値
     public float bulletSpeed = 4f;     // 弾速
     public float attackRange = 10f;    // 攻撃可能範囲
-    public float gaugeIncreaseRate = 1f; // 秒あたりのゲージ上昇量
+    public float gaugeIncreaseRate = 1f; //秒あたりのゲージ上昇量
 
     private float attackGauge = 0f;
     private Transform target;

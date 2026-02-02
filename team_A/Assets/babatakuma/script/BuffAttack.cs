@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class AttackBuffItem : MonoBehaviour
 {
-    public int increaseAmount = 1; //バフ上昇量
+    public int increaseAmount = 1; //バフの上昇量
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -12,7 +12,7 @@ public class AttackBuffItem : MonoBehaviour
             if (playerAttack != null)
             {
                 //playerAttack.AttackPower += increaseAmount;
-                //Debug.Log("攻撃力アップ！ 現在の攻撃力: " + playerAttack.AttackPower);
+                //Debug.Log("攻撃力アップ/現在の攻撃力:" + playerAttack.AttackPower);
             }
 
             Destroy(gameObject); //アイテム消滅
