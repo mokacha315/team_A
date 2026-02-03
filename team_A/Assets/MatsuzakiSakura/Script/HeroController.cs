@@ -57,20 +57,13 @@ public class HeroController : MonoBehaviour
     Vector2 moveInput;
 
     /// <summary>
-    /// もう一度ゲームを始める時にHPを満タンに戻す
-    /// </summary>
-    public static void ResetStaticVariables()
-    {
-        hp = 10;
-        gameState = "playing";
-    }
-
-    /// <summary>
     /// 主人公の初期化
     /// </summary>
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        hp = 10;
+        gameState = "playing";
 
         Application.targetFrameRate = 60;
 
