@@ -1,40 +1,57 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
 
 public class AttackUI : MonoBehaviour
 {
-    private PlayerAttack player;
-    public Text attackText;
+    public Image tensImage;   // 10ã®ä½
+    public Image onesImage;   // 1ã®ä½
+    public Sprite[] numbers; // 0ã€œ9
+
+    PlayerAttack player;
+    
     /// <summary>
-    /// ‹N“®‚ÌUŒ‚—Í‚ğQÆ‚µ‚Ä‚¢‚é
+    /// èµ·å‹•æ™‚ã®æ”»æ’ƒåŠ›ã‚’å‚ç…§ã—ã¦ã„ã‚‹
     /// </summary>
     void Start()
     {
-        // ‹N“®‚ÉƒV[ƒ““à‚©‚ç PlayerAttack ‚ğ©“®‚Å’T‚µ‚Ä‹L‰¯‚·‚é
+        // èµ·å‹•æ™‚ã«ã‚·ãƒ¼ãƒ³å†…ã‹ã‚‰ PlayerAttack ã‚’è‡ªå‹•ã§æ¢ã—ã¦è¨˜æ†¶ã™ã‚‹
         player = FindObjectOfType<PlayerAttack>();
     }
+
     /// <summary>
-    /// UŒ‚—Í‚ğ•\¦‚·‚é‚½‚ß‚Ì‚à‚Ì
+    /// æ”»æ’ƒåŠ›ã‚’è¡¨ç¤ºã™ã‚‹ãŸã‚ã®ã‚‚ã®
     /// </summary>
-        void Update()
+    void Update()
+    {
+        int baseAtk;
+
+        if (player.currentWeapon != null)
         {
-            if (player != null && attackText != null)
-            {
-                int baseAtk = 0;
-
-                // •Šíƒf[ƒ^‚ª‘¶İ‚µA‚©‚ÂQÆ‚ª¶‚«‚Ä‚¢‚é‚©ƒ`ƒFƒbƒN
-                if (player.currentWeapon != null)
-                {
-                    baseAtk = player.attackPower;
-                }
-                else
-                {
-                    // •Ší‚ª‚È‚¢ê‡‚â‰Šú‰»‘O‚Ìb’è’l
-                    baseAtk = 1;
-                }
-
-                int totalAtk = baseAtk + player.extraDamage;
-                attackText.text = "ATK:" + totalAtk;
-            }
+            baseAtk = player.attackPower;
         }
+        else
+        {
+            baseAtk = 1;
+        }
+
+        int totalAtk = baseAtk + player.extraDamage;
+        totalAtk = Mathf.Clamp(totalAtk, 0, 99);
+
+        int tens = totalAtk / 10;
+        int ones = totalAtk % 10;
+
+        if (tens == 0)
+        {
+            tensImage.gameObject.SetActive(false);
+        }
+        else
+        {
+            tensImage.gameObject.SetActive(true);
+            tensImage.sprite = numbers[tens];
+        }
+
+        onesImage.sprite = numbers[ones];
     }
+
+        
+ }
