@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
 
     public void Retry()
     {
-        HeroController.ResetStaticVariables();
         //‚à‚¤ˆê“xÅ‰‚©‚ç“Ç‚İ’¼‚·
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
