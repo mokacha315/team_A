@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,5 +10,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         HeroController.ResetStaticVariables();
+        //‚à‚¤ˆê“xÅ‰‚©‚ç“Ç‚İ’¼‚·
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
