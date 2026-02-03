@@ -36,7 +36,7 @@ public class BulletController : MonoBehaviour
     /// <param name="collision">ぶつかったオブジェクト</param>
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "sword" || collision.gameObject.tag == "buster_sword_effect" || collision.gameObject.tag == "kenn_effect")
+        if (collision.gameObject.tag == "sword" || collision.gameObject.tag == "buster_sword_effect")
         {
             Debug.Log("弾が剣に当たって消えた！");
             Destroy(gameObject);
