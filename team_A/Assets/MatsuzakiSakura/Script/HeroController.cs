@@ -326,9 +326,6 @@ public class HeroController : MonoBehaviour
         {
             rbody.velocity = moveInput * Speed;
         }
-        else
-        {
-            rbody.velocity = Vector2.zero;
-        }
+        
     }
 }
