@@ -19,6 +19,31 @@ public class UIManager : MonoBehaviour
     public Sprite life20Image;       //HP20画像
     public Sprite life10Image;       //HP10画像
     public Sprite life0Image;        //HP0画像
+
+    public GameObject AttackTensImage; //10の位
+    public GameObject AttackOnesImage; //1の位
+    public Sprite Attacknum0;        //攻撃力表示用の数字画像
+    public Sprite Attacknum1;
+    public Sprite Attacknum2;
+    public Sprite Attacknum3;
+    public Sprite Attacknum4;
+    public Sprite Attacknum5;
+    public Sprite Attacknum6;
+    public Sprite Attacknum7;
+    public Sprite Attacknum8;
+    public Sprite Attacknum9;
+
+    public Sprite Attacknum10;
+    public Sprite Attacknum20;
+    public Sprite Attacknum30;
+    public Sprite Attacknum40;
+    public Sprite Attacknum50;
+    public Sprite Attacknum60;
+    public Sprite Attacknum70;
+    public Sprite Attacknum80;
+    public Sprite Attacknum90;
+
+
     public GameObject mainImage;     //画像を持つGameObject
     public GameObject retryButton;   //リトライボタン
     public Sprite gameOverSpr;       //GAME OVER画像
@@ -90,6 +115,9 @@ public class UIManager : MonoBehaviour
                         lifeImage.GetComponent<Image>().sprite = life100Image;
                     }
                 }
+
+                //攻撃力表示
+
             }
         }
     }
