@@ -276,7 +276,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8948794445235715580, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: hp
-      value: 150
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 8948794445235715580, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: dropRate
@@ -1253,7 +1253,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8948794445235715580, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: hp
-      value: 150
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 8948794445235715580, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: dropRate
@@ -2647,7 +2647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bff5509f1d3e35c4e88f36a4ecdf9dc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 70
+  hp: 60
   reactionDistance: 10
   Speed: 0.5
   bulletPrefab: {fileID: 6970960854110308251, guid: e38f06cc94fe4ad4d8673394e0a37f8e, type: 3}
@@ -4981,7 +4981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deff8a4f29c835a45b2c95d49ab0bf61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 150
+  hp: 120
   speed: 1
   reactionDistance: 4
   arrange: 0
@@ -5583,7 +5583,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10.49, y: -3.32}
+  m_AnchoredPosition: {x: -11.13, y: -3.17}
   m_SizeDelta: {x: 6.1189, y: 9.62}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &618675279
@@ -10403,7 +10403,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8948794445235715580, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: hp
-      value: 150
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 8948794445235715580, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: dropRate
@@ -15642,7 +15642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deff8a4f29c835a45b2c95d49ab0bf61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 150
+  hp: 120
   speed: 1
   reactionDistance: 4
   arrange: 0
@@ -80099,7 +80099,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bff5509f1d3e35c4e88f36a4ecdf9dc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 70
+  hp: 60
   reactionDistance: 10
   Speed: 0.5
   bulletPrefab: {fileID: 6970960854110308251, guid: e38f06cc94fe4ad4d8673394e0a37f8e, type: 3}
