@@ -1718,7 +1718,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8948794445235715580, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: dropRate
-      value: 1
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 8948794445235715580, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: dropItems.Array.size
@@ -2354,7 +2354,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8948794445235715580, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: dropRate
-      value: 1
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 8948794445235715580, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: dropItems.Array.size
@@ -2870,7 +2870,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8948794445235715580, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: dropRate
-      value: 1
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 8948794445235715580, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: dropItems.Array.size
@@ -3345,7 +3345,7 @@ MonoBehaviour:
   - {fileID: 2046095416186025214, guid: 89c387796522e4f4d9e24dcfe77bacb9, type: 3}
   - {fileID: 4112955218316282553, guid: c2c95873c3fb77d4fac47e44277c757f, type: 3}
   - {fileID: 118049412286674808, guid: 80ec8b09bfb4d7f44b0c32dbb1524861, type: 3}
-  dropRate: 0.6
+  dropRate: 0.7
 --- !u!95 &437044513
 Animator:
   serializedVersion: 7
@@ -3945,7 +3945,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8948794445235715580, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: dropRate
-      value: 0.6
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 8948794445235715580, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: dropItems.Array.size
@@ -8453,7 +8453,7 @@ MonoBehaviour:
   - {fileID: 2046095416186025214, guid: 89c387796522e4f4d9e24dcfe77bacb9, type: 3}
   - {fileID: 4112955218316282553, guid: c2c95873c3fb77d4fac47e44277c757f, type: 3}
   - {fileID: 118049412286674808, guid: 80ec8b09bfb4d7f44b0c32dbb1524861, type: 3}
-  dropRate: 0.6
+  dropRate: 0.7
 --- !u!95 &901758898
 Animator:
   serializedVersion: 7
@@ -9571,7 +9571,7 @@ MonoBehaviour:
   - {fileID: 2046095416186025214, guid: 89c387796522e4f4d9e24dcfe77bacb9, type: 3}
   - {fileID: 4112955218316282553, guid: c2c95873c3fb77d4fac47e44277c757f, type: 3}
   - {fileID: 118049412286674808, guid: 80ec8b09bfb4d7f44b0c32dbb1524861, type: 3}
-  dropRate: 0.6
+  dropRate: 0.7
 --- !u!95 &1014753031
 Animator:
   serializedVersion: 7
@@ -11417,7 +11417,7 @@ MonoBehaviour:
   - {fileID: 2046095416186025214, guid: 89c387796522e4f4d9e24dcfe77bacb9, type: 3}
   - {fileID: 4112955218316282553, guid: c2c95873c3fb77d4fac47e44277c757f, type: 3}
   - {fileID: 118049412286674808, guid: 80ec8b09bfb4d7f44b0c32dbb1524861, type: 3}
-  dropRate: 0.6
+  dropRate: 0.7
 --- !u!95 &1207810367
 Animator:
   serializedVersion: 7
@@ -11933,7 +11933,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8948794445235715580, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: dropRate
-      value: 1
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 8948794445235715580, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: dropItems.Array.size
@@ -12773,7 +12773,7 @@ MonoBehaviour:
   - {fileID: 2046095416186025214, guid: 89c387796522e4f4d9e24dcfe77bacb9, type: 3}
   - {fileID: 4112955218316282553, guid: c2c95873c3fb77d4fac47e44277c757f, type: 3}
   - {fileID: 118049412286674808, guid: 80ec8b09bfb4d7f44b0c32dbb1524861, type: 3}
-  dropRate: 0.6
+  dropRate: 0.7
 --- !u!95 &1302776687
 Animator:
   serializedVersion: 7
@@ -14106,7 +14106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8948794445235715580, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: dropRate
-      value: 0.6
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 8948794445235715580, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: dropItems.Array.size
@@ -14917,7 +14917,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8948794445235715580, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: dropRate
-      value: 0.6
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 8948794445235715580, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: dropItems.Array.size
@@ -15215,7 +15215,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8948794445235715580, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: dropRate
-      value: 0.6
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 8948794445235715580, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: dropItems.Array.size
@@ -16209,7 +16209,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8948794445235715580, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: dropRate
-      value: 0.6
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 8948794445235715580, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: dropItems.Array.size
@@ -16746,7 +16746,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8948794445235715580, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: dropRate
-      value: 1
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 8948794445235715580, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: dropItems.Array.size
@@ -80626,7 +80626,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8948794445235715580, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: dropRate
-      value: 1
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 8948794445235715580, guid: 1d18654f4a942144fa14e980ea0d8008, type: 3}
       propertyPath: reactionDistance
@@ -81221,7 +81221,7 @@ MonoBehaviour:
   - {fileID: 2046095416186025214, guid: 89c387796522e4f4d9e24dcfe77bacb9, type: 3}
   - {fileID: 4112955218316282553, guid: c2c95873c3fb77d4fac47e44277c757f, type: 3}
   - {fileID: 118049412286674808, guid: 80ec8b09bfb4d7f44b0c32dbb1524861, type: 3}
-  dropRate: 0.6
+  dropRate: 0.7
 --- !u!95 &2125673898
 Animator:
   serializedVersion: 7
