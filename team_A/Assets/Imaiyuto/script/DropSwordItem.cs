@@ -1,5 +1,7 @@
 using UnityEngine;
-
+/// <summary>
+/// 
+/// </summary>
 public class DropSwordItem : MonoBehaviour
 {
     public WeaponData weaponToGive;

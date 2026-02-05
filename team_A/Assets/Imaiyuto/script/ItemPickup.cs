@@ -19,7 +19,7 @@ public class ItemPickup : MonoBehaviour
     /// <param name="collision"></param>
     void OnTriggerEnter2D(Collider2D collision)
     {
-        // アイテムタグと一致
+        //アイテムタグと一致
         if (collision.CompareTag("Item"))
         {
             Debug.Log("アイテムを拾った: " + collision.name);
@@ -33,7 +33,7 @@ public class ItemPickup : MonoBehaviour
             {
                 buff.ApplyBuff(gameObject);  // プレイヤーにバフを適用
             }
-            // 武器アイテム（SwordItem）
+            //武器アイテム（SwordItem）
             SwordItem sword = collision.GetComponent<SwordItem>();
             if (sword != null)
             {
