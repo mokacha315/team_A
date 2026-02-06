@@ -1,6 +1,6 @@
 using UnityEngine;
 /// <summary>
-/// 
+///  
 /// </summary>
 public class DropSwordItem : MonoBehaviour
 {

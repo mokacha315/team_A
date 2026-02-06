@@ -14,7 +14,7 @@ public class AttackUI : MonoBehaviour
     /// </summary>
     void Start()
     {
-        // 起動時にシーン内から PlayerAttack を自動で探して記憶する
+        //起動時にシーン内から PlayerAttack を自動で探して記憶する
         player = FindObjectOfType<PlayerAttack>();
     }
 

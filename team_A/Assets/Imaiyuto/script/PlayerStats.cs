@@ -12,7 +12,7 @@ public class playerStats : MonoBehaviour
         get { return baseAttackPower; }
     }
 
-    // Update is called once per frame
+    //Update is called once per frame
     void Update()
     {
         

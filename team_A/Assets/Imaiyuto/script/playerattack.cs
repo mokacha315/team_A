@@ -101,7 +101,7 @@ public class PlayerAttack : MonoBehaviour
         swordTransform.localPosition = new Vector3(
             Mathf.Cos(angleRad) * (swordOffset.x * 0.5f),
             Mathf.Sin(angleRad) * (swordOffset.x * 0.5f),
-            -0.01f // Zを少しマイナスにしてキャラより手前に
+            -0.01f //Zを少しマイナスにしてキャラより手前に
         );
     }
     /// <summary>
@@ -115,24 +115,24 @@ public class PlayerAttack : MonoBehaviour
         inAttack = true;
         sword_effect.SetActive(true);
 
-        // 1. エフェクトの回転
+        //エフェクトの回転
         float offsetAngle = 90f;
         effectTransform.rotation = Quaternion.Euler(180, 180, heroController.angleZ + offsetAngle);
 
-        // 2. エフェクトの位置（ワールド座標で計算）
+        //エフェクトの位置（ワールド座標で計算）
         float angleRad = heroController.angleZ * Mathf.Deg2Rad;
 
-        // 主人公の現在地（中心点）を取得
+        //主人公の現在地（中心点）を取得
         Vector3 playerPos = transform.position;
 
-        // 向いている方向にオフセットを計算
+        //向いている方向にオフセットを計算
         Vector3 worldOffset = new Vector3(
             Mathf.Cos(angleRad) * swordOffset.x,
             Mathf.Sin(angleRad) * swordOffset.x,
-            -0.2f // Z軸でキャラより手前に
+            -0.2f //Z軸でキャラより手前に
         );
 
-        // ワールド座標として適用（これで親の反転の影響を受けなくなります）
+        //ワールド座標として適用（これで親の反転の影響を受けなくなります）
         effectTransform.position = playerPos + worldOffset;
 
         Invoke(nameof(StopAttack), attackDuration);

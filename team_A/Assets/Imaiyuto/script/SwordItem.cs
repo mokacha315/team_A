@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SwordItem : MonoBehaviour
 {
-    public WeaponData newWeapon;  // ドロップした武器データ
+    public WeaponData newWeapon;  //ドロップした武器データ
 
     public void Equip(GameObject player)
     {
