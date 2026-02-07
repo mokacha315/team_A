@@ -403,6 +403,7 @@ GameObject:
   - component: {fileID: 1036622856}
   - component: {fileID: 1036622859}
   - component: {fileID: 1036622860}
+  - component: {fileID: 1036622861}
   m_Layer: 5
   m_Name: StartBotton
   m_TagString: Untagged
@@ -645,6 +646,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seSource: {fileID: 1036622859}
+--- !u!114 &1036622861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036622854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86effbaa11a2fca4484baf67589e0c7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  testButton: {fileID: 1036622856}
+  StartSceneName: Chara
 --- !u!1 &1050876847
 GameObject:
   m_ObjectHideFlags: 0

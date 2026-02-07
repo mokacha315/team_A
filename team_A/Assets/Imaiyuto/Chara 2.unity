@@ -5379,8 +5379,9 @@ MonoBehaviour:
   angleZ: -90
   sword: {fileID: 8672377866418775581, guid: 214f1c17246a7fc4d80d9abbe3469036, type: 3}
   hitBackForce: 4
-  hitBackDuration: 0.2
   weapon: {fileID: 0}
+  DamageSE: {fileID: 0}
+  DeadSE: {fileID: 0}
 --- !u!95 &618675273
 Animator:
   serializedVersion: 7
@@ -8142,6 +8143,7 @@ GameObject:
   - component: {fileID: 878171706}
   - component: {fileID: 878171705}
   - component: {fileID: 878171704}
+  - component: {fileID: 878171708}
   m_Layer: 5
   m_Name: RetryButton
   m_TagString: Untagged
@@ -8274,6 +8276,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -307.00003}
   m_SizeDelta: {x: 272.11, y: 81.03}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &878171708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 878171703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52848b01f59071448a4c443ff8a66612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  testButton: {fileID: 878171704}
+  retrySceneName: Chara 2
 --- !u!1001 &888546757
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -73115,7 +73131,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  player: {fileID: 0}
 --- !u!114 &1791744664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73129,7 +73144,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  player: {fileID: 0}
 --- !u!114 &1791744665
 MonoBehaviour:
   m_ObjectHideFlags: 0
